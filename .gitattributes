@@ -1,0 +1,10 @@
+* text=auto eol=lf
+*.sh text eol=lf
+rxnminer text eol=lf
+chemrxn text eol=lf
+*.png binary
+*.jpg binary
+*.wasm binary
+*.mp4 binary
+*.pdf binary
+website/public/media/** -text

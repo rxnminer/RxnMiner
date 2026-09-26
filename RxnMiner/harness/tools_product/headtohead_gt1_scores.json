@@ -1,0 +1,442 @@
+{
+  "n_figs": 14,
+  "per_fig": [
+    {
+      "pid": "gt1_000_104-1.jpg",
+      "nv": 3,
+      "n_gt": 3,
+      "bareGemini": {
+        "n_pred": 3,
+        "C_f1": 1.0,
+        "A_f1": 1.0,
+        "C_tp": 3
+      },
+      "opencode": {
+        "n_pred": 3,
+        "C_f1": 1.0,
+        "A_f1": 1.0,
+        "C_tp": 3
+      },
+      "newChemagent": {
+        "n_pred": 2,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      }
+    },
+    {
+      "pid": "gt1_027_262.jpg",
+      "nv": 0,
+      "n_gt": 6,
+      "bareGemini": {
+        "n_pred": 6,
+        "C_f1": 0,
+        "A_f1": 0.5,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 6,
+        "C_f1": 0,
+        "A_f1": 0.667,
+        "C_tp": 0
+      },
+      "newChemagent": {
+        "n_pred": 5,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      }
+    },
+    {
+      "pid": "gt1_042_150.jpg",
+      "nv": 0,
+      "n_gt": 0,
+      "bareGemini": {
+        "n_pred": 1,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 1,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      },
+      "newChemagent": {
+        "n_pred": 1,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      }
+    },
+    {
+      "pid": "gt1_052_188-1.jpg",
+      "nv": 0,
+      "n_gt": 0,
+      "bareGemini": {
+        "n_pred": 0,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 2,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      },
+      "newChemagent": {
+        "n_pred": 0,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      }
+    },
+    {
+      "pid": "gt1_064_265.jpg",
+      "nv": 3,
+      "n_gt": 3,
+      "bareGemini": {
+        "n_pred": 3,
+        "C_f1": 0.667,
+        "A_f1": 1.0,
+        "C_tp": 2
+      },
+      "opencode": {
+        "n_pred": 3,
+        "C_f1": 0.667,
+        "A_f1": 1.0,
+        "C_tp": 2
+      },
+      "newChemagent": {
+        "n_pred": 3,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      }
+    },
+    {
+      "pid": "gt1_098_ACScat_2020.pdf_page002_picture_02_s0.76.png",
+      "nv": 0,
+      "n_gt": 0,
+      "bareGemini": {
+        "n_pred": 0,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 4,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      },
+      "newChemagent": {
+        "n_pred": 0,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      }
+    },
+    {
+      "pid": "gt1_001_104-2.jpg",
+      "nv": 4,
+      "n_gt": 4,
+      "bareGemini": {
+        "n_pred": 4,
+        "C_f1": 0.5,
+        "A_f1": 0.5,
+        "C_tp": 2
+      },
+      "opencode": {
+        "n_pred": 4,
+        "C_f1": 0.5,
+        "A_f1": 0.5,
+        "C_tp": 2
+      },
+      "newChemagent": {
+        "n_pred": 4,
+        "C_f1": 0,
+        "A_f1": 0.25,
+        "C_tp": 0
+      }
+    },
+    {
+      "pid": "gt1_018_193.jpg",
+      "nv": 5,
+      "n_gt": 5,
+      "bareGemini": {
+        "n_pred": 5,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 5,
+        "C_f1": 0,
+        "A_f1": 0.6,
+        "C_tp": 0
+      },
+      "newChemagent": {
+        "n_pred": 4,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      }
+    },
+    {
+      "pid": "gt1_032_309.jpg",
+      "nv": 6,
+      "n_gt": 6,
+      "bareGemini": {
+        "n_pred": 6,
+        "C_f1": 0.833,
+        "A_f1": 1.0,
+        "C_tp": 5
+      },
+      "opencode": {
+        "n_pred": 6,
+        "C_f1": 0.833,
+        "A_f1": 1.0,
+        "C_tp": 5
+      },
+      "newChemagent": {
+        "n_pred": 6,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      }
+    },
+    {
+      "pid": "gt1_070_04_JACS.png",
+      "nv": 4,
+      "n_gt": 4,
+      "bareGemini": {
+        "n_pred": 4,
+        "C_f1": 0.5,
+        "A_f1": 0.75,
+        "C_tp": 2
+      },
+      "opencode": {
+        "n_pred": 4,
+        "C_f1": 0.5,
+        "A_f1": 0.75,
+        "C_tp": 2
+      },
+      "newChemagent": null
+    },
+    {
+      "pid": "gt1_113_NC02_02.png",
+      "nv": 4,
+      "n_gt": 4,
+      "bareGemini": {
+        "n_pred": 10,
+        "C_f1": 0,
+        "A_f1": 0.571,
+        "C_tp": 0
+      },
+      "opencode": null,
+      "newChemagent": {
+        "n_pred": 2,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      }
+    },
+    {
+      "pid": "gt1_026_253.jpg",
+      "nv": 8,
+      "n_gt": 8,
+      "bareGemini": {
+        "n_pred": 8,
+        "C_f1": 0,
+        "A_f1": 0.625,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 8,
+        "C_f1": 0,
+        "A_f1": 0.875,
+        "C_tp": 0
+      },
+      "newChemagent": {
+        "n_pred": 7,
+        "C_f1": 0,
+        "A_f1": 0.133,
+        "C_tp": 0
+      }
+    },
+    {
+      "pid": "gt1_090_243_image_2_1.png",
+      "nv": 11,
+      "n_gt": 11,
+      "bareGemini": {
+        "n_pred": 11,
+        "C_f1": 0,
+        "A_f1": 0.818,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 11,
+        "C_f1": 0,
+        "A_f1": 0.818,
+        "C_tp": 0
+      },
+      "newChemagent": {
+        "n_pred": 0,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      }
+    },
+    {
+      "pid": "gt1_117_SA02_01.png",
+      "nv": 10,
+      "n_gt": 11,
+      "bareGemini": {
+        "n_pred": 10,
+        "C_f1": 0,
+        "A_f1": 0.095,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 3,
+        "C_f1": 0,
+        "A_f1": 0.143,
+        "C_tp": 0
+      },
+      "newChemagent": {
+        "n_pred": 0,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      }
+    }
+  ],
+  "aggregate": {
+    "bareGemini": {
+      "A_jaccard05": {
+        "f1": 0.5735,
+        "precision": 0.5493,
+        "recall": 0.6,
+        "tp": 39,
+        "n_pred": 71,
+        "n_gt": 65
+      },
+      "B_strict_ns_nosalt": {
+        "f1": 0.5147,
+        "precision": 0.493,
+        "recall": 0.5385,
+        "tp": 35,
+        "n_pred": 71,
+        "n_gt": 65
+      },
+      "C_strict_stereo": {
+        "f1": 0.2059,
+        "precision": 0.1972,
+        "recall": 0.2154,
+        "tp": 14,
+        "n_pred": 71,
+        "n_gt": 65
+      },
+      "D_strict_ns": {
+        "f1": 0.5147,
+        "precision": 0.493,
+        "recall": 0.5385,
+        "tp": 35,
+        "n_pred": 71,
+        "n_gt": 65
+      }
+    },
+    "opencode": {
+      "A_jaccard05": {
+        "f1": 0.6777,
+        "precision": 0.6833,
+        "recall": 0.6721,
+        "tp": 41,
+        "n_pred": 60,
+        "n_gt": 61
+      },
+      "B_strict_ns_nosalt": {
+        "f1": 0.5455,
+        "precision": 0.55,
+        "recall": 0.541,
+        "tp": 33,
+        "n_pred": 60,
+        "n_gt": 61
+      },
+      "C_strict_stereo": {
+        "f1": 0.2314,
+        "precision": 0.2333,
+        "recall": 0.2295,
+        "tp": 14,
+        "n_pred": 60,
+        "n_gt": 61
+      },
+      "D_strict_ns": {
+        "f1": 0.5455,
+        "precision": 0.55,
+        "recall": 0.541,
+        "tp": 33,
+        "n_pred": 60,
+        "n_gt": 61
+      }
+    },
+    "newChemagent": {
+      "A_jaccard05": {
+        "f1": 0.0421,
+        "precision": 0.0588,
+        "recall": 0.0328,
+        "tp": 2,
+        "n_pred": 34,
+        "n_gt": 61
+      },
+      "B_strict_ns_nosalt": {
+        "f1": 0.0211,
+        "precision": 0.0294,
+        "recall": 0.0164,
+        "tp": 1,
+        "n_pred": 34,
+        "n_gt": 61
+      },
+      "C_strict_stereo": {
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "tp": 0,
+        "n_pred": 34,
+        "n_gt": 61
+      },
+      "D_strict_ns": {
+        "f1": 0.0211,
+        "precision": 0.0294,
+        "recall": 0.0164,
+        "tp": 1,
+        "n_pred": 34,
+        "n_gt": 61
+      }
+    }
+  },
+  "missing": {
+    "bareGemini": 0,
+    "opencode": 1,
+    "newChemagent": 1
+  },
+  "sample_pids": [
+    "gt1_000_104-1.jpg",
+    "gt1_027_262.jpg",
+    "gt1_042_150.jpg",
+    "gt1_052_188-1.jpg",
+    "gt1_064_265.jpg",
+    "gt1_098_ACScat_2020.pdf_page002_picture_02_s0.76.png",
+    "gt1_001_104-2.jpg",
+    "gt1_018_193.jpg",
+    "gt1_032_309.jpg",
+    "gt1_070_04_JACS.png",
+    "gt1_113_NC02_02.png",
+    "gt1_026_253.jpg",
+    "gt1_090_243_image_2_1.png",
+    "gt1_117_SA02_01.png"
+  ]
+}

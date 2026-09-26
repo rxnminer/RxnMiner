@@ -1,0 +1,29 @@
+{
+  "schema": "rxnminer.site-demo-media.v3",
+  "repository": "rxnminer/RxnMiner",
+  "release": "rxnminer-visual-demo",
+  "privateRelease": false,
+  "source": "sealed-replay",
+  "duration": "00:42",
+  "browserQa": {
+    "errors": []
+  },
+  "assets": [
+    {
+      "file": "rxnminer-visual-demo.mp4",
+      "sha256": "a2042ace6be34312c98880cf64a9f0669036c47a51de8a2c008473a4911899cd"
+    },
+    {
+      "file": "rxnminer-visual-demo.vtt",
+      "sha256": "877698667a39501cd263df25830d88a825e71b3fdd4051345596ac25603eaa86"
+    },
+    {
+      "file": "rxnminer-visual-demo.txt",
+      "sha256": "3cd34f719e3cfbd41c9409944542f26a83a6679cc55c399009b06e5f82e8ba7b"
+    },
+    {
+      "file": "rxnminer-visual-demo-poster.jpg",
+      "sha256": "d21b32032fa0ca3007447020bf21541d1af1e29da4b01bad24fc6f4f25b8cbbb"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+---
+import { assetPath } from '../data/site';
+import type { SiteLocale } from '../data/site';
+interface Props { locale: SiteLocale; title: string; duration: string; summary: string }
+const { title, duration, summary } = Astro.props;
+const prefix = assetPath('/media/rxnminer-visual-demo');
+---
+<section class="video-feature">
+  <header><div><p class="video-feature__meta">{duration} · MP4 · ENGLISH</p><h2>{title}</h2><p>{summary}</p></div></header>
+  <div class="video-stage"><video controls preload="metadata" poster={assetPath('/media/rxnminer-visual-demo-poster.jpg')} aria-label={title}><source src={`${prefix}.mp4`} type="video/mp4"/><track kind="captions" src={`${prefix}.vtt`} srclang="en" label="English" default /></video></div>
+  <footer><span>English narration, captions and transcript</span><a href={`${prefix}.vtt`}>VTT</a><a href={`${prefix}.txt`}>Transcript</a><em>Use fullscreen to inspect the structure view.</em></footer>
+</section>
+<style>
+.video-feature{padding:2rem 0 3.5rem;border-bottom:1px solid var(--line)}.video-feature>header{margin-bottom:1.25rem}.video-feature h2{margin:.25rem 0 .55rem;font-family:var(--serif);font-size:clamp(1.8rem,4vw,3rem);color:var(--ink-strong)}.video-feature header p:not(.video-feature__meta){max-width:720px;margin:0;color:var(--muted);line-height:1.65}.video-feature__meta{margin:0;color:var(--accent-dark);font-family:var(--mono);font-size:.72rem;letter-spacing:.08em}.video-stage{position:relative;overflow:hidden;border:1px solid var(--ink);border-radius:8px;background:#11151a;aspect-ratio:16/9}.video-stage video{width:100%;height:100%;object-fit:contain}.video-feature footer{display:flex;flex-wrap:wrap;gap:.65rem 1rem;align-items:center;padding-top:.85rem;color:var(--muted);font-size:.8rem}.video-feature footer span{font-family:var(--mono);color:var(--ink)}.video-feature footer a{color:var(--accent-dark)}.video-feature footer em{margin-left:auto;font-style:normal}@media(max-width:680px){.video-feature footer em{width:100%;margin-left:0}}
+</style>

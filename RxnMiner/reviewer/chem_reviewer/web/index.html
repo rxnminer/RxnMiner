@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chem Reviewer</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <!-- RDKit.js WASM (loaded lazily by lib/rdkit-loader.js) -->
+  <script src="/static/lib/RDKit_minimal.js" defer></script>
+  <!-- Vue 3 ESM build via importmap so components can `import { ... } from 'vue'` -->
+  <script type="importmap">
+    {
+      "imports": {
+        "vue": "/static/lib/vue.esm-browser.prod.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>

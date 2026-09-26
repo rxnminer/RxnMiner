@@ -1,0 +1,20 @@
+---
+import { assetPath } from '../data/site';
+import { repositoryUrl, type SiteLocale } from '../data/site';
+
+interface Props { locale: SiteLocale }
+---
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="footer-brand">
+      <img src={assetPath("/assets/readme/chemrxn-mark.svg")} width="28" height="28" alt="" />
+      <span>RxnMiner</span>
+    </div>
+    <nav aria-label="Footer">
+      <a href={assetPath('/benchmark/')}>Benchmark</a>
+      <a href={assetPath('/demos/')}>Demo</a>
+      <a href={repositoryUrl}>GitHub</a>
+    </nav>
+  </div>
+</footer>

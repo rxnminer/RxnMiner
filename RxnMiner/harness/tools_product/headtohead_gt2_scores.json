@@ -1,0 +1,572 @@
+{
+  "n_figs": 19,
+  "per_fig": [
+    {
+      "pid": "gt2_002_acs.joc.3c00062 example 1.png",
+      "nv": 13,
+      "n_gt": 13,
+      "bareGemini": {
+        "n_pred": 13,
+        "C_f1": 0,
+        "A_f1": 1.0,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 13,
+        "C_f1": 0,
+        "A_f1": 1.0,
+        "C_tp": 0
+      },
+      "newChemagent": {
+        "n_pred": 13,
+        "C_f1": 0,
+        "A_f1": 1.0,
+        "C_tp": 0
+      }
+    },
+    {
+      "pid": "gt2_012_acs.joc.3c00766 example 1.png",
+      "nv": 20,
+      "n_gt": 20,
+      "bareGemini": {
+        "n_pred": 20,
+        "C_f1": 0.9,
+        "A_f1": 0.95,
+        "C_tp": 18
+      },
+      "opencode": {
+        "n_pred": 20,
+        "C_f1": 0.95,
+        "A_f1": 1.0,
+        "C_tp": 19
+      },
+      "newChemagent": {
+        "n_pred": 20,
+        "C_f1": 0.95,
+        "A_f1": 1.0,
+        "C_tp": 19
+      }
+    },
+    {
+      "pid": "gt2_026_acs.orglett.2c03765 example 1.png",
+      "nv": 18,
+      "n_gt": 18,
+      "bareGemini": {
+        "n_pred": 21,
+        "C_f1": 0.923,
+        "A_f1": 0.923,
+        "C_tp": 18
+      },
+      "opencode": {
+        "n_pred": 21,
+        "C_f1": 0.923,
+        "A_f1": 0.923,
+        "C_tp": 18
+      },
+      "newChemagent": {
+        "n_pred": 21,
+        "C_f1": 0.923,
+        "A_f1": 0.923,
+        "C_tp": 18
+      }
+    },
+    {
+      "pid": "gt2_044_ejoc.202300733 example 2.png",
+      "nv": 20,
+      "n_gt": 20,
+      "bareGemini": {
+        "n_pred": 20,
+        "C_f1": 1.0,
+        "A_f1": 1.0,
+        "C_tp": 20
+      },
+      "opencode": {
+        "n_pred": 20,
+        "C_f1": 0,
+        "A_f1": 1.0,
+        "C_tp": 0
+      },
+      "newChemagent": {
+        "n_pred": 20,
+        "C_f1": 0,
+        "A_f1": 1.0,
+        "C_tp": 0
+      }
+    },
+    {
+      "pid": "gt2_056_ajoc.202300436 example 2.png",
+      "nv": 14,
+      "n_gt": 14,
+      "bareGemini": {
+        "n_pred": 14,
+        "C_f1": 0,
+        "A_f1": 1.0,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 14,
+        "C_f1": 0,
+        "A_f1": 1.0,
+        "C_tp": 0
+      },
+      "newChemagent": {
+        "n_pred": 12,
+        "C_f1": 0,
+        "A_f1": 0.923,
+        "C_tp": 0
+      }
+    },
+    {
+      "pid": "gt2_025_acs.orglett.2c03619 example 1.png",
+      "nv": 16,
+      "n_gt": 16,
+      "bareGemini": {
+        "n_pred": 16,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 8,
+        "C_f1": 0.167,
+        "A_f1": 0.5,
+        "C_tp": 2
+      },
+      "newChemagent": {
+        "n_pred": 14,
+        "C_f1": 0.067,
+        "A_f1": 0.333,
+        "C_tp": 1
+      }
+    },
+    {
+      "pid": "gt2_054_ajoc.202300333 example 1.png",
+      "nv": 15,
+      "n_gt": 15,
+      "bareGemini": {
+        "n_pred": 15,
+        "C_f1": 0,
+        "A_f1": 1.0,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 15,
+        "C_f1": 1.0,
+        "A_f1": 1.0,
+        "C_tp": 15
+      },
+      "newChemagent": {
+        "n_pred": 15,
+        "C_f1": 0,
+        "A_f1": 1.0,
+        "C_tp": 0
+      }
+    },
+    {
+      "pid": "gt2_004_acs.joc.3c00062 example 3.png",
+      "nv": 12,
+      "n_gt": 12,
+      "bareGemini": {
+        "n_pred": 12,
+        "C_f1": 0,
+        "A_f1": 0.917,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 11,
+        "C_f1": 0.087,
+        "A_f1": 0.957,
+        "C_tp": 1
+      },
+      "newChemagent": {
+        "n_pred": 11,
+        "C_f1": 0.087,
+        "A_f1": 0.957,
+        "C_tp": 1
+      }
+    },
+    {
+      "pid": "gt2_014_acs.joc.3c01427 example 2.png",
+      "nv": 8,
+      "n_gt": 8,
+      "bareGemini": {
+        "n_pred": 8,
+        "C_f1": 0,
+        "A_f1": 0.625,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 8,
+        "C_f1": 0.125,
+        "A_f1": 0.625,
+        "C_tp": 1
+      },
+      "newChemagent": {
+        "n_pred": 8,
+        "C_f1": 0,
+        "A_f1": 0.625,
+        "C_tp": 0
+      }
+    },
+    {
+      "pid": "gt2_032_ejoc202301095 example 1.png",
+      "nv": 8,
+      "n_gt": 8,
+      "bareGemini": {
+        "n_pred": 8,
+        "C_f1": 0.625,
+        "A_f1": 0.75,
+        "C_tp": 5
+      },
+      "opencode": {
+        "n_pred": 8,
+        "C_f1": 0.875,
+        "A_f1": 1.0,
+        "C_tp": 7
+      },
+      "newChemagent": {
+        "n_pred": 8,
+        "C_f1": 0.625,
+        "A_f1": 1.0,
+        "C_tp": 5
+      }
+    },
+    {
+      "pid": "gt2_040_anie.202313838 example 1.png",
+      "nv": 12,
+      "n_gt": 12,
+      "bareGemini": {
+        "n_pred": 12,
+        "C_f1": 0,
+        "A_f1": 1.0,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 12,
+        "C_f1": 0.083,
+        "A_f1": 1.0,
+        "C_tp": 1
+      },
+      "newChemagent": {
+        "n_pred": 12,
+        "C_f1": 0.083,
+        "A_f1": 1.0,
+        "C_tp": 1
+      }
+    },
+    {
+      "pid": "gt2_064_ajoc.202200486 example 1.png",
+      "nv": 9,
+      "n_gt": 9,
+      "bareGemini": {
+        "n_pred": 9,
+        "C_f1": 1.0,
+        "A_f1": 1.0,
+        "C_tp": 9
+      },
+      "opencode": {
+        "n_pred": 9,
+        "C_f1": 1.0,
+        "A_f1": 1.0,
+        "C_tp": 9
+      },
+      "newChemagent": {
+        "n_pred": 9,
+        "C_f1": 1.0,
+        "A_f1": 1.0,
+        "C_tp": 9
+      }
+    },
+    {
+      "pid": "gt2_001_acs.joc.2c00176 example 2.png",
+      "nv": 8,
+      "n_gt": 8,
+      "bareGemini": {
+        "n_pred": 8,
+        "C_f1": 1.0,
+        "A_f1": 1.0,
+        "C_tp": 8
+      },
+      "opencode": {
+        "n_pred": 8,
+        "C_f1": 1.0,
+        "A_f1": 1.0,
+        "C_tp": 8
+      },
+      "newChemagent": {
+        "n_pred": 7,
+        "C_f1": 0.933,
+        "A_f1": 0.933,
+        "C_tp": 7
+      }
+    },
+    {
+      "pid": "gt2_037_ejoc202300810 example 3.png",
+      "nv": 9,
+      "n_gt": 9,
+      "bareGemini": {
+        "n_pred": 9,
+        "C_f1": 1.0,
+        "A_f1": 1.0,
+        "C_tp": 9
+      },
+      "opencode": {
+        "n_pred": 9,
+        "C_f1": 1.0,
+        "A_f1": 1.0,
+        "C_tp": 9
+      },
+      "newChemagent": {
+        "n_pred": 9,
+        "C_f1": 1.0,
+        "A_f1": 1.0,
+        "C_tp": 9
+      }
+    },
+    {
+      "pid": "gt2_006_acs.joc.3c00760 example 2.png",
+      "nv": 3,
+      "n_gt": 3,
+      "bareGemini": {
+        "n_pred": 5,
+        "C_f1": 0,
+        "A_f1": 0.75,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 5,
+        "C_f1": 0,
+        "A_f1": 0.75,
+        "C_tp": 0
+      },
+      "newChemagent": {
+        "n_pred": 4,
+        "C_f1": 0.286,
+        "A_f1": 0.286,
+        "C_tp": 1
+      }
+    },
+    {
+      "pid": "gt2_058_ajoc.202200622 example 1.png",
+      "nv": 4,
+      "n_gt": 4,
+      "bareGemini": {
+        "n_pred": 4,
+        "C_f1": 0,
+        "A_f1": 1.0,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 3,
+        "C_f1": 0,
+        "A_f1": 0.857,
+        "C_tp": 0
+      },
+      "newChemagent": {
+        "n_pred": 3,
+        "C_f1": 0.857,
+        "A_f1": 0.857,
+        "C_tp": 3
+      }
+    },
+    {
+      "pid": "gt2_050_ejoc.202300506 example 1.png",
+      "nv": 6,
+      "n_gt": 6,
+      "bareGemini": {
+        "n_pred": 6,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 6,
+        "C_f1": 1.0,
+        "A_f1": 1.0,
+        "C_tp": 6
+      },
+      "newChemagent": {
+        "n_pred": 6,
+        "C_f1": 1.0,
+        "A_f1": 1.0,
+        "C_tp": 6
+      }
+    },
+    {
+      "pid": "gt2_000_acs.joc.2c00176 example 1.png",
+      "nv": 24,
+      "n_gt": 24,
+      "bareGemini": {
+        "n_pred": 0,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 20,
+        "C_f1": 0,
+        "A_f1": 0.909,
+        "C_tp": 0
+      },
+      "newChemagent": {
+        "n_pred": 23,
+        "C_f1": 0,
+        "A_f1": 0.638,
+        "C_tp": 0
+      }
+    },
+    {
+      "pid": "gt2_023_acs.orglett.2c03811 example 1.png",
+      "nv": 33,
+      "n_gt": 33,
+      "bareGemini": {
+        "n_pred": 33,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      },
+      "opencode": {
+        "n_pred": 23,
+        "C_f1": 0.214,
+        "A_f1": 0.214,
+        "C_tp": 6
+      },
+      "newChemagent": {
+        "n_pred": 16,
+        "C_f1": 0,
+        "A_f1": 0,
+        "C_tp": 0
+      }
+    }
+  ],
+  "aggregate": {
+    "bareGemini": {
+      "A_jaccard05": {
+        "f1": 0.6845,
+        "precision": 0.7124,
+        "recall": 0.6587,
+        "tp": 166,
+        "n_pred": 233,
+        "n_gt": 252
+      },
+      "B_strict_ns_nosalt": {
+        "f1": 0.5897,
+        "precision": 0.6137,
+        "recall": 0.5675,
+        "tp": 143,
+        "n_pred": 233,
+        "n_gt": 252
+      },
+      "C_strict_stereo": {
+        "f1": 0.3588,
+        "precision": 0.3734,
+        "recall": 0.3452,
+        "tp": 87,
+        "n_pred": 233,
+        "n_gt": 252
+      },
+      "D_strict_ns": {
+        "f1": 0.5856,
+        "precision": 0.6094,
+        "recall": 0.5635,
+        "tp": 142,
+        "n_pred": 233,
+        "n_gt": 252
+      }
+    },
+    "opencode": {
+      "A_jaccard05": {
+        "f1": 0.8495,
+        "precision": 0.8841,
+        "recall": 0.8175,
+        "tp": 206,
+        "n_pred": 233,
+        "n_gt": 252
+      },
+      "B_strict_ns_nosalt": {
+        "f1": 0.6557,
+        "precision": 0.6824,
+        "recall": 0.631,
+        "tp": 159,
+        "n_pred": 233,
+        "n_gt": 252
+      },
+      "C_strict_stereo": {
+        "f1": 0.4206,
+        "precision": 0.4378,
+        "recall": 0.4048,
+        "tp": 102,
+        "n_pred": 233,
+        "n_gt": 252
+      },
+      "D_strict_ns": {
+        "f1": 0.6515,
+        "precision": 0.6781,
+        "recall": 0.627,
+        "tp": 158,
+        "n_pred": 233,
+        "n_gt": 252
+      }
+    },
+    "newChemagent": {
+      "A_jaccard05": {
+        "f1": 0.7826,
+        "precision": 0.8182,
+        "recall": 0.75,
+        "tp": 189,
+        "n_pred": 231,
+        "n_gt": 252
+      },
+      "B_strict_ns_nosalt": {
+        "f1": 0.5259,
+        "precision": 0.5498,
+        "recall": 0.504,
+        "tp": 127,
+        "n_pred": 231,
+        "n_gt": 252
+      },
+      "C_strict_stereo": {
+        "f1": 0.3313,
+        "precision": 0.3463,
+        "recall": 0.3175,
+        "tp": 80,
+        "n_pred": 231,
+        "n_gt": 252
+      },
+      "D_strict_ns": {
+        "f1": 0.5217,
+        "precision": 0.5455,
+        "recall": 0.5,
+        "tp": 126,
+        "n_pred": 231,
+        "n_gt": 252
+      }
+    }
+  },
+  "missing": {
+    "bareGemini": 0,
+    "opencode": 0,
+    "newChemagent": 0
+  },
+  "sample_pids": [
+    "gt2_002_acs.joc.3c00062 example 1.png",
+    "gt2_012_acs.joc.3c00766 example 1.png",
+    "gt2_026_acs.orglett.2c03765 example 1.png",
+    "gt2_044_ejoc.202300733 example 2.png",
+    "gt2_056_ajoc.202300436 example 2.png",
+    "gt2_025_acs.orglett.2c03619 example 1.png",
+    "gt2_054_ajoc.202300333 example 1.png",
+    "gt2_004_acs.joc.3c00062 example 3.png",
+    "gt2_014_acs.joc.3c01427 example 2.png",
+    "gt2_032_ejoc202301095 example 1.png",
+    "gt2_040_anie.202313838 example 1.png",
+    "gt2_064_ajoc.202200486 example 1.png",
+    "gt2_001_acs.joc.2c00176 example 2.png",
+    "gt2_037_ejoc202300810 example 3.png",
+    "gt2_006_acs.joc.3c00760 example 2.png",
+    "gt2_058_ajoc.202200622 example 1.png",
+    "gt2_050_ejoc.202300506 example 1.png",
+    "gt2_000_acs.joc.2c00176 example 1.png",
+    "gt2_023_acs.orglett.2c03811 example 1.png"
+  ]
+}

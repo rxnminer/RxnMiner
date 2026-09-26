@@ -1,0 +1,13 @@
+interface:
+  display_name: "Reaction Extractor"
+  short_description: "Extract reactions from chemistry figures"
+  default_prompt: "Use $reaction-extract to extract every reaction from this chemistry figure into validated V2 JSON."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "chem-extract"
+      description: "OCSR, R-group reconstruction, V2 assembly, verification, and rendering tools"
+
+policy:
+  allow_implicit_invocation: true

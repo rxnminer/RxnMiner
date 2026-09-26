@@ -1,0 +1,148 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { assetPath, type SiteLocale } from '../data/site';
+import data from '../data/benchmark.json';
+import { modelLogo } from '../data/modelLogo';
+interface Props { locale: SiteLocale }
+const {locale} = Astro.props;
+const cost = (n:number | null) => n == null || n.toFixed(4) === '0.0000' ? '0' : n.toFixed(n < 0.1 ? 4 : 3);
+const time = (n:number | null) => n === null ? '' : n.toFixed(1);
+const percent = (n:number | null) => n === null ? '—' : (n*100).toFixed(2);
+---
+<SiteLayout locale={locale} active="benchmark" title="ChemRxn-Bench" description={'Evaluate reaction extraction across 603 chemistry figures and five layouts.'}>
+  <div class="page-shell benchmark-page" data-benchmark>
+    <header class="page-intro">
+      <p class="eyebrow">CHEMRXN-BENCH / PUBLIC SNAPSHOT</p>
+      <h1>{'Reaction extraction, measured figure by figure.'}</h1>
+      <p>{'603 figures. 8,510 normalized reference reactions. Single-step schemes, multistep routes, Markush scopes, condition tables, and complex layouts.'}</p>
+    </header>
+    <section class="benchmark-controls" aria-label={'Benchmark controls'}>
+      <label>{'View'}<select id="source-select"><option value="leaderboard">Leaderboard</option><option value="judge">LLM Judge</option></select></label>
+      <label>{'Stereochemistry'}<select id="stereo-select"><option value="iso">{'Strict'}</option><option value="ns">{'Connectivity only'}</option></select></label>
+      <label>{'Sort by'}<select id="metric-select"><option value="reaction_f1">Reaction F1</option><option value="molecule_f1">Molecule F1</option><option value="reaction_precision">Reaction precision</option><option value="reaction_recall">Reaction recall</option><option value="judge_overall">Judge overall</option><option value="judge_reaction_precision">Judge reaction precision</option><option value="judge_molecule_precision">Judge molecule precision</option></select></label>
+    </section>
+    <p class="cohort-note" id="cohort-note" aria-live="polite">{'23 lanes. Every scored lane uses all 603 figures; pending lanes are not ranked.'}</p>
+    <div class="table-scroll" tabindex="0" role="region" aria-label={'Benchmark results; scroll horizontally'}>
+      <table><colgroup><col style="width:40px"/><col style="width:300px"/><col style="width:84px"/>{Array.from({length:6},()=> <col/>)}</colgroup><caption class="sr-only">ChemRxn-Bench</caption><thead><tr><th scope="col">#</th><th scope="col">{'Method'}</th><th scope="col">N</th><th scope="col" id="metric-head-1">Reaction P</th><th scope="col" id="metric-head-2">Reaction R</th><th scope="col" id="metric-head-3">Reaction F1</th><th scope="col" id="metric-head-4">Molecule F1</th><th scope="col">Avg. cost (USD)</th><th scope="col">Avg. time (s)</th></tr></thead><tbody id="benchmark-rows">
+        {data.cohorts[0].rows.map((row,index)=><tr class:list={{ours:row.group==='RxnMiner'}}><td>{row.pending ? '—' : index+1}</td><th scope="row">{modelLogo(row.lane) && <img class="model-logo" src={assetPath(`/assets/model-logos/${modelLogo(row.lane)}.svg`)} alt="" width="20" height="20"/>}{row.name}</th><td>{row.pending ? 'Pending' : row.n}</td><td>{percent(row.iso.reaction_precision)}</td><td>{percent(row.iso.reaction_recall)}</td><td><strong>{percent(row.iso.reaction_f1)}</strong></td><td>{percent(row.iso.molecule_f1)}</td><td>{cost(row.avg_cost_usd)}</td><td>{time(row.avg_time_s)}</td></tr>)}
+      </tbody></table>
+    </div>
+    <p class="table-note">{'Scores are percentages. Cost and time are per-figure averages; missing costs display as 0, and missing times are blank. Initially sorted by reaction F1.'}</p>
+    <section class="methodology" aria-labelledby="methodology-title">
+      <div><p class="eyebrow">{'HOW TO READ THE RESULTS'}</p><h2 id="methodology-title">{'One full benchmark. An explicit denominator.'}</h2>
+        <p>{'Precision, recall, and F1 are calculated per figure, then averaged with equal figure weights. Macro-F1 averages each figure’s F1, with zero when precision and recall are both zero. Failed and empty answers stay in the denominator.'}</p>
+        <p>{'Strict scoring requires molecular connectivity and stereochemistry to agree. Connectivity-only scoring ignores stereochemistry. Reaction F1 combines predicted-reaction precision with product-occurrence recall; molecule metrics compare individual structures.'}</p>
+        <p>{'All scored lanes use the same 603 figures. Pending lanes have no published scores and are excluded from ranking.'}</p>
+      </div>
+    </section>
+  </div>
+</SiteLayout>
+<script>
+import data from '../data/benchmark.json';
+import judgeData from '../data/judge.json';
+import { modelLogo } from '../data/modelLogo';
+import { assetPath } from '../data/site';
+const source = document.querySelector<HTMLSelectElement>('#source-select');
+const stereo = document.querySelector<HTMLSelectElement>('#stereo-select');
+const metric = document.querySelector<HTMLSelectElement>('#metric-select');
+const body = document.querySelector<HTMLTableSectionElement>('#benchmark-rows');
+const cohortNote = document.querySelector<HTMLElement>('#cohort-note');
+const efficiency = new Map(data.cohorts[0].rows.map(row => [row.lane, row]));
+const tableScroll = document.querySelector<HTMLElement>('.table-scroll');
+const table = tableScroll?.querySelector('table');
+
+// Preserve the initial table geometry when the sort order changes.
+if (tableScroll && table) {
+  tableScroll.style.setProperty('--benchmark-table-min-height', `${tableScroll.getBoundingClientRect().height}px`);
+
+}
+
+function render() {
+  const judge=source?.value==='judge';
+  const rows:any[] = judge ? judgeData.rows : data.cohorts[0].rows;
+  const mode=stereo?.value==='ns' ? 'ns' : 'iso';
+  if (cohortNote) cohortNote.textContent = judge
+    ? `16 judged lanes, 603 figures each. ${mode === 'iso' ? 'Strict stereochemistry' : 'Connectivity-only'} matching metrics; judge overall is shared across both modes. The other 7 lanes are not judged and are excluded from this ranking.`
+    : '23 lanes. Every scored lane uses all 603 figures; pending lanes are not ranked.';
+  const metricColumns: readonly string[]=judge
+    ? ['judge_overall','reaction_precision','reaction_recall','reaction_f1','molecule_f1'] as const
+    : ['reaction_precision','reaction_recall','reaction_f1','molecule_f1'] as const;
+  const defaultSort=judge ? 'judge_overall' : 'reaction_f1';
+  const sort=metricColumns.find(key=>key===metric?.value) ?? defaultSort;
+  const judgeMetric=(row:any,key:string) => {
+    if (key === 'judge_overall') return row.judge_overall;
+    return row[mode]?.[key] ?? null;
+  };
+  const sortedColumn=3+metricColumns.indexOf(sort);
+  const heads=judge ? ['Judge overall','Reaction P','Reaction R','Reaction F1','Molecule F1'] : ['Reaction P','Reaction R','Reaction F1','Molecule F1'];
+  if (table) {
+    const columns=document.createElement('colgroup');
+    for (const width of [40,300,84,...Array(heads.length+2).fill(null)]) {
+      const col=document.createElement('col');
+      if (width !== null) col.style.width=`${width}px`;
+      columns.append(col);
+    }
+    table.querySelector('colgroup')?.replaceWith(columns);
+    table.style.minWidth=`${424+(heads.length+2)*116}px`;
+    const header=document.createElement('tr');
+    for (const label of ['#','Method','N',...heads,'Avg. cost (USD)','Avg. time (s)']) {
+      const th=document.createElement('th');
+      th.scope='col';
+      th.textContent=label;
+      header.append(th);
+    }
+    table.tHead?.replaceChildren(header);
+  }
+  if(metric) {
+    [...metric.options].forEach(option => {
+      option.hidden = judge ? !metricColumns.includes(option.value as never) : option.value.startsWith('judge_');
+    });
+    if(!metricColumns.includes(metric.value as never)) metric.value=defaultSort;
+  }
+  const fragment=document.createDocumentFragment();
+  [...rows].sort((a,b)=>Number(a.pending)-Number(b.pending) || (
+    judge ? (judgeMetric(b,sort) ?? -1)-(judgeMetric(a,sort) ?? -1) : (b[mode][sort] ?? -1)-(a[mode][sort] ?? -1)
+  )).forEach((row,index)=>{
+    const tr=document.createElement('tr');
+    if(row.group==='RxnMiner') tr.className='ours';
+    const values=judge
+      ? [row.pending ? '—' : index+1,row.name,row.pending ? 'Not judged' : row.n,...metricColumns.map(key=>judgeMetric(row,key)).map(value=>value === null || value === undefined ? '—' : (100*value).toFixed(2))]
+      : [row.pending ? '—' : index+1,row.name,row.pending ? 'Pending' : row.n,...metricColumns.map(key=>row[mode][key] === null ? '—' : (100*row[mode][key]).toFixed(2))];
+    const usage=efficiency.get(row.lane);
+    const avgCost=usage?.avg_cost_usd;
+    const avgTime=usage?.avg_time_s;
+    values.push(avgCost == null || avgCost.toFixed(4) === '0.0000' ? '0' : avgCost.toFixed(avgCost < 0.1 ? 4 : 3), avgTime == null ? '' : avgTime.toFixed(1));
+    values.forEach((value,column)=>{
+      const cell=document.createElement(column===1?'th':'td');
+      if(column===1) cell.setAttribute('scope','row');
+      if(column===sortedColumn) {
+        const strong=document.createElement('strong');
+        strong.textContent=String(value);
+        cell.append(strong);
+      } else if(column===1) {
+        const logo=modelLogo(row.lane);
+        if(logo) {
+          const image=document.createElement('img');
+          image.className='model-logo';
+          image.src=assetPath(`/assets/model-logos/${logo}.svg`);
+          image.alt='';
+          image.width=20;
+          image.height=20;
+          cell.append(image);
+        }
+        cell.append(document.createTextNode(String(value)));
+      } else {
+        cell.textContent=String(value);
+      }
+      tr.append(cell);
+    });fragment.append(tr);
+  });
+  body?.replaceChildren(fragment);
+
+}
+for(const input of [source,stereo,metric])input?.addEventListener('change',render);
+render();
+</script>
+<style>
+.benchmark-page{padding-bottom:65px}.page-intro{max-width:950px}.page-intro h1{font-size:clamp(2.5rem,4vw,4rem)}.benchmark-controls{display:flex;gap:22px;flex-wrap:wrap;padding:24px;background:#edf3f9;border:1px solid #dce3ed}.benchmark-controls label{display:grid;gap:9px;font-size:.74rem;color:var(--muted)}.benchmark-controls select{min-height:44px;padding:9px 38px 9px 12px;border:1px solid #c3d0df;border-radius:4px;background:#fff;color:var(--ink);font-size:.84rem}.cohort-note,.table-note{color:var(--muted);font-size:.79rem;line-height:1.7;margin:20px 0}.table-scroll{min-height:var(--benchmark-table-min-height, 0px);overflow:auto;border:1px solid var(--line);background:#fff}.table-scroll :global(table){border-collapse:collapse;width:100%;min-width:1120px;table-layout:fixed;text-align:left;white-space:nowrap;font-size:.8rem}.table-scroll :global(th),.table-scroll :global(td){padding:17px 10px;border-bottom:1px solid #e6ebf2}.table-scroll :global(thead){background:#f4f6fa;font-size:.69rem;text-transform:uppercase;letter-spacing:.03em}.table-scroll :global(tbody th){font-weight:500}.table-scroll :global(td:nth-child(n+3)){font-variant-numeric:tabular-nums;text-align:right}.table-scroll :global(th:nth-child(n+3)){text-align:right}.table-scroll :global(tbody tr:last-child > *){border-bottom:0}.benchmark-page :global(tr.ours){background:#edf3f9;color:#315780}.methodology{max-width:900px;margin-top:70px}.methodology h2{font-family:var(--serif);font-size:2.4rem;font-weight:500}.methodology p{font-size:.88rem;line-height:1.85;color:var(--muted)}@media(max-width:720px){.benchmark-controls{padding:16px;gap:15px}.benchmark-controls label,.benchmark-controls select{width:100%}.page-intro h1{font-size:2.6rem}}
+</style>

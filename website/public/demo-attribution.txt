@@ -1,0 +1,17 @@
+RxnMiner visual workspace demo
+
+Source: Suman Das, Stanna K. Dorn, and M. Kevin Brown,
+Stereodivergent Synthesis of Three Contiguous Stereogenic Centers by
+Cu/Ir-Catalyzed Borylallylation, Angewandte Chemie International Edition
+65 (2026), e23140. https://doi.org/10.1002/anie.202523140
+Copyright 2025 The Authors. CC BY 4.0:
+https://creativecommons.org/licenses/by/4.0/
+
+Scheme 3 is displayed unchanged. RxnMiner adds its visual interface,
+bounding boxes, archived predictions, English captions, and review controls.
+The recording uses the bundled demo-figure sealed replay, with no new
+model or recognition calls. Predictions are not official author annotations.
+The original molecule wire strings are preserved.
+
+Integrity: demo-media.json records SHA-256 hashes of the video, captions,
+and transcript. Only this English visual walkthrough is included.

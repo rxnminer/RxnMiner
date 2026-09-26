@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChemReaction — benchmark (Agent vs Baseline vs MolParser)</title>
+<style>
+  :root{--bg:#0f1115;--panel:#171a21;--line:#262b36;--fg:#e6e9ef;--mut:#8b93a3;--acc:#4f8cff;
+        --ok:#37c871;--warn:#e6a23c;--err:#f0616d}
+  *{box-sizing:border-box}
+  body{margin:0;font:14px/1.5 -apple-system,system-ui,"Segoe UI",sans-serif;background:var(--bg);color:var(--fg)}
+  header{padding:14px 20px;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:12px}
+  header h1{font-size:16px;margin:0;font-weight:650}
+  header .sub{color:var(--mut);font-size:12px}
+  header a{color:var(--acc);text-decoration:none;font-size:12px;margin-left:auto}
+  main{padding:20px;max-width:1280px;margin:0 auto}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .card h2{font-size:13px;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+  .card .dot{width:10px;height:10px;border-radius:50%}
+  .mp .dot{background:#5ea0ff}.bl .dot{background:#e6a23c}.ag .dot{background:#37c871}
+  .big{font-size:30px;font-weight:700}.big small{font-size:13px;color:var(--mut);font-weight:400}
+  .kv{color:var(--mut);font-size:12px;margin-top:8px;line-height:1.7}
+  .kv b{color:var(--fg)}
+  .note{color:var(--mut);font-size:12px;margin-bottom:12px}
+  .running{color:var(--warn)}
+  table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  th,td{padding:8px 11px;text-align:left;border-bottom:1px solid #1d212b;font-size:13px}
+  th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);cursor:pointer;white-space:nowrap}
+  td.n{font-variant-numeric:tabular-nums}
+  tr.fig{cursor:pointer}tr.fig:hover{background:#1b2028}
+  .win{color:var(--ok);font-weight:700}
+  .lose{color:var(--mut)}
+  .pill{font:600 10px system-ui;padding:1px 6px;border-radius:9px;background:#1b2230;color:var(--mut)}
+  .detail td{background:#0d0f14}
+  .mgrid{display:flex;gap:7px;flex-wrap:wrap;margin:4px 0 10px}
+  .mgrid figure{margin:0;background:#fff;border-radius:6px;width:120px}
+  .mgrid img{width:120px;height:84px;object-fit:contain;background:#fff;display:block}
+  .mgrid figcaption{font-size:9px;color:#586073;text-align:center;padding:2px;background:#eef0f3}
+  .dsec{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);margin:8px 0 4px}
+  .dsec .c{color:var(--ok)}.dsec .m{color:var(--err)}.dsec .x{color:var(--warn)}
+</style>
+</head>
+<body>
+<header>
+  <h1>Benchmark</h1>
+  <span class="sub">Agent vs Baseline Gemini-3.1-pro vs MolParser — pdf_benchmark (10 papers), canonical SMILES vs GT</span>
+  <a href="/">&larr; back to extractor</a>
+</header>
+<main>
+  <div class="note" id="status">loading&hellip;</div>
+  <div class="cards" id="cards"></div>
+  <table id="tbl"><thead><tr>
+    <th data-k="paper">Paper / Fig</th><th data-k="gt_mols" class="n">GT mols</th>
+    <th data-k="mp" class="n">MolParser F1</th>
+    <th data-k="bl" class="n">Baseline F1 · r</th>
+    <th data-k="ag" class="n">Agent F1 · r</th>
+    <th data-k="cost" class="n">Agent tokens · time</th>
+  </tr></thead><tbody id="rows"></tbody></table>
+</main>
+<script>
+const $=s=>document.querySelector(s);
+let DATA=null, sortK="paper", openRow=null;
+function f1(r,m){ return (r[m]&&r[m].smiles)?r[m].smiles.f1:null; }
+function rr(r,m){ return (r[m]&&r[m].r!=null)?r[m].r:null; }
+function fmt(v){ return v==null?'<span class="lose">—</span>':v.toFixed(3); }
+function card(name,cls,s){
+  if(!s) return '';
+  let kv='SMILES F1 <b>'+(s.smiles_f1??'—')+'</b> · R '+(s.smiles_recall??'—')+' · P '+(s.smiles_precision??'—');
+  let big = (s.smiles_f1!=null? s.smiles_f1.toFixed(3):'—');
+  let extra='';
+  if(s.r!=null) extra='<div class="kv">reaction score r <b>'+s.r+'</b></div>';
+  if(s.avg_tokens_in!=null) extra+='<div class="kv">avg <b>'+s.avg_tokens_in.toLocaleString()+'</b> in / <b>'+(s.avg_tokens_out||0).toLocaleString()+'</b> out · total <b>'+Math.round((s.total_elapsed_s||0)/60)+'m</b></div>';
+  return '<div class="card '+cls+'"><h2><span class="dot"></span>'+name+'</h2>'
+    +'<div class="big">'+big+'<small> SMILES F1</small></div><div class="kv">'+kv+'</div>'+extra+'</div>';
+}
+function render(){
+  const s=DATA.summary;
+  $("#cards").innerHTML=card("MolParser (OCSR)","mp",s.molparser)+card("Baseline Gemini","bl",s.baseline)+card("Our Agent","ag",s.agent);
+  const N=DATA.summary.n_figures;
+  const aDone=DATA.rows.filter(r=>r.agent).length, bDone=DATA.rows.filter(r=>r.baseline).length;
+  $("#status").innerHTML = (aDone>=N && N>0)
+    ? 'Done — '+N+' figures (Agent + Baseline + MolParser).'
+    : '<span class="running">Running&hellip; MolParser '+N+'/35, Baseline '+bDone+'/'+N+', Agent '+aDone+'/'+N+' (auto-refreshing every 15s).</span>';
+  // sort rows
+  const rows=[...DATA.rows];
+  rows.sort((a,b)=>{
+    if(sortK==="paper") return (a.paper+a.fig).localeCompare(b.paper+b.fig);
+    if(sortK==="gt_mols") return (b.gt_mols||0)-(a.gt_mols||0);
+    if(sortK==="cost") return ((b.agent&&b.agent.tokens_in)||0)-((a.agent&&a.agent.tokens_in)||0);
+    const m=sortK; return ((f1(b,m)||0)-(f1(a,m)||0));
+  });
+  $("#rows").innerHTML=rows.map(r=>{
+    const mp=f1(r,"molparser"), bl=f1(r,"baseline"), ag=f1(r,"agent");
+    const best=Math.max(mp||0,bl||0,ag||0);
+    const cls=v=>(v!=null&&v>=best&&best>0)?"win":"";
+    const ag_=r.agent||{}, cost=ag_.tokens_in!=null?((ag_.tokens_in/1000).toFixed(0)+'k · '+Math.round(ag_.elapsed_s||0)+'s'):'—';
+    return '<tr class="fig" data-paper="'+r.paper+'" data-fig="'+r.fig+'">'
+      +'<td>'+r.paper.split("__")[0]+' / '+r.fig+'</td>'
+      +'<td class="n">'+(r.gt_mols??'—')+'</td>'
+      +'<td class="n '+cls(mp)+'">'+fmt(mp)+'</td>'
+      +'<td class="n '+cls(bl)+'">'+fmt(bl)+' · '+(rr(r,"baseline")??'—')+'</td>'
+      +'<td class="n '+cls(ag)+'">'+fmt(ag)+' · '+(rr(r,"agent")??'—')+'</td>'
+      +'<td class="n">'+cost+'</td></tr>';
+  }).join("");
+}
+$("#tbl").addEventListener("click", async e=>{
+  const th=e.target.closest("th"); if(th){ sortK=th.dataset.k; render(); return; }
+  const tr=e.target.closest("tr.fig"); if(!tr) return;
+  // toggle a detail row
+  if(tr.nextElementSibling && tr.nextElementSibling.classList.contains("detail")){ tr.nextElementSibling.remove(); return; }
+  document.querySelectorAll("tr.detail").forEach(x=>x.remove());
+  const det=document.createElement("tr"); det.className="detail";
+  det.innerHTML='<td colspan="6">loading molecule detail…</td>'; tr.after(det);
+  let d; try{ d=await (await fetch("/api/benchmark/figure?paper="+encodeURIComponent(tr.dataset.paper)+"&fig="+encodeURIComponent(tr.dataset.fig))).json(); }
+  catch(e){ det.querySelector("td").textContent="detail unavailable"; return; }
+  const grid=(arr,kind)=>arr.length?('<div class="mgrid">'+arr.map(s=>'<figure><img src="/api/render?smi='+encodeURIComponent(s)+'&w=120&h=84"><figcaption>'+kind+'</figcaption></figure>').join("")+'</div>'):'';
+  let h='';
+  for(const m of ["molparser","baseline","agent"]){
+    if(!d[m]) continue;
+    h+='<div class="dsec">'+m+' — R '+d[m].recall+' P '+d[m].precision+' F1 '+d[m].f1+' '
+      +'(<span class="c">'+d[m].correct.length+' correct</span>, <span class="m">'+d[m].missed.length+' missed</span>, <span class="x">'+d[m].extra.length+' extra</span>)</div>';
+    if(d[m].missed.length) h+='<div class="dsec m">missed by '+m+':</div>'+grid(d[m].missed,"missed");
+  }
+  det.querySelector("td").innerHTML=h||'no detail';
+});
+async function load(){
+  try{ DATA=await (await fetch("/api/benchmark")).json(); render(); }catch(e){ $("#status").textContent="failed to load /api/benchmark"; return; }
+  const aDone=DATA.rows.filter(r=>r.agent).length;        // refresh until every figure has an agent score
+  if(aDone < (DATA.summary.n_figures||35)) setTimeout(load, 15000);
+}
+load();
+</script>
+</body>
+</html>

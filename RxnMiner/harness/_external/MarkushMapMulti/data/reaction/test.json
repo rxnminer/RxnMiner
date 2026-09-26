@@ -1,0 +1,61 @@
+{
+  "general_reactions": [
+    [
+      {
+        "text": "*C(S(C1N=CC=CC=1)(=O)=O)(*)*<sep><a>0:CN</a><a>11:R[1]</a><a>12:R[2]</a>",
+        "type": "reactants",
+        "relations": [
+          "R1=R2=Alk,H",
+          "R3 = various substituents"
+        ]
+      },
+      {
+        "text": "*C(*)(*)*<sep><a>0:CN</a><a>2:R[1]</a><a>3:R[2]</a><a>4:R[3]</a>",
+        "type": "products",
+        "relations": [
+          "up to 86% yield"
+        ]
+      },
+      {
+        "text": "BuLi(1.1 equiv)",
+        "type": "conditions",
+        "relations": []
+      },
+      {
+        "text": "Bu2Mg (1.1 equiv)",
+        "type": "conditions",
+        "relations": []
+      },
+      {
+        "text": "R3-X (1.1 equiv)",
+        "type": "conditions",
+        "relations": []
+      },
+      {
+        "text": "-15\u2103, 30 min",
+        "type": "conditions",
+        "relations": []
+      }
+    ]
+  ],
+  "examples": [
+    {
+      "text": "C(#N)C1(CC=C)CCCCC1",
+      "relations": [
+        "82% yield"
+      ]
+    },
+    {
+      "text": "C(#N)C1(CCCC=C)CCCCC1",
+      "relations": [
+        "73% yield"
+      ]
+    },
+    {
+      "text": "C(#N)C1(Sc2ccccc2)CCCCC1",
+      "relations": [
+        "76% yield"
+      ]
+    }
+  ]
+}

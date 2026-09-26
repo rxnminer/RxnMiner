@@ -1,0 +1,21 @@
+{
+  "name": "rxn-skills",
+  "interface": {
+    "displayName": "Reaction Extraction Skills"
+  },
+  "plugins": [
+    {
+      "name": "rxn-skills",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/rxnminer/RxnMiner.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

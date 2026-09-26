@@ -1,0 +1,89 @@
+{
+  "fixtureId": "demo-figure-sealed-pre-reference-v1",
+  "jobId": "demo-figure-scope",
+  "attemptId": "attempt-001",
+  "input": {
+    "figureId": "fig:5f957606ef2fd220",
+    "sha256": "5f957606ef2fd220d75881a681958d58c74833d0a7ffc70525a2aee16f14e29f",
+    "mediaType": "image/png",
+    "locator": "fixture:image.png",
+    "locatorScope": "fixture"
+  },
+  "request": {
+    "task": "extract_all",
+    "contextMode": "figure",
+    "inferencePolicy": "deterministic_reverse_allowed"
+  },
+  "skill": {
+    "commit": "22cd03fdda4901193f17b5077373508bb146be40",
+    "name": "reaction-extract"
+  },
+  "model": {
+    "provider": "openai-codex",
+    "id": "gpt-5.6-sol:medium"
+  },
+  "molparser": {
+    "locator": "fixture:molparser.json",
+    "sha256": "3b00dca84398b8c3cf081cdb1363b9dacffd742bd118b4cd28694c49b9994d69",
+    "cacheKey": "sha256:5f957606ef2fd220d75881a681958d58c74833d0a7ffc70525a2aee16f14e29f",
+    "status": "cache_hit"
+  },
+  "prediction": {
+    "locator": "fixture:pred.v2.json",
+    "sha256": "cf494189ef50574408d19128be0d97d4dd1379e1c76e5b14100d65c767ea8bf8"
+  },
+  "toolSequence": [
+    "read",
+    "read",
+    "bash",
+    "detect",
+    "read",
+    "read",
+    "read",
+    "verify_smiles",
+    "verify_smiles",
+    "verify_smiles",
+    "verify_smiles",
+    "verify_smiles",
+    "verify_smiles",
+    "verify_smiles",
+    "verify_smiles",
+    "verify_smiles",
+    "verify_smiles",
+    "verify_smiles",
+    "verify_smiles",
+    "verify_smiles",
+    "verify_smiles",
+    "verify_smiles",
+    "verify_smiles",
+    "verify_smiles",
+    "bash",
+    "read",
+    "bash",
+    "assemble",
+    "render_reactions",
+    "read",
+    "bash",
+    "read",
+    "read",
+    "bash",
+    "assemble",
+    "render_reactions",
+    "bash"
+  ],
+  "startedAt": "2000-01-01T00:00:00.000Z",
+  "terminalStatus": "review_ready",
+  "validation": {
+    "connectivity": "valid",
+    "strictStereo": "assigned",
+    "basis": "sealed pre-reference V2 assembly and indexed verify_smiles audit; assigned does not mean reference-correct",
+    "issueCount": 0,
+    "evidenceIds": []
+  },
+  "notes": [
+    "Real sealed cold-start Pi extraction with 24 concrete examples, one generic template, and 97 printed metrics.",
+    "The CC BY 4.0 source figure is packaged with attribution and pinned by immutable SHA-256.",
+    "Strict stereo is represented independently from connectivity, and assignment is not treated as proof of correctness.",
+    "Post-hoc review and failed-substrate adjudication are intentionally absent from this extraction replay."
+  ]
+}

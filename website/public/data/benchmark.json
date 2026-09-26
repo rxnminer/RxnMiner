@@ -1,0 +1,592 @@
+{
+  "snapshot_date": "public",
+  "figures": 603,
+  "gt_reactions": 8510,
+  "layouts": 5,
+  "source_sha256": "a334b0579d0bbeda5ed57ab702bfd775a22336a98316d70cf075c4caea9458c8",
+  "method": "Precision, recall, and F1 are computed per figure, then averaged with equal figure weights (macro-F1). Missing individual outputs score as empty predictions. Pending lanes are not ranked.",
+  "cohorts": [
+    {
+      "id": "full",
+      "n": 603,
+      "label": "Full benchmark",
+      "rows": [
+        {
+          "lane": "claude-rxnminer",
+          "name": "RxnMiner · Claude Opus 5",
+          "group": "RxnMiner",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.7727621890547264,
+            "reaction_recall": 0.9359610281923715,
+            "reaction_f1": 0.7767970983389164,
+            "molecule_precision": 0.9507530679933665,
+            "molecule_recall": 0.9345142620232173,
+            "molecule_f1": 0.9406004263044535
+          },
+          "ns": {
+            "reaction_precision": 0.8457978441127695,
+            "reaction_recall": 0.9768978441127695,
+            "reaction_f1": 0.8477930238617996,
+            "molecule_precision": 0.9867820895522388,
+            "molecule_recall": 0.9707547263681592,
+            "molecule_f1": 0.9767187936164011
+          },
+          "avg_cost_usd": 22.391123038142588,
+          "avg_time_s": 865.2124378109456
+        },
+        {
+          "lane": "qwen38-flash-rxnminer-thinking",
+          "name": "RxnMiner · Qwen3.8-Flash-Next",
+          "group": "RxnMiner",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.6993346600331675,
+            "reaction_recall": 0.8920018242122719,
+            "reaction_f1": 0.7080534246942735,
+            "molecule_precision": 0.9004334991708126,
+            "molecule_recall": 0.8811195688225539,
+            "molecule_f1": 0.8881746186756864
+          },
+          "ns": {
+            "reaction_precision": 0.775792039800995,
+            "reaction_recall": 0.9303812603648425,
+            "reaction_f1": 0.782698395927303,
+            "molecule_precision": 0.9381192371475954,
+            "molecule_recall": 0.9206049751243781,
+            "molecule_f1": 0.9267749139858912
+          },
+          "avg_cost_usd": 0.5878177039697918,
+          "avg_time_s": 1343.6326699834156
+        },
+        {
+          "lane": "kimi_k3_rxnminer",
+          "name": "RxnMiner · Kimi K3",
+          "group": "RxnMiner",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.6859681592039801,
+            "reaction_recall": 0.8602960199004975,
+            "reaction_f1": 0.6902063194697822,
+            "molecule_precision": 0.8874164179104478,
+            "molecule_recall": 0.8751623548922056,
+            "molecule_f1": 0.8792275255276432
+          },
+          "ns": {
+            "reaction_precision": 0.7849092868988391,
+            "reaction_recall": 0.9266968490878938,
+            "reaction_f1": 0.7874767254500878,
+            "molecule_precision": 0.9381248756218905,
+            "molecule_recall": 0.9251684908789386,
+            "molecule_f1": 0.9295424394198588
+          },
+          "avg_cost_usd": 1.9318644701492504,
+          "avg_time_s": 1622.8827529021535
+        },
+        {
+          "lane": "deepseek-v4.1-flash-rxnminer",
+          "name": "RxnMiner · DeepSeek V4.1 Flash",
+          "group": "RxnMiner",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.6290072968490878,
+            "reaction_recall": 0.821457048092869,
+            "reaction_f1": 0.6361877199831262,
+            "molecule_precision": 0.8469437810945274,
+            "molecule_recall": 0.8263469320066335,
+            "molecule_f1": 0.8342935862923143
+          },
+          "ns": {
+            "reaction_precision": 0.7440688225538972,
+            "reaction_recall": 0.8969751243781094,
+            "reaction_f1": 0.7504050402805037,
+            "molecule_precision": 0.9040830845771144,
+            "molecule_recall": 0.8841673300165838,
+            "molecule_f1": 0.8917337884044834
+          },
+          "avg_cost_usd": 0.6682634478407959,
+          "avg_time_s": 1915.2461028192374
+        },
+        {
+          "lane": "gpt-rxnminer",
+          "name": "RxnMiner · GPT-5.6-Sol",
+          "group": "RxnMiner",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.5800177446102819,
+            "reaction_recall": 0.8047019900497513,
+            "reaction_f1": 0.5904307881048825,
+            "molecule_precision": 0.8437262023217247,
+            "molecule_recall": 0.8175739635157545,
+            "molecule_f1": 0.8271516452125716
+          },
+          "ns": {
+            "reaction_precision": 0.7345666666666667,
+            "reaction_recall": 0.9402616915422886,
+            "reaction_f1": 0.7460374502625555,
+            "molecule_precision": 0.9350474295190713,
+            "molecule_recall": 0.9055290215588723,
+            "molecule_f1": 0.9163185099893382
+          },
+          "avg_cost_usd": 1.026067365505803,
+          "avg_time_s": 218.11276948590387
+        },
+        {
+          "lane": "claude-direct",
+          "name": "Claude Opus 5",
+          "group": "Direct",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.5382366500829188,
+            "reaction_recall": 0.6865847429519071,
+            "reaction_f1": 0.5397477912117734,
+            "molecule_precision": 0.7840303482587064,
+            "molecule_recall": 0.7644461028192372,
+            "molecule_f1": 0.7718177674098946
+          },
+          "ns": {
+            "reaction_precision": 0.7389603648424544,
+            "reaction_recall": 0.8629157545605307,
+            "reaction_f1": 0.7395430617451968,
+            "molecule_precision": 0.8993892205638474,
+            "molecule_recall": 0.875674295190713,
+            "molecule_f1": 0.8847016243132494
+          },
+          "avg_cost_usd": 0.4973128582089553,
+          "avg_time_s": 282.5570945638475
+        },
+        {
+          "lane": "Doubao-Seed-2.1-Pro-rxnminer",
+          "name": "RxnMiner · Doubao Seed 2.1 Pro",
+          "group": "RxnMiner",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.4531761194029851,
+            "reaction_recall": 0.6581545605306799,
+            "reaction_f1": 0.4688923674108301,
+            "molecule_precision": 0.6902419568822554,
+            "molecule_recall": 0.6845185737976782,
+            "molecule_f1": 0.6845911588587693
+          },
+          "ns": {
+            "reaction_precision": 0.5997601990049751,
+            "reaction_recall": 0.7979628524046435,
+            "reaction_f1": 0.6180724300733534,
+            "molecule_precision": 0.7837341625207297,
+            "molecule_recall": 0.7783414593698176,
+            "molecule_f1": 0.7777189193867515
+          },
+          "avg_cost_usd": 1.0054713216946576,
+          "avg_time_s": 1246.9378109452741
+        },
+        {
+          "lane": "glm-5.3-flash-rxnminer",
+          "name": "RxnMiner · GLM 5.3 Flash",
+          "group": "RxnMiner",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.4060988391376451,
+            "reaction_recall": 0.5297868988391377,
+            "reaction_f1": 0.41097458187015606,
+            "molecule_precision": 0.5436270315091211,
+            "molecule_recall": 0.5328643449419569,
+            "molecule_f1": 0.5356628082046536
+          },
+          "ns": {
+            "reaction_precision": 0.47205605306799336,
+            "reaction_recall": 0.5793782752902156,
+            "reaction_f1": 0.47751522067095886,
+            "molecule_precision": 0.5794474295190714,
+            "molecule_recall": 0.5684499170812604,
+            "molecule_f1": 0.5712899185295114
+          },
+          "avg_cost_usd": 0.14810578702657798,
+          "avg_time_s": 2786.194352159469
+        },
+        {
+          "lane": "Kimi-K3",
+          "name": "Kimi K3",
+          "group": "Direct",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.39586268656716417,
+            "reaction_recall": 0.5250953565505805,
+            "reaction_f1": 0.399023726447131,
+            "molecule_precision": 0.6536587064676617,
+            "molecule_recall": 0.6315802653399668,
+            "molecule_f1": 0.639771574683389
+          },
+          "ns": {
+            "reaction_precision": 0.5622200663349917,
+            "reaction_recall": 0.6834426202321725,
+            "reaction_f1": 0.5647342788487453,
+            "molecule_precision": 0.75982271973466,
+            "molecule_recall": 0.7353933665008292,
+            "molecule_f1": 0.7448033444364858
+          },
+          "avg_cost_usd": 0.6138825452736316,
+          "avg_time_s": 1085.595267979462
+        },
+        {
+          "lane": "gpt-direct",
+          "name": "GPT-5.6-Sol",
+          "group": "Direct",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.35545572139303483,
+            "reaction_recall": 0.5129107794361526,
+            "reaction_f1": 0.35892495037880584,
+            "molecule_precision": 0.6406396351575456,
+            "molecule_recall": 0.6150802653399668,
+            "molecule_f1": 0.6244582788714388
+          },
+          "ns": {
+            "reaction_precision": 0.5190918739635157,
+            "reaction_recall": 0.6897638474295191,
+            "reaction_f1": 0.5229906620625357,
+            "molecule_precision": 0.7607885572139303,
+            "molecule_recall": 0.7292058043117745,
+            "molecule_f1": 0.7410886443408713
+          },
+          "avg_cost_usd": 0.1509566713101161,
+          "avg_time_s": 202.14128550248776
+        },
+        {
+          "lane": "Doubao-Seed-2.1-Pro",
+          "name": "Doubao Seed 2.1 Pro",
+          "group": "Direct",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.33987081260364843,
+            "reaction_recall": 0.481332504145937,
+            "reaction_f1": 0.34473354994499644,
+            "molecule_precision": 0.6294918739635158,
+            "molecule_recall": 0.604257048092869,
+            "molecule_f1": 0.6131115515273248
+          },
+          "ns": {
+            "reaction_precision": 0.5400394693200663,
+            "reaction_recall": 0.694014096185738,
+            "reaction_f1": 0.5463635979483715,
+            "molecule_precision": 0.7725953565505804,
+            "molecule_recall": 0.738952736318408,
+            "molecule_f1": 0.751446323738232
+          },
+          "avg_cost_usd": 0.23847797418838604,
+          "avg_time_s": 1070.1269361937225
+        },
+        {
+          "lane": "gemini-direct",
+          "name": "Gemini 3.1 Pro",
+          "group": "Direct",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.31185655058043116,
+            "reaction_recall": 0.4387225538971808,
+            "reaction_f1": 0.31608641220298284,
+            "molecule_precision": 0.5914472636815921,
+            "molecule_recall": 0.5619784411276949,
+            "molecule_f1": 0.5713807634528225
+          },
+          "ns": {
+            "reaction_precision": 0.4941266998341625,
+            "reaction_recall": 0.6219374792703151,
+            "reaction_f1": 0.49944912118094287,
+            "molecule_precision": 0.7127421227197347,
+            "molecule_recall": 0.680072968490879,
+            "molecule_f1": 0.6908050550972199
+          },
+          "avg_cost_usd": 0.19122942524916947,
+          "avg_time_s": 246.34853517578776
+        },
+        {
+          "lane": "glm-5.3-flash-direct-think",
+          "name": "GLM 5.3 Flash",
+          "group": "Direct",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.30872487562189055,
+            "reaction_recall": 0.4646665008291874,
+            "reaction_f1": 0.31308156113083474,
+            "molecule_precision": 0.5415663349917081,
+            "molecule_recall": 0.5206669983416252,
+            "molecule_f1": 0.5279429836444717
+          },
+          "ns": {
+            "reaction_precision": 0.4384480928689884,
+            "reaction_recall": 0.5750845771144278,
+            "reaction_f1": 0.44296142930074284,
+            "molecule_precision": 0.6293708126036485,
+            "molecule_recall": 0.6039507462686567,
+            "molecule_f1": 0.6130626345213805
+          },
+          "avg_cost_usd": 0.035548483226890755,
+          "avg_time_s": 1022.6228007827517
+        },
+        {
+          "lane": "chemeagle-baseline",
+          "name": "ChemEAGLE",
+          "group": "Baseline",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.2505067993366501,
+            "reaction_recall": 0.49713830845771145,
+            "reaction_f1": 0.2496159799618207,
+            "molecule_precision": 0.5757399668325042,
+            "molecule_recall": 0.4477742951907131,
+            "molecule_f1": 0.4747608559972202
+          },
+          "ns": {
+            "reaction_precision": 0.34722669983416254,
+            "reaction_recall": 0.5430630182421228,
+            "reaction_f1": 0.3452925671598111,
+            "molecule_precision": 0.6485361525704809,
+            "molecule_recall": 0.5103762852404643,
+            "molecule_f1": 0.5401208984862799
+          },
+          "avg_cost_usd": 0.5497901579831935,
+          "avg_time_s": 546.7249485903811
+        },
+        {
+          "lane": "qwen38-flash-direct-thinking",
+          "name": "Qwen3.8-Flash-Next",
+          "group": "Direct",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.20009800995024876,
+            "reaction_recall": 0.36268805970149254,
+            "reaction_f1": 0.20797032075878513,
+            "molecule_precision": 0.52951592039801,
+            "molecule_recall": 0.47497910447761194,
+            "molecule_f1": 0.49254062574242946
+          },
+          "ns": {
+            "reaction_precision": 0.32011990049751243,
+            "reaction_recall": 0.5167283582089552,
+            "reaction_f1": 0.3291819982566403,
+            "molecule_precision": 0.6339628524046435,
+            "molecule_recall": 0.572881592039801,
+            "molecule_f1": 0.5931115125575553
+          },
+          "avg_cost_usd": 0.007150830255072345,
+          "avg_time_s": 247.26413072203326
+        },
+        {
+          "lane": "deepseek-v4.1-flash-direct-think",
+          "name": "DeepSeek V4.1 Flash",
+          "group": "Direct",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.15666053067993366,
+            "reaction_recall": 0.2406810945273632,
+            "reaction_f1": 0.15818363452455578,
+            "molecule_precision": 0.2846371475953566,
+            "molecule_recall": 0.26964444444444446,
+            "molecule_f1": 0.2749528975735789
+          },
+          "ns": {
+            "reaction_precision": 0.20157164179104478,
+            "reaction_recall": 0.2729303482587065,
+            "reaction_f1": 0.20310068184367466,
+            "molecule_precision": 0.3104915422885572,
+            "molecule_recall": 0.29556666666666664,
+            "molecule_f1": 0.3008160048508028
+          },
+          "avg_cost_usd": 0.12713090734328342,
+          "avg_time_s": 882.7975334245446
+        },
+        {
+          "lane": "MERMaid",
+          "name": "MERMaid",
+          "group": "Baseline",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.057665008291873966,
+            "reaction_recall": 0.1522424543946932,
+            "reaction_f1": 0.058517228136108365,
+            "molecule_precision": 0.21296484245439468,
+            "molecule_recall": 0.15220945273631842,
+            "molecule_f1": 0.1626169769840629
+          },
+          "ns": {
+            "reaction_precision": 0.08298789386401327,
+            "reaction_recall": 0.17801393034825871,
+            "reaction_f1": 0.08404028484046537,
+            "molecule_precision": 0.2494250414593698,
+            "molecule_recall": 0.18217545605306798,
+            "molecule_f1": 0.19273415706132146
+          },
+          "avg_cost_usd": 0.09141658573797666,
+          "avg_time_s": null
+        },
+        {
+          "lane": "OpenChemIE",
+          "name": "OpenChemIE",
+          "group": "Baseline",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.09792454394693201,
+            "reaction_recall": 0.0811860696517413,
+            "reaction_f1": 0.055593289304317096,
+            "molecule_precision": 0.19245058043117744,
+            "molecule_recall": 0.16958739635157546,
+            "molecule_f1": 0.17521853202777155
+          },
+          "ns": {
+            "reaction_precision": 0.15917495854063018,
+            "reaction_recall": 0.10005240464344942,
+            "reaction_f1": 0.08948397545029987,
+            "molecule_precision": 0.24045157545605306,
+            "molecule_recall": 0.21093482587064677,
+            "molecule_f1": 0.21791878539323498
+          },
+          "avg_cost_usd": 0,
+          "avg_time_s": 5.085593271833746
+        },
+        {
+          "lane": "MinerU.Chem-baseline",
+          "name": "MinerU.Chem",
+          "group": "Baseline",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.07075721393034826,
+            "reaction_recall": 0.026149751243781095,
+            "reaction_f1": 0.0209549592949664,
+            "molecule_precision": 0.2924275290215589,
+            "molecule_recall": 0.13396218905472637,
+            "molecule_f1": 0.15123908902570568
+          },
+          "ns": {
+            "reaction_precision": 0.0876726368159204,
+            "reaction_recall": 0.03066318407960199,
+            "reaction_f1": 0.025390324985880685,
+            "molecule_precision": 0.30975704809286897,
+            "molecule_recall": 0.14576102819237147,
+            "molecule_f1": 0.16364441878842687
+          },
+          "avg_cost_usd": null,
+          "avg_time_s": 211.5430858864865
+        },
+        {
+          "lane": "Rxnscribe",
+          "name": "RxnScribe",
+          "group": "Baseline",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.06147827529021559,
+            "reaction_recall": 0.03351558872305141,
+            "reaction_f1": 0.02017419452852166,
+            "molecule_precision": 0.3082960199004975,
+            "molecule_recall": 0.14990630182421227,
+            "molecule_f1": 0.16657335984781552
+          },
+          "ns": {
+            "reaction_precision": 0.08765290215588722,
+            "reaction_recall": 0.03745257048092869,
+            "reaction_f1": 0.026162566576214793,
+            "molecule_precision": 0.35887694859038144,
+            "molecule_recall": 0.17945837479270316,
+            "molecule_f1": 0.19814509886138482
+          },
+          "avg_cost_usd": null,
+          "avg_time_s": 12.127167661691537
+        },
+        {
+          "lane": "rde2-baseline",
+          "name": "RDE2",
+          "group": "Baseline",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.0203150912106136,
+            "reaction_recall": 0.01847346600331675,
+            "reaction_f1": 0.008765521493155768,
+            "molecule_precision": 0.11030530679933664,
+            "molecule_recall": 0.06542537313432836,
+            "molecule_f1": 0.0711638404551573
+          },
+          "ns": {
+            "reaction_precision": 0.021310116086235488,
+            "reaction_recall": 0.02039900497512438,
+            "reaction_f1": 0.00976054636877766,
+            "molecule_precision": 0.11926832504145937,
+            "molecule_recall": 0.07133582089552239,
+            "molecule_f1": 0.07736910448770831
+          },
+          "avg_cost_usd": 0,
+          "avg_time_s": 391.8140480928693
+        },
+        {
+          "lane": "rxncaption-baseline",
+          "name": "RxnCaption",
+          "group": "Baseline",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0,
+            "reaction_recall": 0,
+            "reaction_f1": 0,
+            "molecule_precision": 0,
+            "molecule_recall": 0,
+            "molecule_f1": 0
+          },
+          "ns": {
+            "reaction_precision": 0,
+            "reaction_recall": 0,
+            "reaction_f1": 0,
+            "molecule_precision": 0,
+            "molecule_recall": 0,
+            "molecule_f1": 0
+          },
+          "avg_cost_usd": 0,
+          "avg_time_s": 84.16880583491049
+        },
+        {
+          "lane": "RxnID-baseline",
+          "name": "RxnID",
+          "group": "Baseline",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0,
+            "reaction_recall": 0,
+            "reaction_f1": 0,
+            "molecule_precision": 0,
+            "molecule_recall": 0,
+            "molecule_f1": 0
+          },
+          "ns": {
+            "reaction_precision": 0,
+            "reaction_recall": 0,
+            "reaction_f1": 0,
+            "molecule_precision": 0,
+            "molecule_recall": 0,
+            "molecule_f1": 0
+          },
+          "avg_cost_usd": null,
+          "avg_time_s": 29.602676797814205
+        }
+      ]
+    }
+  ]
+}

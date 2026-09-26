@@ -1,0 +1,51 @@
+export class RuntimePolicyError extends Error {
+  constructor(
+    public readonly code:
+      | "PERSONAL_SUBSCRIPTION_NOT_APPROVED"
+      | "REMOTE_SANDBOX_NOT_CONFIGURED"
+      | "CREDENTIAL_BROKER_NOT_CONFIGURED"
+      | "INVALID_CONTEXT"
+      | "INVALID_CURSOR"
+      | "CROSS_TENANT_ACCESS"
+      | "SESSION_NOT_FOUND"
+      | "RESULT_NOT_READY"
+      | "RESULT_ALREADY_SEALED"
+      | "RETRY_NOT_ALLOWED"
+      | "AGENT_BUSY"
+      | "SESSION_NOT_ACTIVE"
+      | "CREDENTIAL_REQUIRED"
+      | "LOCAL_REHYDRATION_FAILED"
+      | "STORE_BUSY"
+      | "STORE_CONFLICT"
+      | "STORE_CORRUPT"
+      | "TASK_NOT_FOUND"
+      | "ATTEMPT_NOT_FOUND"
+      | "INVALID_TASK_TRANSITION"
+      | "CREDENTIAL_PERSISTENCE_FORBIDDEN"
+      | "INPUT_BACKEND_NOT_CONNECTED"
+      | "INPUT_TOO_LARGE"
+      | "INVALID_INPUT"
+      | "INPUT_NOT_FOUND"
+      | "INPUT_CORRUPT"
+      | "INPUT_REQUIRED"
+      | "MODEL_NOT_AVAILABLE"
+      | "MODEL_HAS_NO_VISION"
+      | "MODEL_AUTH_REQUIRED"
+      | "DISPATCH_REQUEST_CORRUPT"
+      | "WORK_ITEM_NOT_FOUND"
+      | "IMAGE_PREPARATION_FAILED"
+      | "ARTIFACT_NOT_FOUND"
+      | "ARTIFACT_CORRUPT"
+      | "WORKSPACE_JOB_MISMATCH"
+      | "REVIEW_PROPOSAL_NOT_FOUND"
+      | "REVIEW_PROPOSAL_MISMATCH"
+      | "REVIEW_PROPOSAL_TERMINAL"
+      | "RUNTIME_SHUTTING_DOWN"
+      | "PROTOCOL_INTEGRITY_FAILED",
+    message: string,
+    public readonly status = 400,
+  ) {
+    super(message);
+    this.name = "RuntimePolicyError";
+  }
+}

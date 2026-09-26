@@ -1,0 +1,34 @@
+---
+import { assetPath } from '../data/site';
+import '../styles/global.css';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import type { SiteLocale, SiteSection } from '../data/site';
+
+interface Props {
+  locale: SiteLocale;
+  active: SiteSection;
+  title: string;
+  description: string;
+}
+
+const { locale, active, title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#faf9f5" />
+    <link rel="icon" href={assetPath("/assets/readme/chemrxn-mark.svg")} />
+    <title>{title} · RxnMiner</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <SiteHeader locale={locale} active={active} />
+    <main id="main-content"><slot /></main>
+    <SiteFooter locale={locale} />
+  </body>
+</html>

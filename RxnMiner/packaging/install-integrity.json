@@ -1,0 +1,213 @@
+{
+  "schemaVersion": "chemrxn.install-integrity.v1",
+  "requiredFiles": [
+    "cli/bin/chemrxn.mjs",
+    "cli/src/install-integrity.mjs",
+    "figure_skills/scripts/run_chem_mcp.py",
+    "figure_skills/tools/chem_mcp.py",
+    "harness/requirements-local.txt",
+    "harness/scripts/local_workbench.sh",
+    "harness/service/harness_index.html",
+    "figure_skills/skills/reaction-extract/SKILL.md",
+    "runtime/pi-service/dist/src/server.js",
+    "runtime/pi-service/dist/src/skills.js",
+    "scripts/verify-install-integrity.mjs"
+  ],
+  "assets": [
+    {
+      "path": "reviewer/chem_reviewer/web/lib/RDKit_minimal.wasm",
+      "sha256": "e0967d44fed59e44a2d07bfc08f3a86821c54a14c95bb7e6e392fe867333b8c8",
+      "kind": "git-lfs-rdkit"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/apple-touch-icon.png",
+      "sha256": "f414dcb2c13ea591559b6373070b7a5d4f59b59ef5910c5fa013a80c74a162a2",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/asset-manifest.json",
+      "sha256": "d659df7daf55f6f649f00870af9b9d7f982ed2f2cd93596289f498070cdd9c84",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/closable.html",
+      "sha256": "04caa5e1a643d3d8e795bb97d0d977c4824cec4df462ad6a82bc0eb424a08179",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/duo.html",
+      "sha256": "df04352a4a50a6cee49b8077af267a5026a97d3907075ab4789392768b88ba47",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/favicon-16x16.png",
+      "sha256": "b17e9b5e3467455a41e611edc0f49b05cf2f02d7569524a958cfdb5d22c989d9",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/favicon-32x32.png",
+      "sha256": "5cc22edce0ac5dd4b4a20b9a4b828d08ae312941b03f60aa3fe467a6bf9db561",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/favicon.ico",
+      "sha256": "87a3fe8c44e333cfeaaa3e69151bfb36d0302b5e97bb392219cf1489be274760",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/iframe.html",
+      "sha256": "efda0c836b241a835ff7bca04d50027303353c99fd23d1d061b2420a6ba8aca8",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/index.html",
+      "sha256": "5146f3f6a9712ec5dd2972758530d88254639c8fd991f9840d90469aa7f63bf6",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/logo.svg",
+      "sha256": "0cc1fa734753e99ae6bc8edaaae519b67c8fde53142761a730b0c0a510496812",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/manifest.json",
+      "sha256": "59292c1075edbc4bf0b8dddcaa50220bb8eae8c3f01ada8d0428f4762d30ac57",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/popup.html",
+      "sha256": "be1622842c13689fccee857caac74ec5302890fdd2b8d81d9b1e24fdad5773a3",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/robots.txt",
+      "sha256": "90d24bc3bf698ac1e173739502298ccca72adf1f564fab05f484b8c48d1cadd2",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/serve.json",
+      "sha256": "2e92566bf89257dea9041b5fc2b7d73e467fd55dbc801a87f3ce17d54799d133",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/css/closable.5201f4af.css",
+      "sha256": "bfea1f37bf10f5e9b7f12d67709f3ef8f3c98c24b84a2d755e7fb16e99c8f98f",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/css/duo.f021f54d.css",
+      "sha256": "a895124222d87df2bef2bead1176dbe8a848a07aeb794226c2dc786399524704",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/css/main.5201f4af.css",
+      "sha256": "06bb3a1aa204089aaeadcc523705bfbe7ec3b16e41151f54a2eeb44f5d481c2c",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/css/popup.5201f4af.css",
+      "sha256": "fdea931c907915272d335b69f4ae8626ce57e797ab6ba84fc4e9738e9a485efd",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/js/121.29024d4a.chunk.js",
+      "sha256": "9adec2cb860c447fd78da488e8871f3ecac7b5fdaf2b7442821385816e2d1398",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/js/165.2dac1e66.chunk.js",
+      "sha256": "5b6421841f9ce5599b66f1db04606ebecaa755afcb5a532fcbc7335ce0ceba9f",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/js/183.a9d50924.chunk.js",
+      "sha256": "0c24bf47f432c98288a09a6ba51b4661deef3268f410748ed11777f3b4375dbe",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/js/635.0bde3d24.chunk.js",
+      "sha256": "7d9eb6fc99bd3ec0aabd8c290d9b0344b0009d28a6d0dfb49fae5fc9a68bc6df",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/js/736.1a10862c.chunk.js",
+      "sha256": "240e64561a50950cfb4d6ffb7c17cff440e0476f2295b8cab06e090a2875c2cb",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/js/736.1a10862c.chunk.js.LICENSE.txt",
+      "sha256": "806654aad370a94af8bd40b12f877d2fbfc63ac08182a8fcb6674892c5f8b767",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/js/953.34f25b0b.chunk.js",
+      "sha256": "3cf94a2a2e3ec1c32f94bbbeda3ac424014ab35d89cc2e2f569e131e954b9ee7",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/js/closable.bf629050.js",
+      "sha256": "1c7d37bd49e8ac652b1eb6348c23e56116aee49c4808cc6506e43730e60687ee",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/js/closable.bf629050.js.LICENSE.txt",
+      "sha256": "90884570ef578ca088f0700ead38ba963f9be527c44affdffce5383e4c50cf1f",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/js/duo.b6f16b2b.js",
+      "sha256": "b67619c184a178ec02fdd0a505c34e3b2cc25809f9097cf7f72ca67bc69fbfda",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/js/duo.b6f16b2b.js.LICENSE.txt",
+      "sha256": "90884570ef578ca088f0700ead38ba963f9be527c44affdffce5383e4c50cf1f",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/js/main.00ee8faf.js",
+      "sha256": "e62711a0febb555dc42f4521636831fa7cfc99be08c838e38f579e2948ef40d4",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/js/main.00ee8faf.js.LICENSE.txt",
+      "sha256": "eb124a7383b93b5ea3960b9ddfbb7338847a43e6dc0514d4eabf373dcebb89ea",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/js/popup.41bce24d.js",
+      "sha256": "62ad74482131b62753753b71b20213d9253a764da14714cf9dea934bcf4b2762",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/js/popup.41bce24d.js.LICENSE.txt",
+      "sha256": "90884570ef578ca088f0700ead38ba963f9be527c44affdffce5383e4c50cf1f",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/media/RDKit_minimal.fa26a30326cb31df4981.wasm",
+      "sha256": "a09bee227ad427cb1c2bd26778864118eca20fbea916538a8c842401419e9430",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "reviewer/vendor/ketcher/static/media/indigo-ketcher-1.44.8-9-f24a62cf.0d7c835d0a6a8daf10ce.wasm",
+      "sha256": "05b05a865119e396da7f072164a8641dc15cb7a5b8cb530dabc7d5ccdff2cbaf",
+      "kind": "git-lfs-ketcher"
+    },
+    {
+      "path": "harness/product_samples/README.md",
+      "sha256": "df0349368ac4f2da6d9274a2134a37b3fcfa1079879cac4365902c192a4e0590",
+      "kind": "source-only-sample"
+    },
+    {
+      "path": "harness/product_samples/example-scheme-a.png",
+      "sha256": "f9631bb632a559f6aff64f688f872963dca7c665f14a814e2ecb6020229dff17",
+      "kind": "source-only-sample"
+    },
+    {
+      "path": "harness/product_samples/example-scheme-b.png",
+      "sha256": "bfd6cd473856c1d3bc66a59029713e674271c0fc28e8beb9ce575bce610ba459",
+      "kind": "source-only-sample"
+    }
+  ]
+}

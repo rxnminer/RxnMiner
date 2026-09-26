@@ -1,0 +1,493 @@
+{
+  "snapshot_date": "public",
+  "figures": 603,
+  "gt_reactions": 8510,
+  "lanes": 23,
+  "source": "Public judge leaderboard snapshot",
+  "method": "Precision, recall, and F1 are computed per figure, then averaged with equal figure weights (macro-F1), separately for strict stereochemistry (iso) and connectivity only (ns). Per-figure reaction F1 uses judge precision and original scorer recall; molecule F1 uses judge molecule precision and recall. Overall is a single judge composite independent of stereochemistry. The seven lanes without judgments are not ranked. Values match the source leaderboard at its displayed precision.",
+  "rows": [
+    {
+      "lane": "claude-direct",
+      "name": "Claude Opus 5",
+      "group": "Direct",
+      "n": 603,
+      "pending": false,
+      "coverage": "603/603",
+      "judge_overall": 0.8832,
+      "iso": {
+        "reaction_precision": 0.6138,
+        "reaction_recall": 0.6866,
+        "reaction_f1": 0.6098,
+        "molecule_f1": 0.7959999999999999
+      },
+      "ns": {
+        "reaction_precision": 0.8191,
+        "reaction_recall": 0.8629,
+        "reaction_f1": 0.8164,
+        "molecule_f1": 0.8926000000000001
+      }
+    },
+    {
+      "lane": "claude-rxnminer",
+      "name": "RxnMiner - Claude Opus 5",
+      "group": "RxnMiner",
+      "n": 603,
+      "pending": false,
+      "coverage": "603/603",
+      "judge_overall": 0.9694,
+      "iso": {
+        "reaction_precision": 0.863,
+        "reaction_recall": 0.936,
+        "reaction_f1": 0.8637,
+        "molecule_f1": 0.9486
+      },
+      "ns": {
+        "reaction_precision": 0.9363,
+        "reaction_recall": 0.9769,
+        "reaction_f1": 0.9364,
+        "molecule_f1": 0.978
+      }
+    },
+    {
+      "lane": "gpt-direct",
+      "name": "GPT-5.6-Sol",
+      "group": "Direct",
+      "n": 603,
+      "pending": false,
+      "coverage": "603/603",
+      "judge_overall": 0.8111,
+      "iso": {
+        "reaction_precision": 0.436,
+        "reaction_recall": 0.5129,
+        "reaction_f1": 0.43090000000000006,
+        "molecule_f1": 0.6705
+      },
+      "ns": {
+        "reaction_precision": 0.6232,
+        "reaction_recall": 0.6898,
+        "reaction_f1": 0.6151,
+        "molecule_f1": 0.7742
+      }
+    },
+    {
+      "lane": "gpt-rxnminer",
+      "name": "RxnMiner - GPT-5.6-Sol",
+      "group": "RxnMiner",
+      "n": 603,
+      "pending": false,
+      "coverage": "603/603",
+      "judge_overall": 0.8227,
+      "iso": {
+        "reaction_precision": 0.6374,
+        "reaction_recall": 0.8047,
+        "reaction_f1": 0.6365999999999999,
+        "molecule_f1": 0.8164
+      },
+      "ns": {
+        "reaction_precision": 0.7836,
+        "reaction_recall": 0.9403,
+        "reaction_f1": 0.7913,
+        "molecule_f1": 0.8813
+      }
+    },
+    {
+      "lane": "gemini-direct",
+      "name": "Gemini 3.1 Pro",
+      "group": "Direct",
+      "n": 603,
+      "pending": false,
+      "coverage": "603/603",
+      "judge_overall": 0.7704,
+      "iso": {
+        "reaction_precision": 0.3644,
+        "reaction_recall": 0.4387,
+        "reaction_f1": 0.35840000000000005,
+        "molecule_f1": 0.6185
+      },
+      "ns": {
+        "reaction_precision": 0.5652,
+        "reaction_recall": 0.6219,
+        "reaction_f1": 0.5607,
+        "molecule_f1": 0.72
+      }
+    },
+    {
+      "lane": "qwen38-flash-direct-thinking",
+      "name": "Qwen3.8-Flash-Next",
+      "group": "Direct",
+      "n": 603,
+      "pending": false,
+      "coverage": "603/603",
+      "judge_overall": 0.7131,
+      "iso": {
+        "reaction_precision": 0.2431,
+        "reaction_recall": 0.3627,
+        "reaction_f1": 0.2455,
+        "molecule_f1": 0.5316
+      },
+      "ns": {
+        "reaction_precision": 0.3846,
+        "reaction_recall": 0.5167,
+        "reaction_f1": 0.38670000000000004,
+        "molecule_f1": 0.6185
+      }
+    },
+    {
+      "lane": "qwen38-flash-rxnminer-thinking",
+      "name": "RxnMiner - Qwen3.8-Flash-Next",
+      "group": "RxnMiner",
+      "n": 603,
+      "pending": false,
+      "coverage": "603/603",
+      "judge_overall": 0.9364,
+      "iso": {
+        "reaction_precision": 0.7842,
+        "reaction_recall": 0.892,
+        "reaction_f1": 0.7896,
+        "molecule_f1": 0.8981
+      },
+      "ns": {
+        "reaction_precision": 0.8568,
+        "reaction_recall": 0.9304,
+        "reaction_f1": 0.8617,
+        "molecule_f1": 0.9281
+      }
+    },
+    {
+      "lane": "deepseek-v4.1-flash-direct-think",
+      "name": "DeepSeek V4.1 Flash",
+      "group": "Direct",
+      "n": 603,
+      "pending": false,
+      "coverage": "603/603",
+      "judge_overall": 0.365,
+      "iso": {
+        "reaction_precision": 0.2006,
+        "reaction_recall": 0.2407,
+        "reaction_f1": 0.1957,
+        "molecule_f1": 0.3032
+      },
+      "ns": {
+        "reaction_precision": 0.2544,
+        "reaction_recall": 0.2729,
+        "reaction_f1": 0.2477,
+        "molecule_f1": 0.3283
+      }
+    },
+    {
+      "lane": "deepseek-v4.1-flash-rxnminer",
+      "name": "RxnMiner - DeepSeek V4.1 Flash",
+      "group": "RxnMiner",
+      "n": 603,
+      "pending": false,
+      "coverage": "603/603",
+      "judge_overall": 0.8908,
+      "iso": {
+        "reaction_precision": 0.7332,
+        "reaction_recall": 0.8215,
+        "reaction_f1": 0.7351000000000001,
+        "molecule_f1": 0.8503000000000001
+      },
+      "ns": {
+        "reaction_precision": 0.8445,
+        "reaction_recall": 0.897,
+        "reaction_f1": 0.8492000000000001,
+        "molecule_f1": 0.8965000000000001
+      }
+    },
+    {
+      "lane": "glm-5.3-flash-direct-think",
+      "name": "GLM 5.3 Flash",
+      "group": "Direct",
+      "n": 603,
+      "pending": false,
+      "coverage": "603/603",
+      "judge_overall": 0.6785,
+      "iso": {
+        "reaction_precision": 0.375,
+        "reaction_recall": 0.4647,
+        "reaction_f1": 0.3705,
+        "molecule_f1": 0.5650999999999999
+      },
+      "ns": {
+        "reaction_precision": 0.515,
+        "reaction_recall": 0.5751,
+        "reaction_f1": 0.5127,
+        "molecule_f1": 0.6413
+      }
+    },
+    {
+      "lane": "glm-5.3-flash-rxnminer",
+      "name": "RxnMiner - GLM 5.3 Flash",
+      "group": "RxnMiner",
+      "n": 603,
+      "pending": false,
+      "coverage": "603/603",
+      "judge_overall": 0.3714,
+      "iso": {
+        "reaction_precision": 0.2953,
+        "reaction_recall": 0.5298,
+        "reaction_f1": 0.2933,
+        "molecule_f1": 0.34740000000000004
+      },
+      "ns": {
+        "reaction_precision": 0.3432,
+        "reaction_recall": 0.5794,
+        "reaction_f1": 0.3442,
+        "molecule_f1": 0.37060000000000004
+      }
+    },
+    {
+      "lane": "Kimi-K3",
+      "name": "Kimi K3",
+      "group": "Direct",
+      "n": 603,
+      "pending": false,
+      "coverage": "603/603",
+      "judge_overall": 0.8236,
+      "iso": {
+        "reaction_precision": 0.4747,
+        "reaction_recall": 0.5251,
+        "reaction_f1": 0.4595,
+        "molecule_f1": 0.6943
+      },
+      "ns": {
+        "reaction_precision": 0.6441,
+        "reaction_recall": 0.6834,
+        "reaction_f1": 0.6328,
+        "molecule_f1": 0.7797
+      }
+    },
+    {
+      "lane": "kimi_k3_rxnminer",
+      "name": "RxnMiner - Kimi K3",
+      "group": "RxnMiner",
+      "n": 603,
+      "pending": false,
+      "coverage": "603/603",
+      "judge_overall": 0.9281,
+      "iso": {
+        "reaction_precision": 0.7856,
+        "reaction_recall": 0.8603,
+        "reaction_f1": 0.7861,
+        "molecule_f1": 0.8954000000000001
+      },
+      "ns": {
+        "reaction_precision": 0.8821,
+        "reaction_recall": 0.9267,
+        "reaction_f1": 0.8803,
+        "molecule_f1": 0.9319
+      }
+    },
+    {
+      "lane": "Doubao-Seed-2.1-Pro",
+      "name": "Doubao Seed 2.1 Pro",
+      "group": "Direct",
+      "n": 603,
+      "pending": false,
+      "coverage": "603/603",
+      "judge_overall": 0.8109,
+      "iso": {
+        "reaction_precision": 0.4113,
+        "reaction_recall": 0.4813,
+        "reaction_f1": 0.40700000000000003,
+        "molecule_f1": 0.6613
+      },
+      "ns": {
+        "reaction_precision": 0.6329,
+        "reaction_recall": 0.694,
+        "reaction_f1": 0.6295000000000001,
+        "molecule_f1": 0.7767000000000001
+      }
+    },
+    {
+      "lane": "Doubao-Seed-2.1-Pro-rxnminer",
+      "name": "RxnMiner - Doubao Seed 2.1 Pro",
+      "group": "RxnMiner",
+      "n": 603,
+      "pending": false,
+      "coverage": "603/603",
+      "judge_overall": 0.8023,
+      "iso": {
+        "reaction_precision": 0.5135,
+        "reaction_recall": 0.6582,
+        "reaction_f1": 0.5238,
+        "molecule_f1": 0.7065
+      },
+      "ns": {
+        "reaction_precision": 0.6738,
+        "reaction_recall": 0.798,
+        "reaction_f1": 0.6884,
+        "molecule_f1": 0.7855
+      }
+    },
+    {
+      "lane": "chemeagle-baseline",
+      "name": "ChemEAGLE",
+      "group": "Baseline",
+      "n": 603,
+      "pending": false,
+      "coverage": "603/603",
+      "judge_overall": 0.538,
+      "iso": {
+        "reaction_precision": 0.3023,
+        "reaction_recall": 0.4971,
+        "reaction_f1": 0.2943,
+        "molecule_f1": 0.47659999999999997
+      },
+      "ns": {
+        "reaction_precision": 0.4055,
+        "reaction_recall": 0.5431,
+        "reaction_f1": 0.3961,
+        "molecule_f1": 0.5337
+      }
+    },
+    {
+      "lane": "rde2-baseline",
+      "name": "RDE2",
+      "group": "Baseline",
+      "n": 0,
+      "pending": true,
+      "coverage": "0/603",
+      "judge_overall": null,
+      "iso": {
+        "reaction_precision": null,
+        "reaction_recall": 0.0185,
+        "reaction_f1": null,
+        "molecule_f1": null
+      },
+      "ns": {
+        "reaction_precision": null,
+        "reaction_recall": 0.0204,
+        "reaction_f1": null,
+        "molecule_f1": null
+      }
+    },
+    {
+      "lane": "rxncaption-baseline",
+      "name": "RxnCaption",
+      "group": "Baseline",
+      "n": 0,
+      "pending": true,
+      "coverage": "0/603",
+      "judge_overall": null,
+      "iso": {
+        "reaction_precision": null,
+        "reaction_recall": 0,
+        "reaction_f1": null,
+        "molecule_f1": null
+      },
+      "ns": {
+        "reaction_precision": null,
+        "reaction_recall": 0,
+        "reaction_f1": null,
+        "molecule_f1": null
+      }
+    },
+    {
+      "lane": "RxnID-baseline",
+      "name": "RxnID",
+      "group": "Baseline",
+      "n": 0,
+      "pending": true,
+      "coverage": "0/603",
+      "judge_overall": null,
+      "iso": {
+        "reaction_precision": null,
+        "reaction_recall": 0,
+        "reaction_f1": null,
+        "molecule_f1": null
+      },
+      "ns": {
+        "reaction_precision": null,
+        "reaction_recall": 0,
+        "reaction_f1": null,
+        "molecule_f1": null
+      }
+    },
+    {
+      "lane": "MinerU.Chem-baseline",
+      "name": "MinerU.Chem",
+      "group": "Baseline",
+      "n": 0,
+      "pending": true,
+      "coverage": "0/603",
+      "judge_overall": null,
+      "iso": {
+        "reaction_precision": null,
+        "reaction_recall": 0.0261,
+        "reaction_f1": null,
+        "molecule_f1": null
+      },
+      "ns": {
+        "reaction_precision": null,
+        "reaction_recall": 0.0307,
+        "reaction_f1": null,
+        "molecule_f1": null
+      }
+    },
+    {
+      "lane": "OpenChemIE",
+      "name": "OpenChemIE",
+      "group": "Baseline",
+      "n": 0,
+      "pending": true,
+      "coverage": "0/603",
+      "judge_overall": null,
+      "iso": {
+        "reaction_precision": null,
+        "reaction_recall": 0.0812,
+        "reaction_f1": null,
+        "molecule_f1": null
+      },
+      "ns": {
+        "reaction_precision": null,
+        "reaction_recall": 0.1001,
+        "reaction_f1": null,
+        "molecule_f1": null
+      }
+    },
+    {
+      "lane": "Rxnscribe",
+      "name": "RxnScribe",
+      "group": "Baseline",
+      "n": 0,
+      "pending": true,
+      "coverage": "0/603",
+      "judge_overall": null,
+      "iso": {
+        "reaction_precision": null,
+        "reaction_recall": 0.0335,
+        "reaction_f1": null,
+        "molecule_f1": null
+      },
+      "ns": {
+        "reaction_precision": null,
+        "reaction_recall": 0.0375,
+        "reaction_f1": null,
+        "molecule_f1": null
+      }
+    },
+    {
+      "lane": "MERMaid",
+      "name": "MERMaid",
+      "group": "Baseline",
+      "n": 0,
+      "pending": true,
+      "coverage": "0/603",
+      "judge_overall": null,
+      "iso": {
+        "reaction_precision": null,
+        "reaction_recall": 0.1522,
+        "reaction_f1": null,
+        "molecule_f1": null
+      },
+      "ns": {
+        "reaction_precision": null,
+        "reaction_recall": 0.178,
+        "reaction_f1": null,
+        "molecule_f1": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "name": "@rxnminer/workbench",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "dependencies": {
+    "@earendil-works/pi-ai": "0.82.1",
+    "@earendil-works/pi-coding-agent": "0.82.1",
+    "typebox": "1.1.38",
+    "undici": "8.5.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "24.1.0",
+    "typescript": "5.8.3"
+  },
+  "overrides": {
+    "brace-expansion": "5.0.8"
+  },
+  "scripts": {
+    "build": "npm --prefix runtime/pi-service run build",
+    "chemrxn": "node cli/bin/chemrxn.mjs",
+    "package:build": "npm run build && npm run verify:install",
+    "test": "npm --prefix runtime/pi-service test && npm --prefix cli test && npm run test:web",
+    "test:web": "node --test reviewer/chem_reviewer/web/lib/runtime-events.test.mjs reviewer/chem_reviewer/web/lib/workspace-command.test.mjs reviewer/chem_reviewer/web/lib/review-workspace-diagnostics.test.mjs reviewer/chem_reviewer/web/lib/pdf-geometry-review.test.mjs reviewer/chem_reviewer/web/lib/review-proposal.test.mjs reviewer/chem_reviewer/web/lib/review-outcome.test.mjs reviewer/chem_reviewer/web/lib/rdkit-loader.test.mjs reviewer/chem_reviewer/web/lib/esmiles-ketcher.test.mjs reviewer/chem_reviewer/web/lib/distributed-shard.test.mjs reviewer/chem_reviewer/web/lib/product-model-defaults.test.mjs reviewer/chem_reviewer/web/lib/product-source-classifier.test.mjs reviewer/chem_reviewer/web/lib/product-submission.test.mjs reviewer/chem_reviewer/web/lib/live-chemistry-evidence.test.mjs reviewer/chem_reviewer/web/extraction-backend.test.mjs",
+    "verify:install": "node scripts/verify-install-integrity.mjs",
+    "verify:parity": "npm --prefix runtime/pi-service run verify:parity",
+    "test:recognition": "python -m unittest discover -s tests -v",
+    "prepare": "npm run package:build"
+  },
+  "license": "UNLICENSED",
+  "bin": {
+    "chemrxn": "cli/bin/chemrxn.mjs",
+    "rxnminer": "cli/bin/chemrxn.mjs"
+  },
+  "files": [
+    "README.md",
+    "setup",
+    "cli/README.md",
+    "cli/bin",
+    "cli/src",
+    "docs/assets/readme",
+    "packaging/install-integrity.json",
+    "scripts/setup-agent-skills.mjs",
+    "scripts/verify-install-integrity.mjs",
+    "harness/_external",
+    "harness/agent",
+    "harness/bootstrap.py",
+    "harness/extract.py",
+    "harness/molparser_utils",
+    "harness/product_samples",
+    "harness/requirements.txt",
+    "harness/requirements-local.txt",
+    "harness/scripts",
+    "harness/service",
+    "harness/skills/chem_extract",
+    "harness/third_party",
+    "harness/tools_product",
+    "reviewer",
+    "runtime/pi-service/README.md",
+    "runtime/pi-service/dist/src",
+    "runtime/pi-service/src",
+    "runtime/pi-service/package.json",
+    "runtime/pi-service/package-lock.json",
+    "runtime/pi-service/test/fixtures",
+    "figure_skills/ATTRIBUTION.md",
+    "figure_skills/README.md",
+    "figure_skills/agent",
+    "figure_skills/engine",
+    "figure_skills/pi-extension",
+    "figure_skills/requirements.txt",
+    "figure_skills/scripts",
+    "figure_skills/skills/reaction-extract",
+    "figure_skills/skills/reaction-verify",
+    "figure_skills/third_party",
+    "figure_skills/tools",
+    "figure_skills/tools_product",
+    "runtime/pi-service/scripts"
+  ],
+  "pi": {
+    "skills": [
+      "figure_skills/skills/reaction-extract",
+      "figure_skills/skills/reaction-verify"
+    ],
+    "extensions": [
+      "figure_skills/pi-extension/index.ts"
+    ]
+  },
+  "keywords": []
+}

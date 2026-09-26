@@ -1,0 +1,118 @@
+{
+  "name": "@rxnminer/project",
+  "version": "0.1.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "description": "Local-first chemistry extraction agent, CLI, and visual review workspace",
+  "homepage": "https://rxnminer.github.io/RxnMiner/",
+  "bugs": {
+    "url": "https://github.com/rxnminer/RxnMiner/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rxnminer/RxnMiner.git"
+  },
+  "keywords": [
+    "pi-package",
+    "agent-skill",
+    "chemistry",
+    "reaction-extraction"
+  ],
+  "type": "module",
+  "pi": {
+    "skills": [
+      "RxnMiner/figure_skills/skills/reaction-extract",
+      "RxnMiner/figure_skills/skills/reaction-verify"
+    ],
+    "extensions": [
+      "RxnMiner/figure_skills/pi-extension/index.ts"
+    ]
+  },
+  "bin": {
+    "chemrxn": "RxnMiner/cli/bin/chemrxn.mjs",
+    "rxnminer": "RxnMiner/cli/bin/chemrxn.mjs"
+  },
+  "files": [
+    "README.md",
+    "rxnminer.mjs",
+    "chemrxn",
+    "setup",
+    ".env.example",
+    "docs",
+    "RxnMiner/package.json",
+    "RxnMiner/setup",
+    "RxnMiner/cli/README.md",
+    "RxnMiner/cli/bin",
+    "RxnMiner/cli/src",
+    "RxnMiner/packaging/install-integrity.json",
+    "RxnMiner/scripts/setup-agent-skills.mjs",
+    "RxnMiner/scripts/verify-install-integrity.mjs",
+    "RxnMiner/harness/_external",
+    "RxnMiner/harness/agent",
+    "RxnMiner/harness/bootstrap.py",
+    "RxnMiner/harness/extract.py",
+    "RxnMiner/harness/molparser_utils",
+    "RxnMiner/harness/product_samples",
+    "RxnMiner/harness/requirements.txt",
+    "RxnMiner/harness/requirements-local.txt",
+    "RxnMiner/harness/scripts",
+    "RxnMiner/harness/service",
+    "RxnMiner/harness/skills/chem_extract",
+    "RxnMiner/harness/third_party",
+    "RxnMiner/harness/tools_product",
+    "RxnMiner/reviewer",
+    "RxnMiner/runtime/pi-service/README.md",
+    "RxnMiner/runtime/pi-service/dist/src",
+    "RxnMiner/runtime/pi-service/src",
+    "RxnMiner/runtime/pi-service/package.json",
+    "RxnMiner/runtime/pi-service/package-lock.json",
+    "RxnMiner/runtime/pi-service/test/fixtures",
+    "RxnMiner/figure_skills/ATTRIBUTION.md",
+    "RxnMiner/figure_skills/README.md",
+    "RxnMiner/figure_skills/agent",
+    "RxnMiner/figure_skills/engine",
+    "RxnMiner/figure_skills/pi-extension",
+    "RxnMiner/figure_skills/requirements.txt",
+    "RxnMiner/figure_skills/scripts",
+    "RxnMiner/figure_skills/skills/reaction-extract",
+    "RxnMiner/figure_skills/skills/reaction-verify",
+    "RxnMiner/figure_skills/third_party",
+    "RxnMiner/figure_skills/tools",
+    "RxnMiner/figure_skills/tools_product",
+    "RxnMiner/runtime/pi-service/scripts"
+  ],
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "build": "npm --prefix RxnMiner run build",
+    "rxnminer": "node RxnMiner/cli/bin/chemrxn.mjs",
+    "chemrxn": "node RxnMiner/cli/bin/chemrxn.mjs",
+    "package:build": "npm run build && npm run verify:install",
+    "prepare": "npm run package:build",
+    "test": "npm --prefix RxnMiner test",
+    "test:web": "npm --prefix RxnMiner run test:web",
+    "test:recognition": "npm --prefix RxnMiner run test:recognition",
+    "verify:install": "npm --prefix RxnMiner run verify:install",
+    "verify:parity": "npm --prefix RxnMiner run verify:parity",
+    "site:dev": "npm --prefix website run dev",
+    "site:check": "npm --prefix website run check",
+    "site:build": "npm --prefix website run build",
+    "site:record": "node RxnMiner/harness/tests/e2e/record-visual-demo.mjs",
+    "audit:release": "python scripts/audit_release.py"
+  },
+  "dependencies": {
+    "@earendil-works/pi-ai": "0.82.1",
+    "@earendil-works/pi-coding-agent": "0.82.1",
+    "typebox": "1.1.38",
+    "undici": "8.5.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "24.1.0",
+    "typescript": "5.8.3"
+  },
+  "overrides": {
+    "brace-expansion": "5.0.8"
+  }
+}

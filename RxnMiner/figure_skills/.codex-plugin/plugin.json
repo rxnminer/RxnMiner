@@ -1,0 +1,36 @@
+{
+  "name": "rxn-skills",
+  "version": "0.1.0",
+  "description": "Extract complete chemical reactions from a single figure with OCSR, R-group reconstruction, and validated V2 output.",
+  "author": {
+    "name": "RxnMiner contributors",
+    "url": "https://github.com/rxnminer/RxnMiner"
+  },
+  "homepage": "https://github.com/rxnminer/RxnMiner",
+  "repository": "https://github.com/rxnminer/RxnMiner",
+  "keywords": [
+    "chemistry",
+    "reaction-extraction",
+    "ocsr",
+    "smiles"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Reaction Extractor",
+    "shortDescription": "Extract reactions from chemistry figures.",
+    "longDescription": "Read one chemistry figure, use OCSR for drawn molecules, reconstruct scope reactants, and emit validated V2 reaction JSON.",
+    "developerName": "RxnMiner contributors",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/rxnminer/RxnMiner",
+    "defaultPrompt": [
+      "Extract every reaction from this chemistry figure.",
+      "Convert this substrate-scope image into V2 JSON.",
+      "Read this reaction scheme and render the extracted reactions."
+    ]
+  }
+}

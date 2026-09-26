@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "chem-extract": {
+      "command": "python3",
+      "args": [
+        "./scripts/run_chem_mcp.py"
+      ],
+      "cwd": "."
+    }
+  }
+}

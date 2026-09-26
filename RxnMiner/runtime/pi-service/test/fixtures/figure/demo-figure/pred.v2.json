@@ -1,0 +1,3855 @@
+{
+ "is_multistep": false,
+ "has_reaction_template": true,
+ "reaction_templates": [
+  {
+   "template_id": "T1",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "*/C=C/COC(=O)OCC<sep><a>0:R_purple</a>",
+     "_source": {
+      "type": "template",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "origin": "molparser"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "*/C=C/C(*)=O<sep><a>0:R_blue</a><a>5:R_brown</a>",
+     "_source": {
+      "type": "template",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "origin": "molparser"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "generic product",
+     "E-SMILES": "*C(=O)[C@@H]([C@@H](*)O)[C@@H](*)C=C",
+     "_source": {
+      "type": "template",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       1525,
+       89,
+       1734,
+       258
+      ],
+      "bbox_index": 2,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ]
+  }
+ ],
+ "selected_examples": [
+  {
+   "instance_id": "5",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "5",
+     "E-SMILES": "C=C[C@H](c1ccccc1)[C@@H](C(=O)OCC)[C@H](O)c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       119,
+       347,
+       384,
+       630
+      ],
+      "bbox_index": 3,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "R = H (5); NMR yield: 93%; Isolated yield: 84%; dr 98:2; er >99.5:0.5",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1ccccc1",
+    "R_purple": "*c1ccccc1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "93%",
+     "of": "5"
+    },
+    {
+     "role": "yield",
+     "text": "84%",
+     "of": "5"
+    },
+    {
+     "role": "dr",
+     "text": "98:2",
+     "of": "5"
+    },
+    {
+     "role": "er",
+     "text": ">99.5:0.5",
+     "of": "5"
+    }
+   ]
+  },
+  {
+   "instance_id": "6",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/c1ccc(OC)cc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "6",
+     "E-SMILES": "C=C[C@H](c1ccccc1)[C@@H](C(=O)OCC)[C@H](O)c1ccc(OC)cc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       119,
+       347,
+       384,
+       630
+      ],
+      "bbox_index": 3,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "R = 4-OMe (6); NMR yield: 84%; Isolated yield: 63%; dr 98:2; er >99:1",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1ccc(OC)cc1",
+    "R_purple": "*c1ccccc1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "84%",
+     "of": "6"
+    },
+    {
+     "role": "yield",
+     "text": "63%",
+     "of": "6"
+    },
+    {
+     "role": "dr",
+     "text": "98:2",
+     "of": "6"
+    },
+    {
+     "role": "er",
+     "text": ">99:1",
+     "of": "6"
+    }
+   ]
+  },
+  {
+   "instance_id": "7",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/c1ccc(SC)cc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "7",
+     "E-SMILES": "C=C[C@H](c1ccccc1)[C@@H](C(=O)OCC)[C@H](O)c1ccc(SC)cc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       119,
+       347,
+       384,
+       630
+      ],
+      "bbox_index": 3,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "R = 4-SMe (7); NMR yield: 73%; Isolated yield: 59%; dr 98:2; er 99:1",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1ccc(SC)cc1",
+    "R_purple": "*c1ccccc1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "73%",
+     "of": "7"
+    },
+    {
+     "role": "yield",
+     "text": "59%",
+     "of": "7"
+    },
+    {
+     "role": "dr",
+     "text": "98:2",
+     "of": "7"
+    },
+    {
+     "role": "er",
+     "text": "99:1",
+     "of": "7"
+    }
+   ]
+  },
+  {
+   "instance_id": "8",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/c1ccc(F)cc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "8",
+     "E-SMILES": "C=C[C@H](c1ccccc1)[C@@H](C(=O)OCC)[C@H](O)c1ccc(F)cc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       119,
+       347,
+       384,
+       630
+      ],
+      "bbox_index": 3,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "R = 4-F (8); NMR yield: 86%; Isolated yield: 62%; dr 96:4; er 98.5:1.5",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1ccc(F)cc1",
+    "R_purple": "*c1ccccc1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "86%",
+     "of": "8"
+    },
+    {
+     "role": "yield",
+     "text": "62%",
+     "of": "8"
+    },
+    {
+     "role": "dr",
+     "text": "96:4",
+     "of": "8"
+    },
+    {
+     "role": "er",
+     "text": "98.5:1.5",
+     "of": "8"
+    }
+   ]
+  },
+  {
+   "instance_id": "9",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/c1ccc(Cl)cc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "9",
+     "E-SMILES": "C=C[C@H](c1ccccc1)[C@@H](C(=O)OCC)[C@H](O)c1ccc(Cl)cc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       119,
+       347,
+       384,
+       630
+      ],
+      "bbox_index": 3,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "R = 4-Cl (9); NMR yield: 65%; Isolated yield: 57%; dr 98:2; er >99.5:0.5",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1ccc(Cl)cc1",
+    "R_purple": "*c1ccccc1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "65%",
+     "of": "9"
+    },
+    {
+     "role": "yield",
+     "text": "57%",
+     "of": "9"
+    },
+    {
+     "role": "dr",
+     "text": "98:2",
+     "of": "9"
+    },
+    {
+     "role": "er",
+     "text": ">99.5:0.5",
+     "of": "9"
+    }
+   ]
+  },
+  {
+   "instance_id": "10",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/c1ccccc1C",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "10",
+     "E-SMILES": "C=C[C@H](c1ccccc1)[C@@H](C(=O)OCC)[C@H](O)c1ccccc1C",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       119,
+       347,
+       384,
+       630
+      ],
+      "bbox_index": 3,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "R = 2-Me (10); NMR yield: 82%; Isolated yield: 70%; dr 98:2; er 98:2",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1ccccc1C",
+    "R_purple": "*c1ccccc1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "82%",
+     "of": "10"
+    },
+    {
+     "role": "yield",
+     "text": "70%",
+     "of": "10"
+    },
+    {
+     "role": "dr",
+     "text": "98:2",
+     "of": "10"
+    },
+    {
+     "role": "er",
+     "text": "98:2",
+     "of": "10"
+    }
+   ]
+  },
+  {
+   "instance_id": "11",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/c1ccccc1OC",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "11",
+     "E-SMILES": "C=C[C@H](c1ccccc1)[C@@H](C(=O)OCC)[C@H](O)c1ccccc1OC",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       119,
+       347,
+       384,
+       630
+      ],
+      "bbox_index": 3,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "R = 2-OMe (11); NMR yield: 68%; Isolated yield: 56%; dr 91:9; er 96:4",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1ccccc1OC",
+    "R_purple": "*c1ccccc1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "68%",
+     "of": "11"
+    },
+    {
+     "role": "yield",
+     "text": "56%",
+     "of": "11"
+    },
+    {
+     "role": "dr",
+     "text": "91:9",
+     "of": "11"
+    },
+    {
+     "role": "er",
+     "text": "96:4",
+     "of": "11"
+    }
+   ]
+  },
+  {
+   "instance_id": "12",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/c1ccc2c(c1)OCO2",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "12",
+     "E-SMILES": "C=C[C@H](c1ccccc1)[C@H](C(=O)OCC)[C@H](O)c1ccc2c(c1)OCO2",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       1518,
+       349,
+       1786,
+       675
+      ],
+      "bbox_index": 4,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "3,4-methylenedioxyphenyl alkene scope; NMR yield: 94%; Isolated yield: 73%; dr >98:2; er >99.5:0.5",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1ccc2c(c1)OCO2",
+    "R_purple": "*c1ccccc1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "94%",
+     "of": "12"
+    },
+    {
+     "role": "yield",
+     "text": "73%",
+     "of": "12"
+    },
+    {
+     "role": "dr",
+     "text": ">98:2",
+     "of": "12"
+    },
+    {
+     "role": "er",
+     "text": ">99.5:0.5",
+     "of": "12"
+    }
+   ]
+  },
+  {
+   "instance_id": "13",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/c1cccs1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "13",
+     "E-SMILES": "C=C[C@H](c1ccccc1)[C@@H](C(=O)OCC)[C@H](O)c1cccs1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       141,
+       703,
+       369,
+       977
+      ],
+      "bbox_index": 5,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "2-thienyl alkene scope; NMR yield: 60%; Isolated yield: 45%; dr 90:10; er >99.5:0.5",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1cccs1",
+    "R_purple": "*c1ccccc1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "60%",
+     "of": "13"
+    },
+    {
+     "role": "yield",
+     "text": "45%",
+     "of": "13"
+    },
+    {
+     "role": "dr",
+     "text": "90:10",
+     "of": "13"
+    },
+    {
+     "role": "er",
+     "text": ">99.5:0.5",
+     "of": "13"
+    }
+   ]
+  },
+  {
+   "instance_id": "14",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/c1cn(C(=O)OC(C)(C)C)c2ccccc12",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "14",
+     "E-SMILES": "C=C[C@H](c1ccccc1)[C@@H](C(=O)OCC)[C@H](O)c1cn(C(=O)OC(C)(C)C)c2ccccc12",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       403,
+       702,
+       673,
+       1032
+      ],
+      "bbox_index": 6,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "N-Boc indol-3-yl alkene scope; NMR yield: 77%; Isolated yield: 71%; dr 98:2; er >99:1",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1cn(C(=O)OC(C)(C)C)c2ccccc12",
+    "R_purple": "*c1ccccc1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "77%",
+     "of": "14"
+    },
+    {
+     "role": "yield",
+     "text": "71%",
+     "of": "14"
+    },
+    {
+     "role": "dr",
+     "text": "98:2",
+     "of": "14"
+    },
+    {
+     "role": "er",
+     "text": ">99:1",
+     "of": "14"
+    }
+   ]
+  },
+  {
+   "instance_id": "15",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/c1ccco1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "15",
+     "E-SMILES": "C=C[C@H](c1ccccc1)[C@@H](C(=O)OCC)[C@H](O)c1ccco1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       712,
+       703,
+       938,
+       976
+      ],
+      "bbox_index": 7,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "2-furyl alkene scope; NMR yield: 50%; Isolated yield: 34%; dr 85:15; er >99.5:0.5",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1ccco1",
+    "R_purple": "*c1ccccc1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "50%",
+     "of": "15"
+    },
+    {
+     "role": "yield",
+     "text": "34%",
+     "of": "15"
+    },
+    {
+     "role": "dr",
+     "text": "85:15",
+     "of": "15"
+    },
+    {
+     "role": "er",
+     "text": ">99.5:0.5",
+     "of": "15"
+    }
+   ]
+  },
+  {
+   "instance_id": "16",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "C/C=C/C(=O)OCC",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "16",
+     "E-SMILES": "C=C[C@H](c1ccccc1)[C@@H](C(=O)OCC)[C@@H](C)O",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       991,
+       703,
+       1220,
+       940
+      ],
+      "bbox_index": 8,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "methyl alkene scope; NMR yield: 49%; Isolated yield: 44%; dr 88:12; er >99.5:0.5",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*C",
+    "R_purple": "*c1ccccc1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "49%",
+     "of": "16"
+    },
+    {
+     "role": "yield",
+     "text": "44%",
+     "of": "16"
+    },
+    {
+     "role": "dr",
+     "text": "88:12",
+     "of": "16"
+    },
+    {
+     "role": "er",
+     "text": ">99.5:0.5",
+     "of": "16"
+    }
+   ]
+  },
+  {
+   "instance_id": "17",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/CCc1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "17",
+     "E-SMILES": "C=C[C@H](c1ccccc1)[C@@H](C(=O)OCC)[C@H](O)CCc1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       1252,
+       704,
+       1499,
+       942
+      ],
+      "bbox_index": 9,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "2-phenylethyl alkene scope; NMR yield: 65%; Isolated yield: 46%; dr 95:5; er >99.5:0.5",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*CCc1ccccc1",
+    "R_purple": "*c1ccccc1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "65%",
+     "of": "17"
+    },
+    {
+     "role": "yield",
+     "text": "46%",
+     "of": "17"
+    },
+    {
+     "role": "dr",
+     "text": "95:5",
+     "of": "17"
+    },
+    {
+     "role": "er",
+     "text": ">99.5:0.5",
+     "of": "17"
+    }
+   ]
+  },
+  {
+   "instance_id": "18",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/C1CCCCC1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "18",
+     "E-SMILES": "C=C[C@H](c1ccccc1)[C@@H](C(=O)OCC)[C@H](O)C1CCCCC1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       1526,
+       703,
+       1757,
+       1017
+      ],
+      "bbox_index": 10,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     },
+     {
+      "role": "oxidation variation",
+      "text": "H2O2 and 4 M NaOH (used for oxidation; footnote *)"
+     }
+    ]
+   ],
+   "description": "cyclohexyl alkene scope; starred oxidation variation; NMR yield: 76%; Isolated yield: 56%; dr 96:4; er 98:2",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*C1CCCCC1",
+    "R_purple": "*c1ccccc1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "76%",
+     "of": "18"
+    },
+    {
+     "role": "yield",
+     "text": "56%",
+     "of": "18"
+    },
+    {
+     "role": "dr",
+     "text": "96:4",
+     "of": "18"
+    },
+    {
+     "role": "er",
+     "text": "98:2",
+     "of": "18"
+    }
+   ]
+  },
+  {
+   "instance_id": "19",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/C=C(C)C",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "19",
+     "E-SMILES": "C=C[C@H](c1ccccc1)[C@@H](C(=O)OCC)[C@H](O)C=C(C)C",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       1780,
+       704,
+       2007,
+       1001
+      ],
+      "bbox_index": 11,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "2-methylprop-1-enyl alkene scope; NMR yield: 58%; Isolated yield: 36%; dr 87:13; er >99:1",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*C=C(C)C",
+    "R_purple": "*c1ccccc1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "58%",
+     "of": "19"
+    },
+    {
+     "role": "yield",
+     "text": "36%",
+     "of": "19"
+    },
+    {
+     "role": "dr",
+     "text": "87:13",
+     "of": "19"
+    },
+    {
+     "role": "er",
+     "text": ">99:1",
+     "of": "19"
+    }
+   ]
+  },
+  {
+   "instance_id": "20",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccc(OC)cc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "20",
+     "E-SMILES": "C=C[C@H](c1ccc(OC)cc1)[C@@H](C(=O)OCC)[C@H](O)c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       139,
+       1213,
+       371,
+       1543
+      ],
+      "bbox_index": 12,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "4-methoxyphenyl carbonate scope; NMR yield: >95%; Isolated yield: 88%; dr 96:4; er 99:1",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1ccccc1",
+    "R_purple": "*c1ccc(OC)cc1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": ">95%",
+     "of": "20"
+    },
+    {
+     "role": "yield",
+     "text": "88%",
+     "of": "20"
+    },
+    {
+     "role": "dr",
+     "text": "96:4",
+     "of": "20"
+    },
+    {
+     "role": "er",
+     "text": "99:1",
+     "of": "20"
+    }
+   ]
+  },
+  {
+   "instance_id": "21",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccc2ccccc2c1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "21",
+     "E-SMILES": "C=C[C@H](c1ccc2ccccc2c1)[C@@H](C(=O)OCC)[C@H](O)c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       532,
+       1209,
+       763,
+       1551
+      ],
+      "bbox_index": 13,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "naphthyl carbonate scope; NMR yield: 84%; Isolated yield: 80%; dr 98:2; er 98.5:1.5",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1ccccc1",
+    "R_purple": "*c1ccc2ccccc2c1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "84%",
+     "of": "21"
+    },
+    {
+     "role": "yield",
+     "text": "80%",
+     "of": "21"
+    },
+    {
+     "role": "dr",
+     "text": "98:2",
+     "of": "21"
+    },
+    {
+     "role": "er",
+     "text": "98.5:1.5",
+     "of": "21"
+    }
+   ]
+  },
+  {
+   "instance_id": "22",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccc2c(c1)OCO2",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "22",
+     "E-SMILES": "C=C[C@H](c1ccc2c(c1)OCO2)[C@@H](C(=O)OCC)[C@H](O)c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       952,
+       1214,
+       1183,
+       1544
+      ],
+      "bbox_index": 14,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "methylenedioxyphenyl carbonate scope; NMR yield: 91%; Isolated yield: 84%; dr 98:2; er 97:3",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1ccccc1",
+    "R_purple": "*c1ccc2c(c1)OCO2",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "91%",
+     "of": "22"
+    },
+    {
+     "role": "yield",
+     "text": "84%",
+     "of": "22"
+    },
+    {
+     "role": "dr",
+     "text": "98:2",
+     "of": "22"
+    },
+    {
+     "role": "er",
+     "text": "97:3",
+     "of": "22"
+    }
+   ]
+  },
+  {
+   "instance_id": "23",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccc(Br)cc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "23",
+     "E-SMILES": "C=C[C@H](c1ccc(Br)cc1)[C@@H](C(=O)OCC)[C@H](O)c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       1348,
+       1215,
+       1579,
+       1545
+      ],
+      "bbox_index": 15,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "4-bromophenyl carbonate scope; XRD-23 shown; NMR yield: 66%; Isolated yield: 63%; dr 95:5; er >99.5:0.5",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1ccccc1",
+    "R_purple": "*c1ccc(Br)cc1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "66%",
+     "of": "23"
+    },
+    {
+     "role": "yield",
+     "text": "63%",
+     "of": "23"
+    },
+    {
+     "role": "dr",
+     "text": "95:5",
+     "of": "23"
+    },
+    {
+     "role": "er",
+     "text": ">99.5:0.5",
+     "of": "23"
+    }
+   ]
+  },
+  {
+   "instance_id": "24",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccc(F)cc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "24",
+     "E-SMILES": "C=C[C@H](c1ccc(F)cc1)[C@@H](C(=O)OCC)[C@H](O)c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       139,
+       1690,
+       371,
+       2024
+      ],
+      "bbox_index": 16,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "4-fluorophenyl carbonate scope; NMR yield: 79%; Isolated yield: 62%; dr 95:5; er 98:2",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1ccccc1",
+    "R_purple": "*c1ccc(F)cc1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "79%",
+     "of": "24"
+    },
+    {
+     "role": "yield",
+     "text": "62%",
+     "of": "24"
+    },
+    {
+     "role": "dr",
+     "text": "95:5",
+     "of": "24"
+    },
+    {
+     "role": "er",
+     "text": "98:2",
+     "of": "24"
+    }
+   ]
+  },
+  {
+   "instance_id": "25",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccccc1OC",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "25",
+     "E-SMILES": "C=C[C@H](c1ccccc1OC)[C@@H](C(=O)OCC)[C@H](O)c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       515,
+       1714,
+       777,
+       1999
+      ],
+      "bbox_index": 17,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "2-methoxyphenyl carbonate scope; NMR yield: 48%; Isolated yield: 34%; dr 88:13; er >99:1; b/l 75:25",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1ccccc1",
+    "R_purple": "*c1ccccc1OC",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "48%",
+     "of": "25"
+    },
+    {
+     "role": "yield",
+     "text": "34%",
+     "of": "25"
+    },
+    {
+     "role": "dr",
+     "text": "88:13",
+     "of": "25"
+    },
+    {
+     "role": "er",
+     "text": ">99:1",
+     "of": "25"
+    },
+    {
+     "role": "b/l",
+     "text": "75:25",
+     "of": "25"
+    }
+   ]
+  },
+  {
+   "instance_id": "26",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1cccs1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "26",
+     "E-SMILES": "C=C[C@H](c1cccs1)[C@@H](C(=O)OCC)[C@H](O)c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       951,
+       1724,
+       1184,
+       1988
+      ],
+      "bbox_index": 18,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "2-thienyl carbonate scope; NMR yield: 79%; Isolated yield: 76%; dr 95:5; er >99:1",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1ccccc1",
+    "R_purple": "*c1cccs1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "79%",
+     "of": "26"
+    },
+    {
+     "role": "yield",
+     "text": "76%",
+     "of": "26"
+    },
+    {
+     "role": "dr",
+     "text": "95:5",
+     "of": "26"
+    },
+    {
+     "role": "er",
+     "text": ">99:1",
+     "of": "26"
+    }
+   ]
+  },
+  {
+   "instance_id": "27",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCOC(=O)/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "27",
+     "E-SMILES": "C=C[C@H](/C=C/c1ccccc1)[C@@H](C(=O)OCC)[C@H](O)c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       1346,
+       1720,
+       1579,
+       1992
+      ],
+      "bbox_index": 19,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "(E)-styryl carbonate scope; NMR yield: 70%; Isolated yield: 66%; dr 94:6; er 96.5:3.5",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1ccccc1",
+    "R_purple": "*/C=C/c1ccccc1",
+    "R_brown": "*OCC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "70%",
+     "of": "27"
+    },
+    {
+     "role": "yield",
+     "text": "66%",
+     "of": "27"
+    },
+    {
+     "role": "dr",
+     "text": "94:6",
+     "of": "27"
+    },
+    {
+     "role": "er",
+     "text": "96.5:3.5",
+     "of": "27"
+    }
+   ]
+  },
+  {
+   "instance_id": "28",
+   "reactants": [
+    {
+     "identifier": "p0",
+     "E-SMILES": "CCOC(=O)OC/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       326,
+       93,
+       563,
+       252
+      ],
+      "bbox_index": 0,
+      "_bbox_inherited": "template"
+     },
+     "amount": "1.0 equiv"
+    },
+    {
+     "identifier": "p1",
+     "E-SMILES": "CCN(CC)C(=O)/C=C/c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "origin": "agent",
+      "bbox": [
+       681,
+       125,
+       858,
+       225
+      ],
+      "bbox_index": 1,
+      "_bbox_inherited": "template"
+     },
+     "amount": "2.0 equiv"
+    }
+   ],
+   "products": [
+    {
+     "identifier": "28",
+     "E-SMILES": "C=C[C@H](c1ccccc1)[C@@H](C(=O)N(CC)CC)[C@H](O)c1ccccc1",
+     "_source": {
+      "type": "image_structure",
+      "agent": "skill",
+      "identifier_explicit": true,
+      "bbox": [
+       1700,
+       1714,
+       1947,
+       2001
+      ],
+      "bbox_index": 20,
+      "origin": "molparser"
+     }
+    }
+   ],
+   "conditions": [
+    [
+     {
+      "role": "catalyst",
+      "text": "5 mol% [Ir-(R,R,R)]"
+     },
+     {
+      "role": "catalyst",
+      "text": "3 mol% Cu(MeCN)4PF6"
+     },
+     {
+      "role": "ligand",
+      "text": "6 mol% (S,S)-FOXAP"
+     },
+     {
+      "role": "reagent",
+      "text": "(Bpin)2 (1.5 equiv)"
+     },
+     {
+      "role": "base",
+      "text": "LiOt-Bu (1.3 equiv)"
+     },
+     {
+      "role": "solvent",
+      "text": "THF (0.07 M)"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "time",
+      "text": "16 h"
+     },
+     {
+      "role": "operation",
+      "text": "then"
+     },
+     {
+      "role": "oxidant",
+      "text": "NaBO3·4H2O"
+     },
+     {
+      "role": "solvent",
+      "text": "THF:H2O (1:1) (0.1 M)"
+     },
+     {
+      "role": "time",
+      "text": "12 h"
+     },
+     {
+      "role": "temperature",
+      "text": "rt"
+     },
+     {
+      "role": "scale",
+      "text": "0.1 mmol"
+     },
+     {
+      "role": "note",
+      "text": "Yields are the average of two independent runs; NMR yields and dr were measured from the unpurified reaction mixture prior to oxidation of the C–B bond."
+     }
+    ]
+   ],
+   "description": "N,N-diethyl amide carbonyl scope; NMR yield: 69%; Isolated yield: 51%; dr 95:5; er 99:1",
+   "inherit_template": "T1",
+   "markush_enumeration": {
+    "R_blue": "*c1ccccc1",
+    "R_purple": "*c1ccccc1",
+    "R_brown": "*N(CC)CC"
+   },
+   "metrics": [
+    {
+     "role": "NMR yield",
+     "text": "69%",
+     "of": "28"
+    },
+    {
+     "role": "yield",
+     "text": "51%",
+     "of": "28"
+    },
+    {
+     "role": "dr",
+     "text": "95:5",
+     "of": "28"
+    },
+    {
+     "role": "er",
+     "text": "99:1",
+     "of": "28"
+    }
+   ]
+  }
+ ],
+ "reaction_graph": [],
+ "_extractor": "chem_extract_skill"
+}

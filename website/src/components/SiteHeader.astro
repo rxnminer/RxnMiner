@@ -1,0 +1,65 @@
+---
+import { assetPath } from '../data/site';
+import { localizedPath, navigation, repositoryUrl, type SiteLocale, type SiteSection } from '../data/site';
+
+interface Props {
+  locale: SiteLocale;
+  active: SiteSection;
+}
+
+const { locale, active } = Astro.props;
+const labels = navigation[locale];
+const links: Array<{ key: SiteSection; href: string }> = [
+  { key: 'home', href: '/' },
+  { key: 'demos', href: '/demos/' },
+  { key: 'benchmark', href: '/benchmark/' },
+];
+---
+
+<header class="site-header" data-site-header>
+  <div class="site-header__inner">
+    <a class="brand" href={localizedPath(locale, '/')} aria-label="RxnMiner home">
+      <img src={assetPath("/assets/readme/chemrxn-mark.svg")} width="32" height="32" alt="" />
+      <span>RxnMiner</span>
+    </a>
+
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      data-open-label="Open navigation"
+      data-close-label="Close navigation"
+    >
+      <span class="sr-only">Open navigation</span>
+      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+
+    <nav id="primary-navigation" class="primary-nav" aria-label="Primary">
+      {
+        links.map(({ key, href }) => (
+          <a href={localizedPath(locale, href)} aria-current={active === key ? 'page' : undefined}>
+            {labels[key]}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="site-header__tools">
+      <a class="github-link" href={repositoryUrl}>GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector('[data-site-header]');
+  const toggle = header?.querySelector<HTMLButtonElement>('.nav-toggle');
+  const navigation = header?.querySelector<HTMLElement>('.primary-nav');
+  toggle?.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    const label = toggle.querySelector<HTMLElement>('.sr-only');
+    if (label) label.textContent = !isOpen ? (toggle.dataset.closeLabel ?? 'Close navigation') : (toggle.dataset.openLabel ?? 'Open navigation');
+    navigation?.toggleAttribute('data-open', !isOpen);
+  });
+</script>

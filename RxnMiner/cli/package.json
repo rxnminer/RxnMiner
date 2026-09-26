@@ -1,0 +1,16 @@
+{
+  "name": "@chemrxn/cli",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local-first ChemRxn product launcher",
+  "type": "module",
+  "bin": {
+    "chemrxn": "./bin/chemrxn.mjs"
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  }
+}

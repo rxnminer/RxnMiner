@@ -1,0 +1,7 @@
+Model icons: https://github.com/lobehub/lobe-icons
+DeepSeek: deepseek-color.svg
+GLM: zhipu-color.svg
+Kimi: kimi-color.svg
+Doubao: doubao-color.svg
+Source directory: packages/static-svg/icons
+License: LICENSE-lobe-icons.txt

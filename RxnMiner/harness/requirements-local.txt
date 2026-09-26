@@ -1,0 +1,20 @@
+# Local npm product: chemistry tools + Web/reviewer runtime.
+# Model inference is handled by the Pi SDK, so Vertex/Google model SDKs are not installed here.
+rdkit
+numpy
+pandas
+networkx
+lxml
+requests
+pydantic
+Pillow
+matplotlib
+cairosvg
+py2opsin
+fastapi
+uvicorn
+python-multipart
+cryptography
+pymupdf==1.26.5
+
+uniparser-tools @ https://github.com/dptech-corp/UniParser-Tools/archive/2ba65f71b3c9bdf62c7db413f87686211ad5fdeb.zip

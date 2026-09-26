@@ -1,0 +1,19 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import VideoFeature from './VideoFeature.astro';
+import demoMedia from '../../demo-media.json';
+import type { SiteLocale } from '../data/site';
+interface Props { locale: SiteLocale }
+const { locale } = Astro.props;
+---
+<SiteLayout locale={locale} active="demos" title="The visual workspace demo" description="A short English walkthrough of the RxnMiner visual reaction workspace.">
+  <div class="page-shell">
+    <header class="page-intro"><p class="eyebrow">RXNMINER / VISUAL WORKSPACE</p><h1>One visual demo, from source to review.</h1><p>A recording of the visual workspace shown on the home page: source figure, detected structures, reaction assembly, and review in the RxnMiner palette.</p></header>
+    <div class="page-content"><VideoFeature locale={locale} title="RxnMiner visual workspace" duration={demoMedia.duration} summary="A focused walkthrough of the visual extraction page and its review-ready reaction output." />
+      <section class="attribution"><p class="eyebrow">DEMO SCOPE</p><h2>One focused walkthrough</h2><p>This recording follows the visual extraction and review flow. The benchmark page reports model comparisons and scoring methodology.</p></section>
+    </div>
+  </div>
+</SiteLayout>
+<style>
+.attribution{padding:5rem 0 1rem;border-top:1px solid var(--line)}.attribution h2{margin:0 0 1rem;font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem)}.attribution p:last-child{max-width:720px;color:var(--muted);line-height:1.7}
+</style>

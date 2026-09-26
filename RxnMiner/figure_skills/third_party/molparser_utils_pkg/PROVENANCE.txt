@@ -1,0 +1,35 @@
+Vendored copy of the MolParser team's molparser_utils library.
+
+Source: git@git.dp.tech:molparser/molparserutils
+Commit: 65de27b8e459ee40d7f26d5337135141edff0747  (master)
+Upstream date: 2026-05-19
+Vendored: 2026-08-11
+Excluded: .git, __pycache__, *.egg-info, and skills/ which is vendored
+          separately at .agents/skills/molparser-extended-smiles/
+
+Read-only. Do not edit here to diverge silently; fix upstream and re-vendor.
+
+WHY VENDORED
+  git.dp.tech is not reachable outside the internal network. Verified from a
+  laptop on 2026-08-11: ssh to git.dp.tech port 22 times out. Without a copy in
+  this repo, anyone without server access cannot read or run the library at all.
+
+THE DOUBLE-IMPORT HAZARD, READ BEFORE USING
+  Unlike the vendored molecular_assembly, this package is also pip-installed in
+  editable mode on dp_server2 at /path/to/data
+  Where both exist, the installed one usually wins and this directory is then
+  dead weight that looks live. That is worse than not vendoring, because a fix
+  applied here would appear to do nothing.
+
+  Check which copy is actually loaded before trusting any behavior:
+
+      python3 -c "import molparser_utils; print(molparser_utils.__file__)"
+
+  Resolve to exactly one source per environment and say which in the run notes.
+
+UPSTREAM IS MID-REWRITE
+  The 2.0 parser rewrite lives on the unmerged branch origin/v2, one commit
+  ahead of master: translator.py becomes refactor.py, with new models.py,
+  syntax.py and constants.py, and abbrevs.csv rewritten across 25,278 lines.
+  So the Extended-SMILES 2.0 specification is ahead of this code. A construct
+  the spec defines may not parse here. Re-vendor when v2 merges.

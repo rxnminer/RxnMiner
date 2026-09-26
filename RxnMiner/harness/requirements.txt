@@ -1,0 +1,26 @@
+# Core extraction (chem_harness agent + fhr R-group engine)
+rdkit                # any recent; NOTE: the frozen SCORER (score_v2) needs rdkit==2022.9.5 + numpy==1.26.4
+numpy
+pandas
+networkx
+lxml
+requests
+pydantic
+Pillow
+matplotlib
+cairosvg            # RDKit SVG -> the render_v2 / report visuals
+py2opsin            # the opsin() tool: IUPAC name -> structure (stereo ground truth)
+# Gemini backend (Google Vertex AI). BYO service-account creds (see README).
+vertexai                       # the Vertex SDK (any recent); the API surface used lives in aiplatform
+google-cloud-aiplatform>=1.135 # >=1.135 for the gemini-3.1-pro tool-use serialization the harness relies on
+google-genai                   # BYO path: your OWN Gemini AIza key (--provider byo-gemini); separate from Vertex
+# Product UI (service/harness_server.py) + chem_reviewer viewer
+fastapi
+uvicorn
+python-multipart
+cryptography        # service/harness_server.py session signing
+pymupdf             # 'fitz' — chem_reviewer page render (figures use PNG directly, PDF path optional)
+# Test suite (`pytest tests/` — the offline smoke gate; see README "Verify your install")
+pytest
+
+uniparser-tools @ https://github.com/dptech-corp/UniParser-Tools/archive/2ba65f71b3c9bdf62c7db413f87686211ad5fdeb.zip

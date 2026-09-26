@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<title>Pred vs GT — side-by-side</title>
+<link rel="stylesheet" href="/static/styles.css">
+<script src="/static/lib/RDKit_minimal.js"></script>
+<style>
+  :root {
+    --bg:#FAF7F2; --card:#fff; --border:#E8E0D2; --border-soft:#F0EADC;
+    --ink:#1F1E1C; --muted:#8A8275;
+    --orange:#D97757; --orange-tint:#FBF1EC;
+    --reactant:#4A6DB5; --reactant-tint:rgba(74,109,181,.08);
+    --product:#C96342; --product-tint:rgba(201,99,66,.10);
+    --condition:#7B4FA7; --condition-tint:rgba(123,79,167,.08);
+    --tmpl:#A87332; --tmpl-tint:rgba(168,115,50,.10);
+    --pred:#4A6B85; --gt:#2D7D5C;
+    --ok:#2D7D5C; --ok-tint:#E8F2EB;
+    --warn:#B47A2E; --warn-tint:#F8EFD9;
+    --err:#B14545; --err-tint:#FAE9E9;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,"PingFang SC",sans-serif;
+         background:var(--bg); color:var(--ink); font-size:13px; }
+  .topbar { padding:8px 18px; background:#fff; border-bottom:1px solid var(--border);
+            display:flex; gap:12px; align-items:center; flex-wrap:wrap;
+            position:sticky; top:0; z-index:10; }
+  .topbar h1 { font-family:'Fraunces',Georgia,serif; font-weight:500; font-size:16px; margin:0; }
+  .topbar a { color:var(--orange); text-decoration:none; font-size:13px; }
+  .topbar a:hover { text-decoration:underline; }
+  .topbar .pill { padding:2px 8px; border-radius:10px; font-size:11.5px;
+                  font-family:'JetBrains Mono',monospace; background:var(--border-soft);}
+  .topbar .pill-pred { background:var(--reactant-tint); color:var(--pred); }
+  .topbar .pill-gt { background:var(--ok-tint); color:var(--gt); }
+  .topbar .pill-match-ok { background:var(--ok-tint); color:var(--ok); font-weight:600;}
+  .topbar .pill-match-partial { background:var(--warn-tint); color:var(--warn); font-weight:600;}
+  .topbar .pill-match-bad { background:var(--err-tint); color:var(--err); font-weight:600;}
+  .topbar .nav-btn { padding:3px 10px; border:1px solid var(--border); border-radius:5px;
+                      font-size:12px; background:#fff; cursor:pointer; }
+  .topbar .nav-btn:hover { background:var(--orange-tint); }
+  .topbar .nav-btn:disabled { opacity:.4; cursor:default; }
+  .topbar .flag-btn { padding:3px 10px; border:1px solid var(--err); border-radius:5px;
+                      font-size:12px; background:#fff; color:var(--err); cursor:pointer;
+                      font-family:-apple-system,sans-serif; }
+  .topbar .flag-btn:hover { background:var(--err-tint); }
+  .topbar .flag-btn.flagged { background:var(--err); color:#fff; }
+
+  .anchor-row { padding:6px 18px; background:#fff; border-bottom:1px solid var(--border); }
+  .anchor-row img { max-height:240px; max-width:100%; border:1px solid var(--border); border-radius:5px; }
+
+  .section-head { padding:8px 18px 0; font-family:'Fraunces',serif; font-weight:500;
+                  font-size:14px; color:#46423B; display:flex; align-items:center; gap:8px;}
+  .section-head .sub { font-size:11px; color:var(--muted); font-weight:400; font-family:-apple-system,sans-serif;}
+
+  .compare-grid { display:grid; grid-template-columns: 1fr 1fr; gap:12px; padding:8px 18px; }
+  .col-head { padding:6px 12px; background:#fff; border:1px solid var(--border);
+              border-bottom:none; border-radius:8px 8px 0 0;
+              font-weight:600; font-size:13px;
+              display:flex; align-items:center; gap:10px; }
+  .col-head.pred { color:var(--pred); }
+  .col-head.gt { color:var(--gt); }
+  .col-head .count { font-size:11px; color:var(--muted); font-weight:400; }
+
+  .ex-card { background:#fff; border:1px solid var(--border); border-radius:0;
+             margin-bottom:0; padding:0; }
+  .ex-card + .ex-card { border-top:none; }
+  .ex-card:last-child { border-radius:0 0 8px 8px; }
+  .ex-card.tmpl { background:#FFFCF6; }
+  .ex-head { padding:5px 12px; background:var(--bg); border-bottom:1px solid var(--border-soft);
+             font-size:11.5px; color:#46423B; display:flex; gap:8px; align-items:center;}
+  .ex-card.tmpl .ex-head { background:var(--tmpl-tint); }
+  .ex-head .ex-id { font-family:'JetBrains Mono',monospace; font-weight:700; }
+  .ex-head .ex-id.pred { color:var(--pred); }
+  .ex-head .ex-id.gt { color:var(--gt); }
+  .ex-head .ex-id.tmpl { color:var(--tmpl); }
+  .ex-head .yield { padding:1px 6px; background:var(--ok-tint); color:var(--ok);
+                    border-radius:4px; font-weight:600; }
+  .ex-head .match-pill { padding:1px 6px; border-radius:4px; font-weight:600; font-size:10.5px;
+                         font-family:'JetBrains Mono',monospace; }
+  .ex-head .match-ok { background:var(--ok-tint); color:var(--ok); }
+  .ex-head .match-partial { background:var(--warn-tint); color:var(--warn); }
+  .ex-head .match-miss { background:var(--err-tint); color:var(--err); }
+  .ex-head .markush { font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--muted);}
+
+  .rxn-line { padding:8px 12px; display:flex; align-items:center; gap:4px;
+              flex-wrap:wrap; }
+  .mol-mini { display:inline-flex; flex-direction:column; align-items:center;
+              border:1px solid var(--border); border-radius:5px; padding:2px 4px;
+              background:#fff; min-width:100px; }
+  .mol-mini.r { border-color:var(--reactant); }
+  .mol-mini.p { border-color:var(--product); }
+  .mol-mini.t { border-color:var(--tmpl); background:#FFFCF6; }
+  .mol-mini .canvas-wrap { width:110px; height:75px; display:block;
+                            background:var(--bg); }
+  .mol-mini canvas, .mol-mini svg { width:110px; height:75px; display:block; }
+  .mol-mini .id { font-size:10px; font-family:'JetBrains Mono',monospace;
+                  font-weight:600; color:var(--muted); }
+  .mol-mini .smi { font-size:9.5px; font-family:'JetBrains Mono',monospace;
+                   max-width:108px; word-break:break-all; max-height:24px;
+                   overflow:hidden; color:#46423B; }
+  .plus { font-size:17px; color:var(--muted); padding:0 3px; }
+  .arrow { display:inline-flex; flex-direction:column; align-items:center;
+           padding:0 4px; min-width:110px; }
+  .arrow .conds-top, .arrow .conds-bot { font-size:10px; font-family:'JetBrains Mono',monospace;
+                                          text-align:center; max-width:130px; word-wrap:break-word; }
+  .arrow .conds-top { color:#46423B; margin-bottom:1px; }
+  .arrow .conds-bot { color:var(--muted); margin-top:1px; }
+  .arrow .line { width:100%; height:14px;
+                  background-image:linear-gradient(currentColor,currentColor),
+                                    linear-gradient(45deg,transparent 50%,currentColor 50%),
+                                    linear-gradient(-45deg,transparent 50%,currentColor 50%);
+                  background-size: calc(100% - 6px) 1px, 7px 7px, 7px 7px;
+                  background-repeat:no-repeat;
+                  background-position: 0 50%, 100% 0, 100% 100%;
+                  color:#46423B; }
+
+  .raw-section { padding:14px 18px; background:#fff; border-top:1px solid var(--border);
+                  margin-top:14px; }
+  .raw-section h2 { font-family:'Fraunces',serif; font-weight:500; margin:0 0 8px; font-size:15px;}
+  .raw-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .raw-grid pre { background:var(--bg); border:1px solid var(--border); border-radius:5px;
+                  padding:8px; font-size:10.5px; max-height:340px; overflow:auto;
+                  font-family:'JetBrains Mono',ui-monospace,monospace; margin:0; }
+  .raw-grid h3 { font-family:'Fraunces',serif; font-weight:500; font-size:13px; margin:0 0 5px; }
+  .empty { padding:14px 16px; color:var(--muted); font-style:italic; text-align:center; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="/static/">← chem_reviewer</a>
+  <button class="nav-btn" id="prevBtn" title="Previous fig">← prev</button>
+  <button class="nav-btn" id="nextBtn" title="Next fig">next →</button>
+  <h1 id="title">…</h1>
+  <span class="pill" id="posPill">…</span>
+  <span class="pill pill-pred">PRED · agent</span>
+  <span class="pill pill-gt">GT · ChemEAGLE</span>
+  <span class="pill" id="matchPill">…</span>
+  <button class="flag-btn" id="flagBtn" title="Mark this fig's GT as suspect (saves to PDF/&lt;slug&gt;/gt_bug_flags.json)">⚑ flag GT bug</button>
+  <span style="margin-left:auto;">
+    <a id="rawPredLink" target="_blank">raw_pred.json</a> ·
+    <a id="rawGtLink" target="_blank">raw_gt.json</a>
+  </span>
+</div>
+
+<div class="anchor-row" id="anchorRow">
+  <img id="anchorImg" alt="figure"/>
+</div>
+
+<div class="section-head">
+  Reaction templates <span class="sub">— Markush abstractions (R-groups visible as <code>*</code> / <code>&lt;a&gt;</code>)</span>
+</div>
+<div class="compare-grid">
+  <div>
+    <div class="col-head pred">PRED templates <span class="count" id="predTmplCount">…</span></div>
+    <div id="predTmplList"></div>
+  </div>
+  <div>
+    <div class="col-head gt">GT templates <span class="count" id="gtTmplCount">…</span></div>
+    <div id="gtTmplList"></div>
+  </div>
+</div>
+
+<div class="section-head">
+  Selected examples <span class="sub">— concrete reaction instances (one per R-table row)</span>
+</div>
+<div class="compare-grid">
+  <div>
+    <div class="col-head pred">PRED examples <span class="count" id="predCount">…</span></div>
+    <div id="predList"></div>
+  </div>
+  <div>
+    <div class="col-head gt">GT examples <span class="count" id="gtCount">…</span></div>
+    <div id="gtList"></div>
+  </div>
+</div>
+
+<div class="raw-section" id="stagesSection">
+  <h2>🔬 Extraction stages <span id="stagesSource" style="font-size:0.7em;color:#888;font-weight:normal;"></span></h2>
+  <p style="color:#666; font-size:0.85em; margin-top:-0.3em;">
+    Click each row to inspect the agent's intermediate stage file. Stages are read live from the
+    agent's <code>work_dir</code> if available, else from a frozen snapshot at <code>PDF/&lt;slug&gt;/_stages/</code>.
+  </p>
+  <div id="stagesList" style="margin-top:0.6em;">loading…</div>
+</div>
+
+<div class="raw-section">
+  <h2>📋 Raw inspect (JSON)</h2>
+  <div class="raw-grid">
+    <div>
+      <h3 style="color:var(--pred);">raw_pred.json (agent's chem-finalize output)</h3>
+      <pre id="rawPredPre">loading…</pre>
+    </div>
+    <div>
+      <h3 style="color:var(--gt);">raw_gt.json (ChemEAGLE GT row)</h3>
+      <pre id="rawGtPre">loading…</pre>
+    </div>
+  </div>
+</div>
+
+<script>
+const params = new URLSearchParams(location.search);
+const SLUG = params.get('slug');
+const TID = params.get('tid') || '1';
+let RDKit = null;
+let SLUG_LIST = [];   // for prev/next nav
+
+// Run load() IMMEDIATELY — don't wait for RDKit. If RDKit fails or is slow,
+// molecules show as text-only SMILES (still useful for diff inspection).
+// When RDKit eventually loads, re-render every mol-mini in place.
+load().catch(err => {
+  console.error('[compare] load() failed:', err);
+  document.getElementById('title').textContent = 'load failed — see console';
+});
+
+function rerenderMolecules() {
+  if (!RDKit) return;
+  document.querySelectorAll('.mol-mini').forEach(card => {
+    const smi = card.dataset.smi;
+    if (!smi) return;
+    const wrap = card.querySelector('.canvas-wrap');
+    if (!wrap) return;
+    wrap.innerHTML = molSvg(smi);
+  });
+}
+
+if (window.initRDKitModule) {
+  window.initRDKitModule()
+    .then(m => { RDKit = m; rerenderMolecules(); console.log('[compare] RDKit ready'); })
+    .catch(err => console.warn('[compare] RDKit init failed (text-only mode):', err));
+} else {
+  console.warn('[compare] window.initRDKitModule unavailable — RDKit script blocked by network?');
+}
+
+function strip(smi) {
+  if (!smi) return '';
+  let base = smi.split('<sep>')[0];
+  // Don't strip <a>/<r>/<x> for template SMILES — we want to SHOW the Markush positions.
+  // Only strip <sep>. RDKit can render * and [*N] just fine.
+  return base.trim();
+}
+function molSvg(smi, w=110, h=75) {
+  const s = strip(smi);
+  if (!s || !RDKit) return '';
+  // RDKit can't parse <a>...</a> embedded annotations. Strip them for rendering only.
+  const renderable = s.replace(/<[arxARX]>[^<]*<\/[arxARX]>/g, '');
+  try {
+    const mol = RDKit.get_mol(renderable);
+    if (!mol) return '<svg width="110" height="75"><text x="50%" y="50%" text-anchor="middle" font-size="10" fill="#B14545">invalid</text></svg>';
+    const svg = mol.get_svg(w, h);
+    mol.delete();
+    return svg;
+  } catch (e) {
+    return '<svg width="110" height="75"><text x="50%" y="50%" text-anchor="middle" font-size="10" fill="#B14545">err</text></svg>';
+  }
+}
+function escape(s) {
+  if (s == null) return '';
+  return String(s).replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+}
+
+function renderConditions(condsListOfLists) {
+  if (!condsListOfLists || !condsListOfLists.length) return {top:'—', bot:'', yield:''};
+  const flat = [];
+  for (const step of condsListOfLists) for (const c of (step||[])) flat.push(c);
+  const TOP = ['reagent','catalyst','additive','oxidant','base'];
+  const top = [], bot = [], yld = [];
+  for (const c of flat) {
+    const role = (c.role||'').toLowerCase();
+    const txt = c.text || '';
+    if (role === 'yield') yld.push(txt);
+    else if (TOP.includes(role)) top.push(role + ':' + txt);
+    else if (txt) bot.push(role + ':' + txt);
+  }
+  return {top: top.join(', ')||'—', bot: bot.join(' · '), yield: yld.join(', ')};
+}
+
+function molCard(mol, role) {
+  const smi = mol['E-SMILES'] || mol.smiles || '';
+  const id = mol.identifier || '';
+  const placeholder = RDKit ? molSvg(smi) : `<svg width="110" height="75"><text x="50%" y="55%" text-anchor="middle" font-size="9" fill="#8A8275" font-family="monospace">${escape(strip(smi).slice(0,18))}</text></svg>`;
+  return `<div class="mol-mini ${role}" data-smi="${escape(smi)}">
+    <div class="canvas-wrap">${placeholder}</div>
+    <div class="id">${escape(id)}</div>
+    <div class="smi" title="${escape(strip(smi))}">${escape(strip(smi).slice(0,32))}</div>
+  </div>`;
+}
+
+function compareKey(smi) {
+  // Canon-ish key for Jaccard match: strip <sep>, strip <a>tags, drop stereo @/\
+  let s = strip(smi).replace(/<[arxARX]>[^<]*<\/[arxARX]>/g, '');
+  return s.replace(/[@\/\\]/g, '');
+}
+
+function rxnSets(rxn) {
+  return {
+    R: new Set((rxn.reactants||[]).map(m => compareKey(m['E-SMILES']||m.smiles||''))),
+    P: new Set((rxn.products||[]).map(m => compareKey(m['E-SMILES']||m.smiles||''))),
+  };
+}
+function jaccard(a,b) {
+  if (!a.size && !b.size) return 1;
+  if (!a.size || !b.size) return 0;
+  let inter=0; for (const x of a) if (b.has(x)) inter++;
+  return inter/(a.size+b.size-inter);
+}
+function bestGtMatch(predRxn, gtList) {
+  // For pred row, find GT row with max combined (jac_R + jac_P)/2; require both >= 0.5 for OK.
+  let bestI=-1, bestScore=0, bestJacR=0, bestJacP=0;
+  const ps = rxnSets(predRxn);
+  for (let i=0;i<gtList.length;i++) {
+    const gs = rxnSets(gtList[i]);
+    const jR = jaccard(ps.R, gs.R), jP = jaccard(ps.P, gs.P);
+    const score = (jR + jP) / 2;
+    if (score > bestScore) { bestScore = score; bestI = i; bestJacR = jR; bestJacP = jP; }
+  }
+  return {gtIdx: bestI, score: bestScore, jacR: bestJacR, jacP: bestJacP};
+}
+
+function rxnHtml(rxn, source, idx, matchInfo) {
+  const C = renderConditions(rxn.conditions);
+  const reactants = rxn.reactants || [];
+  const products = rxn.products || [];
+  const ME = rxn.markush_enumeration || {};
+  const meStr = Object.entries(ME).map(([k,v])=>`${k}=${v}`).join(', ');
+  const isTmpl = source === 'tmpl-pred' || source === 'tmpl-gt';
+  const srcLabel = source==='pred' ? 'P' : (source==='gt' ? 'G' : (source==='tmpl-pred' ? 'TP' : 'TG'));
+  const idClass = source.includes('tmpl') ? 'tmpl' : source;
+
+  let matchHtml = '';
+  if (matchInfo && source === 'pred') {
+    const {score, jacR, jacP} = matchInfo;
+    if (score >= 0.9) matchHtml = `<span class="match-pill match-ok">✓ ${(score*100|0)}%</span>`;
+    else if (score >= 0.5) matchHtml = `<span class="match-pill match-partial">~ R${(jacR*100|0)}/P${(jacP*100|0)}%</span>`;
+    else if (score > 0) matchHtml = `<span class="match-pill match-miss">✗ R${(jacR*100|0)}/P${(jacP*100|0)}%</span>`;
+    else matchHtml = `<span class="match-pill match-miss">✗ no match</span>`;
+  }
+
+  let html = `<div class="ex-card ${isTmpl ? 'tmpl' : ''}">
+    <div class="ex-head">
+      <span class="ex-id ${idClass}">${srcLabel}#${idx+1}</span>
+      ${rxn.instance_id ? `<span style="color:var(--muted);font-size:10.5px;">${escape(rxn.instance_id)}</span>` : ''}
+      ${rxn.template_id ? `<span style="color:var(--tmpl);font-size:10.5px;font-family:JetBrains Mono,monospace;">${escape(rxn.template_id)}</span>` : ''}
+      ${meStr ? `<span class="markush">${escape(meStr)}</span>` : ''}
+      ${C.yield ? `<span class="yield">${escape(C.yield)}</span>` : ''}
+      ${matchHtml}
+      <span style="color:var(--muted);font-size:10.5px;margin-left:auto;">
+        ${reactants.length}R · ${products.length}P · ${(rxn.conditions||[]).reduce((n,s)=>n+(s||[]).length,0)}c
+      </span>
+    </div>
+    <div class="rxn-line">`;
+  const molRole = isTmpl ? 't' : 'r';
+  reactants.forEach((r, i) => {
+    if (i > 0) html += '<span class="plus">+</span>';
+    html += molCard(r, molRole);
+  });
+  if (!reactants.length) html += '<span style="color:var(--muted);font-size:11px;">(no reactant)</span>';
+  html += `<div class="arrow">
+    <div class="conds-top">${escape(C.top)}</div>
+    <div class="line"></div>
+    <div class="conds-bot">${escape(C.bot)}</div>
+  </div>`;
+  const prodRole = isTmpl ? 't' : 'p';
+  products.forEach((p, i) => {
+    if (i > 0) html += '<span class="plus">+</span>';
+    html += molCard(p, prodRole);
+  });
+  if (!products.length) html += '<span style="color:var(--muted);font-size:11px;">(no product)</span>';
+  html += `</div></div>`;
+  return html;
+}
+
+function matchCount(pred, gt) {
+  const pSets = pred.map(rxnSets);
+  const gSets = gt.map(rxnSets);
+  const matched = new Set();
+  let tp = 0;
+  for (const p of pSets) {
+    for (let gi=0; gi<gSets.length; gi++) {
+      if (matched.has(gi)) continue;
+      if (jaccard(p.R, gSets[gi].R) >= 0.5 && jaccard(p.P, gSets[gi].P) >= 0.5) {
+        matched.add(gi); tp++; break;
+      }
+    }
+  }
+  return tp;
+}
+
+async function load() {
+  document.getElementById('title').textContent = SLUG;
+  document.getElementById('rawPredLink').href = `/data/${SLUG}/raw_pred.json`;
+  document.getElementById('rawGtLink').href = `/data/${SLUG}/raw_gt.json`;
+  document.getElementById('anchorImg').src = `/api/paper/${SLUG}/anchor/${TID}`;
+
+  // Fetch paper list for prev/next nav (gt1_*, gt2_* only — same bench cohort).
+  try {
+    const papers = await fetch('/api/papers').then(r=>r.json());
+    const prefix = SLUG.split('_').slice(0,1)[0] + '_';  // gt1_ or gt2_
+    SLUG_LIST = papers
+      .map(p => p.slug)
+      .filter(s => s.startsWith(prefix))
+      .sort();
+    const i = SLUG_LIST.indexOf(SLUG);
+    if (i >= 0) {
+      document.getElementById('posPill').textContent = `${i+1}/${SLUG_LIST.length}`;
+      const prev = document.getElementById('prevBtn');
+      const next = document.getElementById('nextBtn');
+      if (i > 0) prev.onclick = () => location.href = `/compare/${SLUG_LIST[i-1]}/${TID}`;
+      else prev.disabled = true;
+      if (i < SLUG_LIST.length - 1) next.onclick = () => location.href = `/compare/${SLUG_LIST[i+1]}/${TID}`;
+      else next.disabled = true;
+    }
+  } catch (e) { console.warn('papers list fetch failed:', e); }
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', e => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowLeft' || e.key === 'h') document.getElementById('prevBtn').click();
+    if (e.key === 'ArrowRight' || e.key === 'l') document.getElementById('nextBtn').click();
+    if (e.key === 'f') document.getElementById('flagBtn').click();
+  });
+
+  const r = await fetch(`/api/paper/${SLUG}/task/${TID}`).then(r=>r.json());
+  const pred = r.original_data || {};
+  const gt = (r.is_reviewed ? r.data : null) || {};
+
+  const predEx = pred.selected_examples || [];
+  const gtEx = gt.selected_examples || [];
+  const predTmpl = pred.reaction_templates || [];
+  const gtTmpl = gt.reaction_templates || [];
+
+  // counts
+  document.getElementById('predCount').textContent = `${predEx.length} reactions · ${pred.extractor || '?'}`;
+  document.getElementById('gtCount').textContent = `${gtEx.length} concrete · GT`;
+  document.getElementById('predTmplCount').textContent = `${predTmpl.length} template${predTmpl.length===1?'':'s'}`;
+  document.getElementById('gtTmplCount').textContent = `${gtTmpl.length} template${gtTmpl.length===1?'':'s'}`;
+
+  // Jaccard match count → pill class
+  const tp = matchCount(predEx, gtEx);
+  const matchPill = document.getElementById('matchPill');
+  const f1Num = gtEx.length ? (2*tp)/(predEx.length + gtEx.length) : 0;
+  matchPill.textContent = `matched ${tp}/${gtEx.length} · F1=${f1Num.toFixed(2)}`;
+  matchPill.classList.remove('pill-match-ok', 'pill-match-partial', 'pill-match-bad');
+  if (f1Num >= 0.9) matchPill.classList.add('pill-match-ok');
+  else if (f1Num >= 0.5) matchPill.classList.add('pill-match-partial');
+  else matchPill.classList.add('pill-match-bad');
+
+  // ── templates row ──
+  const predTmplList = document.getElementById('predTmplList');
+  const gtTmplList = document.getElementById('gtTmplList');
+  predTmplList.innerHTML = predTmpl.length
+    ? predTmpl.map((rxn, i) => rxnHtml(rxn, 'tmpl-pred', i, null)).join('')
+    : '<div class="empty">(no template extracted by agent)</div>';
+  gtTmplList.innerHTML = gtTmpl.length
+    ? gtTmpl.map((rxn, i) => rxnHtml(rxn, 'tmpl-gt', i, null)).join('')
+    : '<div class="empty">(GT has no Markush template — all rows concrete)</div>';
+
+  // ── examples row ──
+  // Compute per-pred-row best match against GT to drive the inline match pill.
+  const predMatches = predEx.map(p => bestGtMatch(p, gtEx));
+  const predList = document.getElementById('predList');
+  if (predEx.length) {
+    predList.innerHTML = predEx.map((rxn, i) => rxnHtml(rxn, 'pred', i, predMatches[i])).join('');
+  } else {
+    predList.innerHTML = '<div class="empty">no prediction yet · ' + (pred.extractor || '') + '</div>';
+  }
+  const gtList = document.getElementById('gtList');
+  if (gtEx.length) {
+    gtList.innerHTML = gtEx.map((rxn, i) => rxnHtml(rxn, 'gt', i, null)).join('');
+  } else {
+    gtList.innerHTML = '<div class="empty">no GT examples</div>';
+  }
+
+  // ── GT-bug flag ──
+  const flagBtn = document.getElementById('flagBtn');
+  try {
+    const flagState = await fetch(`/api/gt_bug_flag/${SLUG}/${TID}`).then(r=>r.json()).catch(()=>({flagged:false}));
+    if (flagState.flagged) {
+      flagBtn.classList.add('flagged');
+      flagBtn.textContent = `⚑ GT-bug flagged${flagState.note ? ` · "${flagState.note}"` : ''}`;
+    }
+  } catch (e) {}
+  flagBtn.onclick = async () => {
+    const isFlagged = flagBtn.classList.contains('flagged');
+    if (isFlagged) {
+      // un-flag
+      await fetch(`/api/gt_bug_flag/${SLUG}/${TID}`, {method:'DELETE'}).catch(()=>{});
+      flagBtn.classList.remove('flagged');
+      flagBtn.textContent = '⚑ flag GT bug';
+    } else {
+      const note = prompt('Why is GT wrong? (e.g. "arrow reversed", "missing product"). Empty cancels.');
+      if (note === null || note === '') return;
+      await fetch(`/api/gt_bug_flag/${SLUG}/${TID}`, {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({note}),
+      }).catch(()=>{});
+      flagBtn.classList.add('flagged');
+      flagBtn.textContent = `⚑ GT-bug flagged · "${note}"`;
+    }
+  };
+
+  // ── raw JSON ──
+  try {
+    const rp = await fetch(`/data/${SLUG}/raw_pred.json`).then(r => r.text());
+    document.getElementById('rawPredPre').textContent = rp.slice(0, 8000);
+  } catch (e) {
+    document.getElementById('rawPredPre').textContent = '(no raw_pred.json — agent not run on this fig yet)';
+  }
+  try {
+    const rg = await fetch(`/data/${SLUG}/raw_gt.json`).then(r => r.text());
+    document.getElementById('rawGtPre').textContent = rg.slice(0, 8000);
+  } catch (e) {
+    document.getElementById('rawGtPre').textContent = '(no raw_gt.json)';
+  }
+
+  // ── extraction stages (per-stage inspector) ──
+  loadStages();
+}
+
+// ── Per-stage extraction inspector ────────────────────────────────────
+// Renders each stage file as a collapsible row showing the agent's
+// intermediate state: what was discovered (molparser), what was bound
+// (compounds), what was declared (template/examples), what was committed
+// to the DAG (graph/outcome), what was filled (buffer + logs), and what
+// was emitted (prediction). Each row is independently collapsible so
+// users can drill into the stage they care about without scrolling past
+// a 10k-line prediction.json.
+
+const STAGE_DESCRIPTIONS = {
+  'molparser.json':         'Raw MolParser output — bbox + SMILES per detection (read-only after mp_load).',
+  'compounds.json':         'identifier_map + bbox_to_smi — agent maps paper IDs (3a, RCOOH, I, II...) to bbox indices.',
+  'template.json':          '"templates" list — agent commits each step\'s figure-level template shape (reactants/products/conditions).',
+  'examples.json':          'Declared rows: [{id, bbox, yield, step_order, intermediate_role, is_failed}, ...]. Empty for mechanism figs.',
+  'graph.json':              'synthesis_overview + reaction_graph edges — the DAG of arrows (multistep only).',
+  'outcome.json':           'Per-instance outcome tags: failed steps, intended_product, control-experiment types.',
+  'reactions_buffer.json':  'Filled reactions (append-only). One entry per arrow + R-substitution.',
+  'substitution_log.json':  'Side-effect log of every mm_fill_* call: template + R-text in, filled SMILES out.',
+  'r_extraction_log.json':  'Side-effect log of mm_query_to_r calls: reverse R-group inference per example.',
+  'fig_meta.json':          'Figure metadata (task_id, paper_id, anchor_figure, anchor_page).',
+  'prediction.json':        'Final v2 schema output (this is what gets scored against GT).',
+};
+
+function summariseStage(name, val) {
+  if (val === null || val === undefined) return '<span style="color:#bbb">(missing — agent never wrote this)</span>';
+  if (val._parse_error) return `<span style="color:#c00">parse error: ${escape(val._parse_error)}</span>`;
+  if (name === 'molparser.json' && Array.isArray(val)) {
+    return `<b>${val.length}</b> detections`;
+  }
+  if (name === 'compounds.json') {
+    const n_ids = Object.keys(val.identifier_map || {}).length;
+    const n_bb = Object.keys(val.bbox_to_smi || {}).length;
+    return `<b>${n_ids}</b> identifiers bound · <b>${n_bb}</b> bboxes`;
+  }
+  if (name === 'template.json') {
+    const list = (val.templates || (val.template_id ? [val] : []));
+    if (!list.length) return '(empty)';
+    return list.map(t => `<code>${escape(t.template_id || '?')}</code>(${t.reactants?.length || 0}R · ${t.products?.length || 0}P · ${(t.conditions || []).length}c)`).join(' · ');
+  }
+  if (name === 'examples.json') {
+    const arr = val.examples || [];
+    if (!arr.length) return '(empty — no concrete examples declared)';
+    return `<b>${arr.length}</b> rows: ${arr.slice(0,6).map(e => `<code>${escape(e.id)}</code>`).join(' · ')}${arr.length > 6 ? ' …' : ''}`;
+  }
+  if (name === 'graph.json') {
+    const ov = val.synthesis_overview || {};
+    const edges = val.edges || [];
+    return `type=<b>${escape(ov.type || '?')}</b> · <b>${edges.length}</b> edges · ${escape(ov.starting_material_identifier || '?')} → … → ${escape(ov.final_product_identifier || '?')}`;
+  }
+  if (name === 'outcome.json') {
+    const oc = val.outcomes || {};
+    return `<b>${Object.keys(oc).length}</b> tagged outcomes (× failed / radical_scavenger / KIE / clock)`;
+  }
+  if (name === 'reactions_buffer.json') {
+    const arr = val.reactions || [];
+    if (!arr.length) return '(empty)';
+    return `<b>${arr.length}</b> reactions queued for finalize`;
+  }
+  if (name === 'substitution_log.json') {
+    const arr = val.substitutions || [];
+    return `<b>${arr.length}</b> mm_fill_* calls logged`;
+  }
+  if (name === 'r_extraction_log.json') {
+    const arr = val.queries || [];
+    return `<b>${arr.length}</b> mm_query_to_r calls logged`;
+  }
+  if (name === 'fig_meta.json') {
+    return `<code>${escape(val.task_id || '?')}</code> · ${escape(val.anchor_figure || '')}`;
+  }
+  if (name === 'prediction.json') {
+    return `is_multistep=<b>${val.is_multistep_synthesis ? 'true' : 'false'}</b> · ${(val.reaction_templates||[]).length} templates · ${(val.selected_examples||[]).length} examples · ${(val.reaction_graph||[]).length} graph edges`;
+  }
+  return '<i>(unhandled)</i>';
+}
+
+const EDITABLE_STAGES = new Set([
+  'compounds.json', 'template.json', 'examples.json',
+  'graph.json', 'outcome.json', 'reactions_buffer.json',
+]);
+
+async function loadStages() {
+  const stagesEl = document.getElementById('stagesList');
+  const srcEl = document.getElementById('stagesSource');
+  let resp;
+  try {
+    resp = await fetch(`/api/paper/${SLUG}/task/${TID}/stages`).then(r => r.json());
+  } catch (e) {
+    stagesEl.innerHTML = `<div style="color:#c00">failed to load stages: ${escape(e.message)}</div>`;
+    return;
+  }
+  if (resp.error) {
+    stagesEl.innerHTML = `<div style="color:#999;font-style:italic">${escape(resp.error)}</div>`;
+    return;
+  }
+  srcEl.textContent = `source: ${resp._source}`;
+  const stages = resp.stages || {};
+  const order = [
+    'molparser.json', 'compounds.json',
+    'template.json', 'examples.json',
+    'graph.json', 'outcome.json',
+    'reactions_buffer.json',
+    'substitution_log.json', 'r_extraction_log.json',
+    'fig_meta.json', 'prediction.json',
+  ];
+  let html = '';
+  for (const name of order) {
+    const val = stages[name];
+    const desc = STAGE_DESCRIPTIONS[name] || '';
+    const summary = summariseStage(name, val);
+    const missing = (val === null || val === undefined);
+    const styleMissing = missing ? 'color:#bbb; text-decoration:line-through' : '';
+    const editable = EDITABLE_STAGES.has(name);
+    const fullJson = missing ? '{}' : JSON.stringify(val, null, 2);
+    const editBtn = editable
+      ? `<button type="button" class="stage-edit-btn" data-stage="${escape(name)}"
+                  style="float:right; margin-left:0.5em; font-size:0.8em; padding:0.15em 0.5em; cursor:pointer;">
+            ✏️ edit
+          </button>`
+      : '';
+    const body = missing && !editable
+      ? `<div style="color:#999; font-style:italic; padding:0.5em 0;">No file written — agent never executed this stage.</div>`
+      : missing
+        ? `<div style="color:#999; font-style:italic; padding:0.5em 0;">No file written. Click "edit" above to create one (will run finalize after save).</div>
+           <pre class="stage-view" data-stage="${escape(name)}" style="max-height:30em; overflow:auto; background:#fafafa; padding:0.6em; font-size:0.78em; border:1px solid #e3e3e3; border-radius:4px; display:none;">${escape(fullJson)}</pre>`
+        : `<pre class="stage-view" data-stage="${escape(name)}" style="max-height:30em; overflow:auto; background:#fafafa; padding:0.6em; font-size:0.78em; border:1px solid #e3e3e3; border-radius:4px;">${escape(fullJson.slice(0, 12000))}${fullJson.length > 12000 ? '\n... (truncated; click "edit" to see full content)' : ''}</pre>`;
+    const editPane = editable
+      ? `<div class="stage-edit-pane" data-stage="${escape(name)}" style="display:none; margin-top:0.5em;">
+           <textarea class="stage-edit-area" data-stage="${escape(name)}"
+                     style="width:100%; min-height:14em; font-family:monospace; font-size:0.8em; padding:0.5em; border:1px solid #999; border-radius:4px;">${escape(fullJson)}</textarea>
+           <div style="margin-top:0.5em;">
+             <button type="button" class="stage-save-btn" data-stage="${escape(name)}"
+                     style="background:#2a7; color:white; padding:0.3em 1em; border:none; border-radius:4px; cursor:pointer;">💾 Save + Re-finalize</button>
+             <button type="button" class="stage-cancel-btn" data-stage="${escape(name)}"
+                     style="padding:0.3em 1em; border:1px solid #999; border-radius:4px; cursor:pointer; margin-left:0.5em;">Cancel</button>
+             <span class="stage-edit-status" data-stage="${escape(name)}" style="margin-left:1em; font-size:0.85em;"></span>
+           </div>
+         </div>`
+      : '';
+    html += `
+<details style="margin:0.4em 0; border:1px solid #ddd; border-radius:6px; padding:0.5em 0.8em; background:white;">
+  <summary style="cursor:pointer; user-select:none;">
+    <code style="${styleMissing}">${escape(name)}</code>
+    &nbsp;·&nbsp; ${summary}
+    ${editBtn}
+  </summary>
+  <div style="color:#888; font-size:0.85em; margin:0.4em 0 0.6em;">${escape(desc)}</div>
+  ${body}
+  ${editPane}
+</details>`;
+  }
+  stagesEl.innerHTML = html;
+  wireStageEditButtons();
+}
+
+function wireStageEditButtons() {
+  // Stop edit-button clicks from toggling the <details> parent.
+  document.querySelectorAll('.stage-edit-btn').forEach(btn => {
+    btn.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      const stage = btn.dataset.stage;
+      const pane = document.querySelector(`.stage-edit-pane[data-stage="${stage}"]`);
+      const view = document.querySelector(`.stage-view[data-stage="${stage}"]`);
+      if (pane) pane.style.display = 'block';
+      if (view) view.style.display = 'none';
+      btn.style.display = 'none';
+    });
+  });
+  document.querySelectorAll('.stage-cancel-btn').forEach(btn => {
+    btn.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      const stage = btn.dataset.stage;
+      const pane = document.querySelector(`.stage-edit-pane[data-stage="${stage}"]`);
+      const view = document.querySelector(`.stage-view[data-stage="${stage}"]`);
+      const editBtn = document.querySelector(`.stage-edit-btn[data-stage="${stage}"]`);
+      if (pane) pane.style.display = 'none';
+      if (view) view.style.display = '';
+      if (editBtn) editBtn.style.display = '';
+    });
+  });
+  document.querySelectorAll('.stage-save-btn').forEach(btn => {
+    btn.addEventListener('click', async (ev) => {
+      ev.preventDefault();
+      const stage = btn.dataset.stage;
+      const textarea = document.querySelector(`.stage-edit-area[data-stage="${stage}"]`);
+      const status = document.querySelector(`.stage-edit-status[data-stage="${stage}"]`);
+      const text = textarea.value;
+      let parsed;
+      try { parsed = JSON.parse(text); }
+      catch (e) {
+        status.style.color = '#c00';
+        status.textContent = `JSON parse error: ${e.message}`;
+        return;
+      }
+      status.style.color = '#666';
+      status.textContent = 'saving + running finalize…';
+      btn.disabled = true;
+      try {
+        const resp = await fetch(`/api/paper/${SLUG}/task/${TID}/stages/${stage}`, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({content: parsed}),
+        }).then(r => r.json());
+        if (resp.ok) {
+          const fin = resp.finalize || {};
+          if (fin.ok) {
+            status.style.color = '#2a7';
+            const nt = fin.n_templates ?? '?';
+            const ne = fin.n_examples ?? '?';
+            const ng = fin.n_graph_edges ?? '?';
+            status.textContent = `✓ saved + finalized: ${nt}T · ${ne}ex · ${ng} edges. Reload to see updated compare.`;
+          } else {
+            status.style.color = '#d80';
+            status.textContent = `saved file BUT finalize failed: ${fin.error || JSON.stringify(fin).slice(0,200)}`;
+          }
+        } else {
+          status.style.color = '#c00';
+          status.textContent = `server error: ${resp.detail || JSON.stringify(resp)}`;
+        }
+      } catch (e) {
+        status.style.color = '#c00';
+        status.textContent = `network error: ${e.message}`;
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  });
+}
+</script>
+</body>
+</html>

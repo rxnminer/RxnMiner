@@ -1,0 +1,5 @@
+Pillow>=10.0
+rdkit>=2024.3
+requests>=2.31
+
+uniparser-tools @ https://github.com/dptech-corp/UniParser-Tools/archive/2ba65f71b3c9bdf62c7db413f87686211ad5fdeb.zip
