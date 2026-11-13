@@ -7,7 +7,7 @@ The source archive SHA-256 is recorded in `website/public/data/benchmark.json`.
 
 ## Cohorts
 
-- **Full set:** all 603 figures across the 23 published lanes.
+- **Full set:** all 603 figures across the 25 published lanes.
 
 The shared subset is not an estimate of the remaining 375 figures. Partial-coverage methods
 are never ranked against complete-coverage methods using different image sets.
@@ -28,10 +28,37 @@ run-selection policy; this release does not silently reinterpret their attempts.
 The Leaderboard snapshot comes from deterministic structure scoring. The LLM Judge
 view uses judge precision and the original scorer's reaction recall to compute each
 figure's reaction F1, and judge molecule precision/recall for molecule F1. It covers
-16 judged lanes; the other seven lanes are not judged.
+16 judged lanes; the other nine lanes are not judged.
 The original model predictions, corpus, source images, and private trajectories are not
 bundled. Anonymized figure-level metrics are downloadable from the benchmark page so the
 displayed aggregates can be recomputed with `python3 scripts/verify_benchmark.py`.
 
 The archived runs are provided for reproducibility. A fresh evaluation is required before
 treating these numbers as results of a different recognition deployment.
+
+## DeepSeek V4.1 Flash 1017 update
+
+Two additional versioned lanes use the complete 603-figure evaluation completed on
+2026-11-10. Historical DeepSeek lanes and their Judge scores remain separate. The new
+lanes have no Judge evaluation. Direct uses a 384,000-token output cap.
+
+The import preserves the pinned scorer's exported per-figure reaction and molecule
+F1 before macro-averaging. These exports are rounded by the scorer; recomputing F1
+from rounded P/R can differ slightly. Molecule P/R were not exported and are null,
+not inferred from molecule F1. The verifier checks explicit F1 and checks reaction
+P/R consistency within the scorer's rounding tolerance.
+
+Import from the reviewed private archive (private paths, metadata and answers are
+not published):
+
+```bash
+python scripts/import_deepseek1017.py /path/to/reviewed/archive
+python scripts/verify_benchmark.py
+```
+
+The public summary records hashes and the frozen price schedule. Costs and tokens
+are lower bounds because some requests lack usage; averages retain all 603 figures.
+Only the latest retained execution is included, excluding previous attempts and the
+abandoned 128k Direct run. Usable partial RxnMiner answers are retained. The legacy
+`import_leaderboard.py` rebuilds only its source snapshot; rerun the versioned import
+after it to preserve this update.

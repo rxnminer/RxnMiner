@@ -2,7 +2,7 @@
   "snapshot_date": "public",
   "figures": 603,
   "gt_reactions": 8510,
-  "lanes": 23,
+  "lanes": 25,
   "source": "Public judge leaderboard snapshot",
   "method": "Precision, recall, and F1 are computed per figure, then averaged with equal figure weights (macro-F1), separately for strict stereochemistry (iso) and connectivity only (ns). Per-figure reaction F1 uses judge precision and original scorer recall; molecule F1 uses judge molecule precision and recall. Overall is a single judge composite independent of stereochemistry. The seven lanes without judgments are not ranked. Values match the source leaderboard at its displayed precision.",
   "rows": [
@@ -155,7 +155,7 @@
     },
     {
       "lane": "deepseek-v4.1-flash-direct-think",
-      "name": "DeepSeek V4.1 Flash",
+      "name": "DeepSeek V4.1 Flash (historical)",
       "group": "Direct",
       "n": 603,
       "pending": false,
@@ -176,7 +176,7 @@
     },
     {
       "lane": "deepseek-v4.1-flash-rxnminer",
-      "name": "RxnMiner - DeepSeek V4.1 Flash",
+      "name": "RxnMiner - DeepSeek V4.1 Flash (historical)",
       "group": "RxnMiner",
       "n": 603,
       "pending": false,
@@ -485,6 +485,48 @@
       "ns": {
         "reaction_precision": null,
         "reaction_recall": 0.178,
+        "reaction_f1": null,
+        "molecule_f1": null
+      }
+    },
+    {
+      "lane": "deepseek-v4.1-flash-1017-direct",
+      "name": "DeepSeek V4.1 Flash 1017 (Direct, 384k)",
+      "group": "Direct",
+      "n": 0,
+      "pending": true,
+      "coverage": "0/603",
+      "judge_overall": null,
+      "iso": {
+        "reaction_precision": null,
+        "reaction_recall": 0.38017412935323386,
+        "reaction_f1": null,
+        "molecule_f1": null
+      },
+      "ns": {
+        "reaction_precision": null,
+        "reaction_recall": 0.4643363184079602,
+        "reaction_f1": null,
+        "molecule_f1": null
+      }
+    },
+    {
+      "lane": "deepseek-v4.1-flash-1017-rxnminer",
+      "name": "RxnMiner · DeepSeek V4.1 Flash 1017",
+      "group": "RxnMiner",
+      "n": 0,
+      "pending": true,
+      "coverage": "0/603",
+      "judge_overall": null,
+      "iso": {
+        "reaction_precision": null,
+        "reaction_recall": 0.9205742951907131,
+        "reaction_f1": null,
+        "molecule_f1": null
+      },
+      "ns": {
+        "reaction_precision": null,
+        "reaction_recall": 0.9460713101160863,
         "reaction_f1": null,
         "molecule_f1": null
       }

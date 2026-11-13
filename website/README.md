@@ -16,7 +16,7 @@ The single visual demo is bundled under `public/media` and verified against
 `SITE_BASE=/RxnMiner`. From the repository root, run
 `python3 scripts/verify_site.py` after that build to check local links and assets.
 
-The benchmark covers 603 figures across 24 lanes.
+The benchmark covers 603 figures across 25 lanes.
 Recompute the displayed aggregates with `python3 scripts/verify_benchmark.py` from
 the repository root. Historical recognition results are clearly labeled.
 

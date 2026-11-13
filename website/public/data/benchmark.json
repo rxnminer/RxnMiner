@@ -37,6 +37,36 @@
           "avg_time_s": 865.2124378109456
         },
         {
+          "lane": "deepseek-v4.1-flash-1017-rxnminer",
+          "name": "RxnMiner · DeepSeek V4.1 Flash 1017",
+          "group": "RxnMiner",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.7274563847429519,
+            "reaction_recall": 0.9205742951907131,
+            "reaction_f1": 0.7346960199004975,
+            "molecule_precision": null,
+            "molecule_recall": null,
+            "molecule_f1": 0.9130560530679934
+          },
+          "ns": {
+            "reaction_precision": 0.7876203980099502,
+            "reaction_recall": 0.9460713101160863,
+            "reaction_f1": 0.7920067993366501,
+            "molecule_precision": null,
+            "molecule_recall": null,
+            "molecule_f1": 0.9413432835820895
+          },
+          "avg_time_s": 1179.1580431177447,
+          "avg_cost_usd": 0.20580029105472636,
+          "avg_tokens": 7125483.635157546,
+          "cost_is_lower_bound": true,
+          "tokens_are_lower_bound": true,
+          "usage_missing_pages": 53,
+          "usage_missing_calls": 82
+        },
+        {
           "lane": "qwen38-flash-rxnminer-thinking",
           "name": "RxnMiner · Qwen3.8-Flash-Next",
           "group": "RxnMiner",
@@ -88,7 +118,7 @@
         },
         {
           "lane": "deepseek-v4.1-flash-rxnminer",
-          "name": "RxnMiner · DeepSeek V4.1 Flash",
+          "name": "RxnMiner · DeepSeek V4.1 Flash (historical)",
           "group": "RxnMiner",
           "n": 603,
           "pending": false,
@@ -362,6 +392,36 @@
           "avg_time_s": 546.7249485903811
         },
         {
+          "lane": "deepseek-v4.1-flash-1017-direct",
+          "name": "DeepSeek V4.1 Flash 1017 (Direct, 384k)",
+          "group": "Direct",
+          "n": 603,
+          "pending": false,
+          "iso": {
+            "reaction_precision": 0.2464101160862355,
+            "reaction_recall": 0.38017412935323386,
+            "reaction_f1": 0.24944228855721393,
+            "molecule_precision": null,
+            "molecule_recall": null,
+            "molecule_f1": 0.466004311774461
+          },
+          "ns": {
+            "reaction_precision": 0.3386646766169154,
+            "reaction_recall": 0.4643363184079602,
+            "reaction_f1": 0.3414155887230514,
+            "molecule_precision": null,
+            "molecule_recall": null,
+            "molecule_f1": 0.5265406301824213
+          },
+          "avg_time_s": 1436.7530128390647,
+          "avg_cost_usd": 0.12574053252736317,
+          "avg_tokens": 157939.5721393035,
+          "cost_is_lower_bound": true,
+          "tokens_are_lower_bound": true,
+          "usage_missing_pages": 13,
+          "usage_missing_calls": 13
+        },
+        {
           "lane": "qwen38-flash-direct-thinking",
           "name": "Qwen3.8-Flash-Next",
           "group": "Direct",
@@ -388,7 +448,7 @@
         },
         {
           "lane": "deepseek-v4.1-flash-direct-think",
-          "name": "DeepSeek V4.1 Flash",
+          "name": "DeepSeek V4.1 Flash (historical)",
           "group": "Direct",
           "n": 603,
           "pending": false,
@@ -587,6 +647,35 @@
           "avg_time_s": 29.602676797814205
         }
       ]
+    }
+  ],
+  "updates": [
+    {
+      "id": "deepseek-1017",
+      "evaluation_date": "2026-11-10",
+      "figures": 603,
+      "rdkit": "2022.09.5",
+      "scorer_sha256": "dd88b963b0d97e1ee88beee36a83dfa304661c9e0c3a22043ffe2f4c5cac837c",
+      "source_sha256": {
+        "summary.json": "0e79926bd8e60f83a4d67edff07860bf991b847f8f293903184ee3c3cbceb874",
+        "per_figure.jsonl": "8642b4008384ad862fe4b4daf80739c7ddf9e2378305068c4cec4364713edcde",
+        "official-efficiency.json": "b45eb1dd8653421cb79ff52f2a1c4c50cc4185071133508c45f9f5dbb76294cc"
+      },
+      "method": "Pinned scorer per-figure scores, macro-averaged over all 603 figures. Failed/empty answers score zero; usable partial RxnMiner answers are retained. Molecule P/R are unavailable in this export.",
+      "cost_basis": "Recorded requests priced using the 2026-11-10 official peak/off-peak schedule at request start. Lower bounds; missing usage is unknown. Latest retained execution only; archived retries excluded.",
+      "pricing_url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "rates_usd_per_million": {
+        "peak": {
+          "input_uncached": 0.3,
+          "cached": 0.006,
+          "output": 1.2
+        },
+        "off_peak": {
+          "input_uncached": 0.15,
+          "cached": 0.003,
+          "output": 0.6
+        }
+      }
     }
   ]
 }
