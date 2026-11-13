@@ -393,7 +393,7 @@
         },
         {
           "lane": "deepseek-v4.1-flash-1017-direct",
-          "name": "DeepSeek V4.1 Flash 1017 (Direct, 384k)",
+          "name": "DeepSeek V4.1 Flash 1017",
           "group": "Direct",
           "n": 603,
           "pending": false,

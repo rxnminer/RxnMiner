@@ -23,7 +23,7 @@ def main():
     judge = load(ROOT / 'website/src/data/judge.json')
     records = load(ROOT / 'website/public/data/figure-metrics.json')
     ids = {r['figure_id'] for r in records}
-    names = {'direct': 'DeepSeek V4.1 Flash 1017 (Direct, 384k)',
+    names = {'direct': 'DeepSeek V4.1 Flash 1017',
              'rxnminer': 'RxnMiner · DeepSeek V4.1 Flash 1017'}
     for lane, name in names.items():
         lane_id = 'deepseek-v4.1-flash-1017-' + lane
