@@ -28,13 +28,6 @@ const percent = (n:number | null) => n === null ? '—' : (n*100).toFixed(2);
       </tbody></table>
     </div>
     <p class="table-note">{'Scores are percentages. Cost and time are per-figure averages; missing costs display as 0, and missing times are blank. Initially sorted by reaction F1.'}</p>
-    <section class="methodology" aria-labelledby="deepseek-update-title">
-      <p class="eyebrow">DEEPSEEK V4.1 FLASH 1017 / COMPLETED EVALUATION</p>
-      <h2 id="deepseek-update-title">603 figures, two completed runs.</h2>
-      <p>Strict reaction macro-F1 is <strong>24.94% for Direct (384k)</strong> and <strong>73.47% for RxnMiner</strong>: a <strong>48.53-point gain</strong>. Mean time is 23.95 and 19.65 minutes per figure, respectively. The 1017 rows are a separate evaluation; earlier DeepSeek rows remain labeled historical. No new LLM Judge scores are available.</p>
-      <p>Recorded tokens per figure are at least <strong>157,940</strong> (Direct) and <strong>7,125,484</strong> (RxnMiner). API-price estimates are at least <strong>$0.1257</strong> and <strong>$0.2058</strong> per figure, using the official peak/off-peak schedule archived on November 10, 2026. These are usage-based estimates, not invoices or total compute costs. Direct has 13 figures without usage; RxnMiner has 82 requests without usage across 53 figures. Missing usage is unknown, so tokens and costs are lower bounds. Cached input and reasoning output are not counted twice.</p>
-      <p>All 603 figures remain in each denominator, including failed and empty answers. Usable partial RxnMiner answers are scored; requiring complete execution instead gives 73.32% reaction F1. The evaluation uses the latest retained execution per figure and excludes archived retries and the abandoned 128k Direct run. <a href={assetPath('/data/figure-metrics.json')}>Download anonymized per-figure metrics</a>.</p>
-    </section>
     <section class="methodology" aria-labelledby="methodology-title">
       <div><p class="eyebrow">{'HOW TO READ THE RESULTS'}</p><h2 id="methodology-title">{'One full benchmark. An explicit denominator.'}</h2>
         <p>{'Precision, recall, and F1 are calculated per figure, then averaged with equal figure weights. Macro-F1 averages each figure’s F1, with zero when precision and recall are both zero. Failed and empty answers stay in the denominator.'}</p>

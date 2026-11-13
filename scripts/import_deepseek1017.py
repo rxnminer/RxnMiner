@@ -21,7 +21,7 @@ def main():
     assert report['direct_max_tokens'] == 384000
     summary = load(ROOT / 'website/src/data/benchmark.json')
     judge = load(ROOT / 'website/src/data/judge.json')
-    records = load(ROOT / 'website/public/data/figure-metrics.json')
+    records = load(ROOT / '.local/benchmark/figure-metrics.json')
     ids = {r['figure_id'] for r in records}
     names = {'direct': 'DeepSeek V4.1 Flash 1017',
              'rxnminer': 'RxnMiner · DeepSeek V4.1 Flash 1017'}
@@ -79,7 +79,8 @@ def main():
     for name, data in [('benchmark', summary), ('judge', judge)]:
         for area in ('src', 'public'):
             (ROOT / f'website/{area}/data/{name}.json').write_text(json.dumps(data, ensure_ascii=False, indent=2)+'\n', encoding='utf-8', newline='\n')
-    (ROOT / 'website/public/data/figure-metrics.json').write_text(json.dumps(records, separators=(',', ':'))+'\n', encoding='utf-8', newline='\n')
+    (ROOT / '.local/benchmark').mkdir(parents=True, exist_ok=True)
+    (ROOT / '.local/benchmark/figure-metrics.json').write_text(json.dumps(records, separators=(',', ':'))+'\n', encoding='utf-8', newline='\n')
     print('Imported two 603-figure 1017 lanes; retained historical lanes and left new Judge scores unavailable.')
 
 

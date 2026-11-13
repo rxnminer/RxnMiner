@@ -17,7 +17,8 @@ The single visual demo is bundled under `public/media` and verified against
 `python3 scripts/verify_site.py` after that build to check local links and assets.
 
 The benchmark covers 603 figures across 25 lanes.
-Recompute the displayed aggregates with `python3 scripts/verify_benchmark.py` from
-the repository root. Historical recognition results are clearly labeled.
+Validate the published summaries with `python3 scripts/verify_benchmark.py` from
+the repository root. Maintainers with private metrics in `.local/benchmark/` also
+recompute the aggregates. Per-figure metrics are not deployed.
 
 See [deployment](../docs/website.md) for the workflow and hosting requirements.

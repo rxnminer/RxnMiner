@@ -30,8 +30,8 @@ view uses judge precision and the original scorer's reaction recall to compute e
 figure's reaction F1, and judge molecule precision/recall for molecule F1. It covers
 16 judged lanes; the other nine lanes are not judged.
 The original model predictions, corpus, source images, and private trajectories are not
-bundled. Anonymized figure-level metrics are downloadable from the benchmark page so the
-displayed aggregates can be recomputed with `python3 scripts/verify_benchmark.py`.
+bundled. Only aggregate results are published on the website. Per-figure metrics remain
+in ignored local storage for maintainer verification and are not deployed.
 
 The archived runs are provided for reproducibility. A fresh evaluation is required before
 treating these numbers as results of a different recognition deployment.
@@ -45,8 +45,9 @@ lanes have no Judge evaluation. Direct uses a 384,000-token output cap.
 The import preserves the pinned scorer's exported per-figure reaction and molecule
 F1 before macro-averaging. These exports are rounded by the scorer; recomputing F1
 from rounded P/R can differ slightly. Molecule P/R were not exported and are null,
-not inferred from molecule F1. The verifier checks explicit F1 and checks reaction
-P/R consistency within the scorer's rounding tolerance.
+not inferred from molecule F1. When private local metrics are available, the verifier checks explicit F1 and reaction
+P/R consistency within the scorer's rounding tolerance. Otherwise it validates aggregate
+structure and mirrored data without claiming to recompute scores.
 
 Import from the reviewed private archive (private paths, metadata and answers are
 not published):

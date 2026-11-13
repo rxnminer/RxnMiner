@@ -63,7 +63,8 @@ def main():
                    cohorts=[dict(id='full', n=len(tasks), label='Full benchmark', rows=rows)])
     for target in ('website/src/data/benchmark.json', 'website/public/data/benchmark.json'):
         (ROOT / target).write_text(json.dumps(summary, indent=2)+'\n', encoding='utf8', newline='\n')
-    (ROOT / 'website/public/data/figure-metrics.json').write_text(
+    (ROOT / '.local/benchmark').mkdir(parents=True, exist_ok=True)
+    (ROOT / '.local/benchmark/figure-metrics.json').write_text(
         json.dumps(records, separators=(',', ':'))+'\n', encoding='utf8', newline='\n')
     print(f"Imported {len(tasks)} figures and {len(rows)} lanes ({sum(r['pending'] for r in rows)} pending)")
 
